@@ -22,6 +22,7 @@ const Logo = styled.img`
   font-weight: bold;
   color: #fffeff;
   height: 5rem;
+  cursor: pointer;
 `;
 
 const NavItems = styled.div`
@@ -51,6 +52,13 @@ const NavItem = styled.div`
     margin-right: 10px;
     color: #0e4886;
   }
+
+  &:hover {
+    color: #0e4886;
+    cursor: pointer;
+    transform: scale(1.08);
+  }
+  transition: all 0.2s ease-in-out;
 `;
 
 const LoginButton = styled.button`

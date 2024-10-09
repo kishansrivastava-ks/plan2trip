@@ -96,7 +96,7 @@ const CustomDatePicker = styled(DatePicker)`
   width: 100%;
   color: #0c0908;
   background-color: transparent;
-  padding: 8px;
+  padding: 10px;
 
   &:focus {
     outline: none;
@@ -108,7 +108,7 @@ const CalendarContainer = styled.div`
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 12px;
   padding: 10px;
 
   .react-datepicker__day--selected,
@@ -116,6 +116,7 @@ const CalendarContainer = styled.div`
     background-color: #1562b2;
     color: #fff;
     border-radius: 50%;
+    /* margin: 1rem; */
   }
 
   .react-datepicker__day:hover {

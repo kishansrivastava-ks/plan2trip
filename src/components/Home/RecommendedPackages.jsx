@@ -50,7 +50,9 @@ const Card = styled.div`
   transition: transform 0.3s;
 
   &:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
+    transform: scale(1.05) translateY(-5px);
+    cursor: pointer;
   }
 `;
 
