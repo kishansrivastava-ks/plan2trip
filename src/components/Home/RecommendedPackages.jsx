@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const RecommendedPackagesContainer = styled.div`
   width: 80vw;
-  margin: 40px auto;
+  margin: 8rem auto;
 `;
 
 const HeadingContainer = styled.div`
