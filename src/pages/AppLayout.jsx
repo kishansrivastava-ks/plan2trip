@@ -4,6 +4,7 @@ import NavBarLower from "../components/Navbar/NavBarLower";
 import Footer from "../components/Footer";
 import SearchBar from "../components/Home/SearchBar";
 import InfoCarousel from "../components/Home/InfoCarousel";
+import RecommendedPackages from "../components/Home/RecommendedPackages";
 
 const Layout = styled.div`
   display: flex;
@@ -51,6 +52,7 @@ function AppLayout() {
       <MainBody>
         <SearchBar />
         <InfoCarousel />
+        <RecommendedPackages />
       </MainBody>
       <Footer />
     </Layout>
