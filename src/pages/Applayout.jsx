@@ -30,12 +30,7 @@ function AppLayout() {
       <Navbar />
 
       <MainBody>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-        molestiae architecto, mollitia quidem assumenda saepe repellat molestias
-        nesciunt dignissimos tempore consequatur temporibus a magni, blanditiis
-        repellendus aperiam quam quaerat possimus provident totam perspiciatis,
-        cum enim harum magnam? Repudiandae voluptates nobis cum consectetur modi
-        et nesciunt dicta quibusdam corporis. Nihil, nesciunt.
+        <Outlet />
       </MainBody>
 
       <Footer />
