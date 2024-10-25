@@ -26,6 +26,7 @@ const Heading = styled.h2`
   font-weight: bold;
   text-align: center;
   z-index: 2;
+  margin-bottom: 3rem;
 `;
 
 const ReviewsContainer = styled.div`
@@ -35,17 +36,19 @@ const ReviewsContainer = styled.div`
   gap: 2rem;
   width: 100%;
   z-index: 2;
-  padding: 1rem;
+  padding: 2rem;
 `;
 
 const ReviewBox = styled.div`
   width: 70%;
-  height: 30%;
-  background-color: white;
-  padding: 2rem;
+  /* height: 30%; */
+  background-color: #fff;
+  padding: 3rem;
+  padding-right: 1rem;
   display: flex;
   justify-content: space-between;
   box-shadow: var(--shadow-md);
+  border-radius: 3px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -54,38 +57,46 @@ const ReviewBox = styled.div`
 `;
 
 const LeftColumn = styled.div`
-  flex: 80%;
+  flex: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-right: 2px solid #aaaa;
+  /* border: 1px solid red; */
+  padding-right: 2rem;
 `;
 
 const ReviewText = styled.p`
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   margin-bottom: 1rem;
+  /* width: 100%; */
+  letter-spacing: 1px;
 `;
 
 const SeeMoreButton = styled.button`
   align-self: flex-start;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 2.5rem;
   background-color: black;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border-radius: 24px;
   transition: background-color 0.3s ease;
-
+  margin-left: auto;
   &:hover {
     background-color: var(--color-main);
   }
 `;
 
 const RightColumn = styled.div`
-  flex: 20%;
+  flex: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* border: 1px solid red; */
 `;
 
 const UserPhoto = styled.img`
@@ -97,20 +108,23 @@ const UserPhoto = styled.img`
 `;
 
 const UserName = styled.h3`
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+  letter-spacing: 1px;
 `;
 
 const UserDesignation = styled.p`
-  font-size: 1rem;
+  /* font-size: 1rem; */
   color: gray;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 `;
 
 const PlaceVisited = styled.p`
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-weight: bold;
+  letter-spacing: 1px;
 `;
 
 function Reviews() {
