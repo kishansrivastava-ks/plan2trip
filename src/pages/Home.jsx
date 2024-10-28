@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Reviews from "../components/Home/Reviews";
 import PopularPackages from "../components/Home/PopularPackages";
+import TopDestinations from "../components/Home/TopDestinations";
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ const Container = styled.div`
 function Home() {
   return (
     <Container>
+      <TopDestinations />
       <PopularPackages />
       <Reviews />
     </Container>
