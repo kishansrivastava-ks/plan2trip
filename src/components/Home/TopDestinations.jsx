@@ -8,6 +8,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
 `;
 
 const Heading = styled.h2`
@@ -22,13 +23,23 @@ const SliderContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 80vw;
+  /* justify-content: center; */
+  width: 100%;
   overflow: hidden;
-  padding: 1rem;
-  overflow-x: scroll;
-  padding-bottom: 3rem;
+  height: 50rem;
+  /* padding: 1rem; */
+  width: 50%;
+  border: 2px solid red;
+`;
 
+const Slider = styled.div`
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+  /* overflow-x: scroll; */
+  padding-bottom: 3rem;
+  max-width: 50%;
+  /* 
   &::-webkit-scrollbar {
     height: 15px;
     border: none;
@@ -48,17 +59,11 @@ const SliderContainer = styled.div`
   &::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #100;
-  }
-`;
-
-const Slider = styled.div`
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.5s ease;
+  } */
 `;
 
 const Card = styled.div`
-  width: ${(props) => (props.isHighlighted ? "280px" : "250px")};
+  min-width: ${(props) => (props.isHighlighted ? "280px" : "250px")};
   height: ${(props) => (props.isHighlighted ? "380px" : "350px")};
   display: flex;
   flex-direction: column;
@@ -79,6 +84,7 @@ const Image = styled.img`
   border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
 `;
 
 const PlaceName = styled.h3`
@@ -129,8 +135,7 @@ function TopDestinations() {
           {[...Array(10)].map((_, index) => (
             <Card key={index} isHighlighted={index === highlightedIndex}>
               <Image src="/goa.jpeg" alt="Location Image" />
-              <PlaceName>Manali</PlaceName>
-              <Price>Starts from $500</Price>
+              <PlaceName>Goa</PlaceName>
             </Card>
           ))}
         </Slider>
