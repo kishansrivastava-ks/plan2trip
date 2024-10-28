@@ -54,17 +54,6 @@ const Slider = styled.div`
       display: none;
     }
   }
-
-  /* &::-webkit-scrollbar-thumb {
-    background-color: #fff;
-    border-radius: 10px;
-    border: 4px solid black;
-  }
-
-  &::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #100;
-  } */
 `;
 
 const Card = styled.div`
@@ -89,7 +78,8 @@ const Image = styled.img`
   border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
+  margin: 1rem;
+  margin-top: 1.2rem;
 `;
 
 const PlaceName = styled.h3`
