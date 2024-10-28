@@ -9,6 +9,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   max-width: 100vw;
+  /* border: 2px solid green; */
 `;
 
 const Heading = styled.h2`
@@ -24,33 +25,37 @@ const SliderContainer = styled.div`
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  width: 100%;
+  /* width: 100%; */
   overflow: hidden;
   height: 50rem;
   /* padding: 1rem; */
   width: 50%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 const Slider = styled.div`
   display: flex;
   gap: 1rem;
   transition: transform 0.5s ease;
-  /* overflow-x: scroll; */
-  padding-bottom: 3rem;
-  max-width: 50%;
-  /* 
+  overflow-x: scroll;
+  /* padding-bottom: 3rem; */
+  /* max-width: 50%; */
+  /* width: 100%; */
+  /* border: 2px solid blue; */
+  padding: 5rem 0;
+
   &::-webkit-scrollbar {
     height: 15px;
     border: none;
     width: 30%;
     margin: 0 auto;
+    display: none;
     @media (max-width: 768px) {
       display: none;
     }
   }
 
-  &::-webkit-scrollbar-thumb {
+  /* &::-webkit-scrollbar-thumb {
     background-color: #fff;
     border-radius: 10px;
     border: 4px solid black;
