@@ -63,10 +63,12 @@ const Nav = styled.nav`
 `;
 
 const BrandName = styled.div`
-  font-size: 2rem;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
   font-style: var(--brand-font-1);
   font-weight: bold;
-  color: #000;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     font-size: 1.6rem;
@@ -84,14 +86,17 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled.a`
-  color: #000;
+  color: #fff;
   text-decoration: none;
   /* font-size: 1rem; */
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 2px;
   transition: color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    color: #1562b2;
+    color: #34a4d4;
   }
 
   @media (max-width: 768px) {
@@ -109,21 +114,25 @@ const Buttons = styled.div`
 `;
 
 const ActionButton = styled.button`
-  /* background-color: ${(props) =>
-    props.secondary ? "transparent" : "#1562B2"}; */
-  background-color: transparent;
-  color: ${(props) => (props.secondary ? "#1562B2" : "#333")};
+  background-color: ${(props) => (props.secondary ? "#34A4D4" : "transparent")};
+  /* background-color: transparent; */
+  /* color: ${(props) => (props.secondary ? "#1562B2" : "#fff")}; */
+  box-shadow: ${(props) =>
+    props.secondary ? "2px 2px 4px rgba(0, 0, 0, 0.3)" : "none"};
+  color: #fff;
   border: none;
   outline: none;
   padding: 0.5rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
-  /* font-size: 1rem; */
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    /* background-color: ${(props) => (props.secondary ? "#1562B2" : "#333")};
-    color: ${(props) => (props.secondary ? "#333" : "#1562B2")}; */
+    background-color: ${(props) => (props.secondary ? "#1562B2" : "#333")};
+    color: ${(props) => (props.secondary ? "#333" : "#1562B2")};
     background-color: #1562b2;
     color: #fff;
   }
