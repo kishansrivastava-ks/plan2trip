@@ -29,7 +29,7 @@ const SliderContainer = styled.div`
   overflow: hidden;
   height: 50rem;
   /* padding: 1rem; */
-  width: 50%;
+  width: 55%;
   /* border: 2px solid red; */
 `;
 
