@@ -15,7 +15,7 @@ const Layout = styled.div`
 `;
 
 const MainBody = styled.main`
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   flex: 1;
   background-color: #fff;
 
