@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import SearchBox from "./SearchBox";
 
 const CarouselSection = styled.section`
   height: 100vh;
@@ -25,6 +27,7 @@ const Slide = styled.div`
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -47,6 +50,11 @@ const DotContainer = styled.div`
   bottom: 20px;
   display: flex;
   gap: 8px;
+`;
+
+const SearchContainer = styled.div`
+  position: absolute;
+  bottom: 20rem;
 `;
 
 const Dot = styled.div`
@@ -114,6 +122,9 @@ function InfoCarousel() {
           />
         ))}
       </DotContainer>
+      <SearchContainer>
+        <SearchBox />
+      </SearchContainer>
     </CarouselSection>
   );
 }
