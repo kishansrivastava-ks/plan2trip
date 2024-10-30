@@ -63,6 +63,7 @@ const Nav = styled.nav`
 `;
 
 const BrandName = styled.div`
+  font-family: "IntegralCF-Bold", sans-serif;
   font-size: 2.5rem;
   letter-spacing: 3px;
   font-style: var(--brand-font-1);

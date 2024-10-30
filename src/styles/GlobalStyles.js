@@ -1,6 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
+@font-face {
+    font-family: 'IntegralCF-Bold';
+    src: url('/fonts/integralcf-bold.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
     /*
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -47,14 +47,15 @@ const InfoText = styled.h2`
 
 const DotContainer = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 20%;
   display: flex;
   gap: 8px;
 `;
 
 const SearchContainer = styled.div`
   position: absolute;
-  bottom: 20rem;
+  bottom: 1rem;
+  z-index: 1;
 `;
 
 const Dot = styled.div`
@@ -122,6 +123,7 @@ function InfoCarousel() {
           />
         ))}
       </DotContainer>
+
       <SearchContainer>
         <SearchBox />
       </SearchContainer>

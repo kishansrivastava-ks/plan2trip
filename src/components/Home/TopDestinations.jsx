@@ -13,11 +13,14 @@ const Section = styled.section`
 `;
 
 const Heading = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 3rem;
-  letter-spacing: 2px;
+  margin-top: 5rem;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `;
 
 const SliderContainer = styled.div`
@@ -29,7 +32,7 @@ const SliderContainer = styled.div`
   overflow: hidden;
   height: 50rem;
   /* padding: 1rem; */
-  width: 55%;
+  width: 60%;
   /* border: 2px solid red; */
 `;
 
@@ -57,8 +60,10 @@ const Slider = styled.div`
 `;
 
 const Card = styled.div`
-  min-width: ${(props) => (props.isHighlighted ? "280px" : "250px")};
-  height: ${(props) => (props.isHighlighted ? "380px" : "350px")};
+  /* min-width: ${(props) => (props.isHighlighted ? "280px" : "250px")};
+  height: ${(props) => (props.isHighlighted ? "380px" : "350px")}; */
+  min-width: ${(props) => (props.isHighlighted ? "300px" : "270px")};
+  height: ${(props) => (props.isHighlighted ? "400px" : "370px")};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +79,7 @@ const Card = styled.div`
 
 const Image = styled.img`
   width: 90%;
-  height: 280px;
+  height: 300px;
   border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ReviewsSection = styled.section`
-  height: 90vh;
+  height: 110vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -22,14 +22,18 @@ const Overlay = styled.div`
 
 const Heading = styled.h2`
   color: white;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   text-align: center;
   z-index: 2;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
+  margin-top: 6rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 2px;
 `;
 
 const ReviewsContainer = styled.div`
+  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,18 +41,19 @@ const ReviewsContainer = styled.div`
   width: 100%;
   z-index: 2;
   padding: 2rem;
+  margin-bottom: 5rem;
 `;
 
 const ReviewBox = styled.div`
-  width: 70%;
+  width: 65%;
   /* height: 30%; */
   background-color: #fff;
-  padding: 3rem;
+  padding: 4rem;
   padding-right: 1rem;
   display: flex;
   justify-content: space-between;
   box-shadow: var(--shadow-md);
-  border-radius: 3px;
+  border-radius: 48px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -67,10 +72,13 @@ const LeftColumn = styled.div`
 `;
 
 const ReviewText = styled.p`
-  /* font-size: 1.2rem; */
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 1rem;
   /* width: 100%; */
   letter-spacing: 1px;
+  line-height: 1.6;
+  text-align: justify;
 `;
 
 const SeeMoreButton = styled.button`
@@ -80,11 +88,12 @@ const SeeMoreButton = styled.button`
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
   border-radius: 24px;
   transition: background-color 0.3s ease;
   margin-left: auto;
+
   &:hover {
     background-color: var(--color-main);
   }
@@ -108,7 +117,7 @@ const UserPhoto = styled.img`
 `;
 
 const UserName = styled.h3`
-  /* font-size: 1.5rem; */
+  font-size: 2.5rem;
   font-weight: bold;
   /* margin-bottom: 0.5rem; */
   letter-spacing: 1px;
@@ -117,7 +126,7 @@ const UserName = styled.h3`
 const UserDesignation = styled.p`
   /* font-size: 1rem; */
   color: gray;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   letter-spacing: 1px;
 `;
 
@@ -136,8 +145,12 @@ function Reviews() {
         <ReviewBox>
           <LeftColumn>
             <ReviewText>
-              Had an amazing experience traveling to Kerala. The scenery was
-              breathtaking and the trip was very well organized.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              quas officiis praesentium! Ipsam dolores illo et, fugiat harum
+              accusamus ex culpa vel rem. Velit, voluptatem in? Quisquam nobis
+              fuga adipisci inventore vitae, non natus reprehenderit corrupti
+              officiis? Deleniti tenetur quia, amet fuga sit pariatur
+              perspiciatis explicabo minima hic eum doloribus?
             </ReviewText>
             <SeeMoreButton>See More</SeeMoreButton>
           </LeftColumn>
@@ -152,8 +165,12 @@ function Reviews() {
         <ReviewBox>
           <LeftColumn>
             <ReviewText>
-              A wonderful trip to Himachal! The mountains were mesmerizing and
-              the hospitality made it all the more special.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At omnis
+              repudiandae architecto illum, ipsam ratione et iusto in quisquam
+              vel. Eligendi, velit ut repellat culpa cumque repudiandae
+              cupiditate officiis laboriosam quam eum a vero debitis libero modi
+              sequi quo dolor voluptatibus, asperiores iste obcaecati id, nemo
+              sint dolores. Rem, quisquam!
             </ReviewText>
             <SeeMoreButton>See More</SeeMoreButton>
           </LeftColumn>

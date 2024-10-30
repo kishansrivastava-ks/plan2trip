@@ -8,22 +8,28 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10rem;
 `;
 
 const Heading = styled.h2`
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 3rem;
-  letter-spacing: 2px;
+  margin-top: 3rem;
+  letter-spacing: 3px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 const SliderContainer = styled.div`
+  /* border: 0.5rem solid green; */
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 80vw;
+  /* justify-content: center; */
+  width: 74vw;
   overflow: hidden;
 
   padding: 1rem;
@@ -66,7 +72,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  border-radius: 8px;
+  /* border-radius: 38px; */
   /* padding: 16px; */
   /* box-shadow: var(--shadow-sm); */
   margin: 0 10px;
@@ -80,7 +86,7 @@ const Card = styled.div`
 const Image = styled.img`
   width: 90%;
   height: 280px;
-  border-radius: 6px;
+  border-radius: 38px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 `;
@@ -88,13 +94,16 @@ const Image = styled.img`
 const PlaceName = styled.h3`
   font-weight: bold;
   color: var(--color-grey-800);
-  margin: 12px 0 4px;
+  margin: 12px 0 2px;
   text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const Price = styled.p`
   font-weight: 500;
-  color: var(--color-blue-700);
+  /* color: var(--color-blue-700); */
   /* font-size: 0.9rem; */
   text-align: center;
 `;
