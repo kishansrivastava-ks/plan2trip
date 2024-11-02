@@ -21,6 +21,7 @@ const Heading = styled.h2`
   letter-spacing: 3px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #000;
 `;
 
 const SliderContainer = styled.div`

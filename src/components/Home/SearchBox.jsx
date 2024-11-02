@@ -24,6 +24,7 @@ const InputContainer = styled.div`
   padding: 0 1rem;
   flex: 1;
   position: relative;
+  /* margin-top: 1rem; */
 
   & + &::before {
     content: "";
@@ -53,10 +54,14 @@ const Input = styled.input`
   margin-left: -1rem;
 
   &::placeholder {
-    color: #999;
-    color: #000;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
+    color: #747373;
+    /* color: #000; */
+    font-size: 1.8rem;
+    /* letter-spacing: 1px; */
+  }
+  &:active {
+    outline: none;
+    border: none;
   }
 `;
 
@@ -66,16 +71,14 @@ const DateInputContainer = styled.div`
   font-size: 2rem;
   .react-datepicker-wrapper {
     width: 100%;
-    border-radius: none;
-    outline: none;
+    border: none;
   }
   display: flex;
-  & > input {
-    outline: none;
+  .datepicker-input {
     border: none;
-    & ::placeholder {
-      color: #000;
-    }
+    outline: none;
+    font-size: 2rem;
+    /* border: 1px solid red; */
   }
 `;
 
