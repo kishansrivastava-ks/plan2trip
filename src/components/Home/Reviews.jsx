@@ -53,7 +53,7 @@ const ReviewBox = styled.div`
   display: flex;
   justify-content: space-between;
   box-shadow: var(--shadow-md);
-  border-radius: 48px;
+  border-radius: 38px;
 
   @media (max-width: 768px) {
     flex-direction: column;

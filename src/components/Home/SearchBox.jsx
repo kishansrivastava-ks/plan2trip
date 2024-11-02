@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,13 +11,14 @@ const SearchContainer = styled.div`
   align-items: center;
   background-color: white;
   padding: 3rem 4rem;
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin: 0 auto;
 `;
 
 const InputContainer = styled.div`
+  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -47,10 +49,14 @@ const Input = styled.input`
   width: 100%;
   padding: 0.5rem;
   color: #333;
+  margin-top: -0.7rem;
+  margin-left: -1rem;
 
   &::placeholder {
     color: #999;
-    font-size: 2rem;
+    color: #000;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
 `;
 
@@ -60,16 +66,27 @@ const DateInputContainer = styled.div`
   font-size: 2rem;
   .react-datepicker-wrapper {
     width: 100%;
+    border-radius: none;
+    outline: none;
+  }
+  display: flex;
+  & > input {
+    outline: none;
+    border: none;
+    & ::placeholder {
+      color: #000;
+    }
   }
 `;
 
 const SearchButton = styled.button`
-  background-color: blue;
+  background-color: #159fd3;
   color: white;
-  padding: 0.7rem 1.5rem;
+  padding: 0.5rem 2.5rem;
   /* font-size: 1rem; */
   /* font-weight: bold; */
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 24px;
   cursor: pointer;
