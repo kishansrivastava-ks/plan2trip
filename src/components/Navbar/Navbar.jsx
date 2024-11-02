@@ -1,28 +1,29 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+function Navbar({ isScrolled }) {
+  // const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll event to change the background color of the navbar
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    if (scrollY > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (window.scrollY > 50) {
+  //     setIsScrolled(true);
+  //   } else {
+  //     setIsScrolled(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
-    <Nav isScrolled={isScrolled}>
+    <Nav className={isScrolled ? "scrolled" : ""}>
+      {/* // <Nav className="scrolled"> */}
       <BrandName>PLAN2TRIP</BrandName>
       <NavLinks>
         <NavLink href="#home">HOME</NavLink>
@@ -43,6 +44,25 @@ export default Navbar;
 
 // Styled Components
 
+// const Nav = styled.nav`
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 2rem 4rem;
+//   z-index: 1000;
+//   transition: background-color 0.3s ease;
+//   background-color: ${(props) =>
+//     props.isScrolled ? "rgba(21, 98, 178, 0.85)" : "transparent"};
+//   /* background-color: red; */
+//   @media (max-width: 768px) {
+//     padding: 1rem;
+//     flex-direction: column;
+//   }
+// `;
+
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -53,9 +73,12 @@ const Nav = styled.nav`
   padding: 2rem 4rem;
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color: ${(props) =>
-    props.isScrolled ? "rgba(21, 98, 178, 0.85)" : "transparent"};
-  /* background-color: red; */
+  background-color: transparent;
+
+  &.scrolled {
+    background-color: rgba(21, 98, 178, 0.85);
+  }
+
   @media (max-width: 768px) {
     padding: 1rem;
     flex-direction: column;

@@ -92,6 +92,9 @@ const PlaceName = styled.h3`
   color: var(--color-grey-800);
   margin: 12px 0 4px;
   text-align: center;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const Price = styled.p`
