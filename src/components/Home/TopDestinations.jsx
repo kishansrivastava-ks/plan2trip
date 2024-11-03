@@ -79,7 +79,7 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
-  width: 90%;
+  width: 91%;
   height: 300px;
   border-radius: 6px;
   object-fit: cover;

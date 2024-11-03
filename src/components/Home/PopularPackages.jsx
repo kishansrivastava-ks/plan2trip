@@ -90,7 +90,7 @@ const Image = styled.img`
   width: 40rem;
   height: 280px;
   height: 50rem;
-  border-radius: 28px;
+  border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 `;

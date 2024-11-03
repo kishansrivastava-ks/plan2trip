@@ -77,8 +77,9 @@ const Nav = styled.nav`
 
   &.scrolled {
     /* background-color: rgba(21, 98, 178, 0.85); */
-    background-color: rgba(21, 98, 178, 0.95);
+    /* background-color: rgba(21, 98, 178, 0.95); */
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+    background-color: rgba(21, 159, 211, 0.95);
   }
 
   @media (max-width: 768px) {
