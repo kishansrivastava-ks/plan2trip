@@ -5,6 +5,7 @@ import styled from "styled-components";
 const ItineraryContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
+  margin-bottom: 8rem;
 `;
 
 // Heading section with bullet circle
@@ -19,69 +20,78 @@ const BulletCircle = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: black;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 0.8rem;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 // Horizontal rule below heading
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 `;
 
 // Tabs container
 const Tabs = styled.div`
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: -1rem; */
 `;
 
 // Individual Tab button
 const Tab = styled.button`
-  background-color: ${(props) => (props.active ? "#007bff" : "white")};
+  background-color: ${(props) => (props.active ? "#159FD3" : "white")};
   color: ${(props) => (props.active ? "white" : "black")};
   font-weight: bold;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: none;
   cursor: pointer;
-  border-radius: 6px 6px 0 0;
+  border-radius: 12px 12px 0 0;
   transition: background-color 0.3s ease;
-  border-bottom: ${(props) => (props.active ? "none" : "2px solid #007bff")};
-
+  /* border-bottom: ${(props) =>
+    props.active ? "none" : "2px solid #007bff"}; */
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 2px;
   &:hover {
-    background-color: #007bff;
+    background-color: #159fd3;
     color: white;
   }
 `;
 
 // Tab content container with timeline style
 const TabContent = styled.div`
-  background-color: #007bff;
+  background: linear-gradient(180deg, #159fd3 0%, #1286ba 65.15%);
   color: white;
   padding: 2rem;
-  border-radius: 0 6px 6px 6px;
+  border-radius: 0 0 15px 15px;
+  /* border-radius: 15px; */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-height: 30rem;
 `;
 
 // Timeline item
 const TimelineItem = styled.div`
   display: flex;
   align-items: flex-start;
+  align-items: center;
   position: relative;
+  /* border: 2px solid red; */
 `;
 
 const TimelineBullet = styled.div`
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: white;
   margin-right: 1rem;
@@ -91,13 +101,13 @@ const TimelineBullet = styled.div`
 
 const TimelineContent = styled.div`
   padding-left: 1.5rem;
-  font-size: 1rem;
+  font-size: 2.5rem;
 `;
 
 const TimelineLine = styled.div`
   position: absolute;
-  left: 5px;
-  top: 20px;
+  left: 6px;
+  top: 26px;
   width: 2px;
   height: 100%;
   background-color: white;
