@@ -19,14 +19,16 @@ const BulletCircle = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: black;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 0.8rem;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 const HorizontalLine = styled.hr`
@@ -38,46 +40,50 @@ const HorizontalLine = styled.hr`
 // Two Column Layout
 const TwoColumnLayout = styled.div`
   display: flex;
-  gap: 1rem; /* Fine white space between the columns */
+  gap: 0.5rem;
+  min-height: 30rem;
 `;
 
 // Left Column for Image
 const LeftColumn = styled.div`
-  flex: 8;
+  flex: 7;
   background: url("room.jpg") center center / cover no-repeat;
-  border-radius: 5px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 `;
 
 // Right Column
 const RightColumn = styled.div`
   flex: 2;
-  background-color: black;
+  background-color: #333333;
   color: white;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 5px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 `;
 
 // Text Details in Right Column
 const TextDetails = styled.div`
-  line-height: 1.8;
-  font-size: 1.1rem;
+  line-height: 1.5;
+  font-size: 2rem;
+  letter-spacing: 1px;
 `;
 
 // Circle with Arrow
 const ArrowCircle = styled.div`
   align-self: flex-end;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: white;
   color: black;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
@@ -88,17 +94,18 @@ const ButtonsContainer = styled.div`
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 1rem;
+  /* border: 1px solid red; */
 `;
 
 // Individual Button
 const Button = styled.button`
-  background-color: #0066cc;
+  background: linear-gradient(90deg, #1286ba 0%, #159cd0 100%);
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 0.3rem 1.8rem;
+  font-size: 2rem;
+  /* font-weight: bold; */
   cursor: pointer;
   transition: background-color 0.3s ease;
 
@@ -110,19 +117,15 @@ const Button = styled.button`
 function Stay() {
   return (
     <StayContainer>
-      {/* Heading Section */}
       <Heading>
         <BulletCircle />
         <Title>STAY</Title>
       </Heading>
       <HorizontalLine />
 
-      {/* Two Column Layout */}
       <TwoColumnLayout>
-        {/* Left Column with Image */}
         <LeftColumn />
 
-        {/* Right Column with Text and Arrow */}
         <RightColumn>
           <TextDetails>
             <p>Hotel : Taj Villa</p>
@@ -130,14 +133,12 @@ function Stay() {
             <p>Full AC Room</p>
           </TextDetails>
 
-          {/* Arrow Circle */}
           <ArrowCircle>
             <FaArrowRight />
           </ArrowCircle>
         </RightColumn>
       </TwoColumnLayout>
 
-      {/* Buttons Section */}
       <ButtonsContainer>
         <Button>ADD TO CART</Button>
         <Button>BUY NOW</Button>
