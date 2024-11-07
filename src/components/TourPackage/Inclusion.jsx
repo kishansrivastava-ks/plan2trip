@@ -5,6 +5,7 @@ import styled from "styled-components";
 const InclusionContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
+  margin-bottom: 8rem;
 `;
 
 // Heading and Bullet
@@ -19,20 +20,22 @@ const BulletCircle = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: black;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 0.8rem;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 // Tabbed Content Layout
@@ -49,10 +52,12 @@ const TabList = styled.div`
 `;
 
 const Tab = styled.div`
-  padding: 0.8rem;
+  padding: 1.2rem;
   cursor: pointer;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #ddd;
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #666666;
   font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
   color: ${(props) => (props.isActive ? "black" : "#555")};
 `;
@@ -60,10 +65,10 @@ const Tab = styled.div`
 // Right Tab Content
 const TabContent = styled.div`
   flex: 1;
-  background-color: #0066cc;
+  background: linear-gradient(180deg, #159ed2 0%, #1286ba 66.88%);
   color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 15px;
   position: relative;
 `;
 
@@ -71,12 +76,14 @@ const TabContent = styled.div`
 const BulletList = styled.ul`
   list-style-type: disc;
   padding-left: 1.5rem;
-  font-size: 1rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   line-height: 1.6;
+  margin-left: 2.5rem;
 `;
 
 const BulletListItem = styled.li`
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 `;
 
 // See More Button
@@ -84,17 +91,18 @@ const SeeMoreButton = styled.button`
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  background-color: black;
+  background: #333333;
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #333;
+    background-color: #000;
   }
 `;
 
@@ -165,7 +173,6 @@ function Inclusion() {
       </Heading>
       <HorizontalLine />
 
-      {/* Tabbed Content Layout */}
       <TabbedContentContainer>
         {/* Left Tab List */}
         <TabList>

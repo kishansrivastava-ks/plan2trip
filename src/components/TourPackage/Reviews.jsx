@@ -27,7 +27,7 @@ const BulletCircle = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: black;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 0.8rem;
 `;
 
