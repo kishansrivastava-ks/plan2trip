@@ -5,6 +5,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 const HighlightsContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
+  margin-bottom: 8rem;
 `;
 
 // Heading section with bullet circle
@@ -19,27 +20,29 @@ const BulletCircle = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: black;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 0.8rem;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 // Horizontal line below heading
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 `;
 
 // Cards container for layout
 const CardsContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   width: 85%;
   margin: auto;
 `;
@@ -51,13 +54,14 @@ const Card = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 300px; /* Height according to 4:3 ratio for styling */
+  height: 400px; /* Height according to 4:3 ratio for styling */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  gap: 2px;
 `;
 
 // Upper part of the card containing the image
 const CardImage = styled.div`
-  flex: 3;
+  flex: 4;
   background-image: url(${(props) => props.imgSrc});
   background-size: cover;
   background-position: center;
@@ -66,16 +70,20 @@ const CardImage = styled.div`
 // Lower part of the card containing location details
 const CardDetails = styled.div`
   flex: 1;
-  background-color: black;
+  /* background-color: black; */
+  background: #000000cc;
+
   color: white;
   display: flex;
   align-items: center;
-  padding: 0.8rem;
-  font-size: 1.1rem;
+  justify-content: center;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 2rem;
 `;
 
 const LocationIcon = styled(FaMapMarkerAlt)`
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   color: white;
 `;
 
