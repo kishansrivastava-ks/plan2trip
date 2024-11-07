@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 const StayContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
+  margin-bottom: 5rem;
 `;
 
 // Heading Section
@@ -34,7 +35,7 @@ const Title = styled.h2`
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 `;
 
 // Two Column Layout

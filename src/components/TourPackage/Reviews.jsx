@@ -12,6 +12,7 @@ import {
 const ReviewsContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
+  margin-bottom: 8rem;
 `;
 
 // Heading and Bullet
@@ -31,15 +32,17 @@ const BulletCircle = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 `;
 
 // Reviews List
@@ -60,24 +63,28 @@ const ReviewItem = styled.div`
 
 // Icon Circle
 const IconCircle = styled.div`
-  width: 70px;
-  height: 70px;
-  background-color: #0066cc;
+  width: 10rem;
+  height: 10rem;
+
+  background: linear-gradient(180deg, #159dd1 0%, #1286ba 100%);
+
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 5rem;
   margin-bottom: 0.5rem;
 `;
 
 // Review Text
 const ReviewText = styled.p`
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+
+  font-weight: 500;
   color: black;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 0.3rem;
 `;
 
@@ -85,14 +92,15 @@ const ReviewText = styled.p`
 const Rating = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 2.5rem;
   color: #444;
 `;
 
 // Yellow Star Icon for Rating
 const StarIcon = styled(FaStar)`
   color: #ffd700;
-  margin-right: 0.3rem;
+  margin-right: 1rem;
+  font-size: 3rem;
 `;
 
 function Reviews() {
