@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ReviewsSection = styled.section`
@@ -82,7 +83,7 @@ const ReviewText = styled.p`
   text-align: justify;
 `;
 
-const SeeMoreButton = styled.button`
+const SeeMoreButton = styled(Link)`
   align-self: flex-start;
   padding: 0.7rem 2.5rem;
   background-color: black;
@@ -153,7 +154,7 @@ function Reviews() {
               officiis? Deleniti tenetur quia, amet fuga sit pariatur
               perspiciatis explicabo minima hic eum doloribus?
             </ReviewText>
-            <SeeMoreButton>See More</SeeMoreButton>
+            <SeeMoreButton to="/reviews">See More</SeeMoreButton>
           </LeftColumn>
           <RightColumn>
             <UserPhoto src="/user.jpg" alt="User 1" />
@@ -173,7 +174,7 @@ function Reviews() {
               sequi quo dolor voluptatibus, asperiores iste obcaecati id, nemo
               sint dolores. Rem, quisquam!
             </ReviewText>
-            <SeeMoreButton>See More</SeeMoreButton>
+            <SeeMoreButton to="reviews">See More</SeeMoreButton>
           </LeftColumn>
           <RightColumn>
             <UserPhoto src="/user.jpg" alt="User 2" />

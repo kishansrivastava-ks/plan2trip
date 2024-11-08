@@ -80,6 +80,13 @@ const Nav = styled.nav`
     /* background-color: rgba(21, 98, 178, 0.95); */
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
     background-color: rgba(21, 159, 211, 0.95);
+    /* background: linear-gradient(
+      90deg,
+      #21709b 0%,
+      #0297cf 25%,
+      #0297cf 75.26%,
+      #2178a9 100%
+    ); */
   }
 
   @media (max-width: 768px) {
