@@ -108,7 +108,8 @@ const Button = styled.button`
   border: none;
   border-radius: 8px;
   padding: 1rem 4rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
   /* font-weight: bold; */
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -144,8 +145,8 @@ function Stay() {
       </TwoColumnLayout>
 
       <ButtonsContainer>
-        <Button>ADD TO CART</Button>
-        <Button>BUY NOW</Button>
+        <Button>Add to Cart</Button>
+        <Button>Buy Now</Button>
       </ButtonsContainer>
     </StayContainer>
   );
