@@ -72,12 +72,13 @@ const TabContent = styled.div`
   background: linear-gradient(180deg, #159fd3 0%, #1286ba 65.15%);
   color: white;
   padding: 2rem;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 15px 15px 15px;
   /* border-radius: 15px; */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   min-height: 30rem;
+  box-shadow: 0px 4px 4px 0px #00000040;
 `;
 
 // Timeline item
@@ -101,13 +102,14 @@ const TimelineBullet = styled.div`
 
 const TimelineContent = styled.div`
   padding-left: 1.5rem;
+  margin: 1rem 0;
   font-size: 2.5rem;
 `;
 
 const TimelineLine = styled.div`
   position: absolute;
   left: 6px;
-  top: 26px;
+  top: 36px;
   width: 2px;
   height: 100%;
   background-color: white;

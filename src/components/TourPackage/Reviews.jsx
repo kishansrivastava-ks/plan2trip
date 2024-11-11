@@ -42,7 +42,7 @@ const Title = styled.h2`
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 `;
 
 // Reviews List
@@ -75,6 +75,7 @@ const IconCircle = styled.div`
   border-radius: 50%;
   font-size: 5rem;
   margin-bottom: 0.5rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 // Review Text
@@ -84,7 +85,7 @@ const ReviewText = styled.p`
 
   font-weight: 500;
   color: black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 0.3rem;
 `;
 

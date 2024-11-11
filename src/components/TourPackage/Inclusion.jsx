@@ -70,6 +70,7 @@ const TabContent = styled.div`
   padding: 2rem;
   border-radius: 15px;
   position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 // Bullet List inside Tab Content
@@ -95,11 +96,14 @@ const SeeMoreButton = styled.button`
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3rem;
   font-size: 1.5rem;
   letter-spacing: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 4px 0px #ffffff40;
 
   &:hover {
     background-color: #000;

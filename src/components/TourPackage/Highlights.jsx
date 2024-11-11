@@ -55,7 +55,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   height: 400px; /* Height according to 4:3 ratio for styling */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   gap: 2px;
 `;
 

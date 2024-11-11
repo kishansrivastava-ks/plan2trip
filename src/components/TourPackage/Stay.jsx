@@ -35,14 +35,16 @@ const Title = styled.h2`
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 `;
 
 // Two Column Layout
 const TwoColumnLayout = styled.div`
   display: flex;
   gap: 0.5rem;
-  min-height: 30rem;
+  min-height: 40rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 `;
 
 // Left Column for Image
@@ -94,18 +96,19 @@ const ButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
   /* border: 1px solid red; */
 `;
 
 // Individual Button
 const Button = styled.button`
   background: linear-gradient(90deg, #1286ba 0%, #159cd0 100%);
+  background: #159fd3;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 0.3rem 1.8rem;
-  font-size: 2rem;
+  border-radius: 8px;
+  padding: 1rem 4rem;
+  font-size: 1.5rem;
   /* font-weight: bold; */
   cursor: pointer;
   transition: background-color 0.3s ease;
