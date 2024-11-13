@@ -27,14 +27,14 @@ const ExperienceBox = styled.div`
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   /* border: 2px solid red; */
-  min-height: 40rem;
+  min-height: 45rem;
   gap: 5px;
   background: transparent;
 `;
 
 const LeftColumn = styled.div`
-  flex: 2;
-  padding: 2rem;
+  flex: 3;
+  padding: 4rem;
   /* background-color: #f9f9f9; */
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -49,6 +49,8 @@ const ReviewInput = styled.textarea`
   /* padding: 1rem; */
   font-size: 2rem;
   border-radius: 10px;
+  letter-spacing: 1px;
+  line-height: 1.6;
   resize: none;
   color: #000;
   /* background-color: #fff; */
@@ -56,6 +58,9 @@ const ReviewInput = styled.textarea`
   &::placeholder {
     color: #00000080;
     font-style: italic;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
@@ -71,10 +76,10 @@ const RightColumn = styled.div`
 `;
 
 const UserImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   margin-bottom: 1rem;
 `;
 
@@ -96,7 +101,7 @@ const Button = styled.button`
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
@@ -107,6 +112,13 @@ const Button = styled.button`
 
   &:focus {
     outline: none;
+  }
+  & > img {
+    width: 25px;
+    margin: 0 1rem;
+  }
+  & > p {
+    margin-right: auto;
   }
 `;
 
@@ -122,12 +134,12 @@ const ShareExperience = () => {
           <UserImage src="/user.jpg" alt="User" />
           <UserName>John</UserName>
           <Button>
-            <img src="/gallery-icon.svg" alt="Gallery" />
-            Upload Memories
+            <img src="/gallery.png" alt="Gallery" />
+            <p>Upload Memories</p>
           </Button>
           <Button>
-            <img src="/dm-icon.svg" alt="DM" />
-            Post Review
+            <img src="/dm.png" alt="DM" />
+            <p> Post Review</p>
           </Button>
         </RightColumn>
       </ExperienceBox>
