@@ -84,8 +84,9 @@ const UserImage = styled.img`
 `;
 
 const UserName = styled.h3`
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
+  letter-spacing: 2px;
 `;
 
 const Button = styled.button`
