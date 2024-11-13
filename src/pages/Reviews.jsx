@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ReviewsComponent from "../components/Reviews/ReviewsComponent";
 
 const Container = styled.div`
-  margin-top: 10vh;
+  margin-top: 15vh;
   /* border: 0.5rem solid red; */
 `;
 

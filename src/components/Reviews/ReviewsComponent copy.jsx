@@ -12,10 +12,10 @@ const Container = styled.div`
 const ReviewCard = styled.div`
   width: 85%;
   /* border: 2px solid red; */
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
   display: flex;
   height: 40rem;
-  /* gap: 2rem; */
+  gap: 4rem;
 `;
 
 const LeftColumn = styled.div`
@@ -175,47 +175,24 @@ const ReviewsComponent = () => {
 
   return (
     <Container>
-      {currentReviews.map((review, index) => (
-        <ReviewCard
-          key={review.id}
-          isReversed={(currentPage - 1) * reviewsPerPage + (index % 2) !== 0}
-        >
-          {((currentPage - 1) * reviewsPerPage + index) % 2 === 0 ? (
-            <>
-              <LeftColumn>
-                <ImageWrapper>
-                  <Image src={review.imageBack} alt="Review background" />
-                  <Image src={review.imageFront} alt="Review front" />
-                </ImageWrapper>
-              </LeftColumn>
-              <RightColumn>
-                <Header>
-                  <UserImage src={review.userPhoto} alt="User" />
-                  <UserName>{review.reviewer}</UserName>
-                </Header>
-                <Body>{review.text}</Body>
-              </RightColumn>
-            </>
-          ) : (
-            <>
-              <RightColumn>
-                <Header>
-                  <UserImage src={review.userPhoto} alt="User" />
-                  <UserName>{review.reviewer}</UserName>
-                </Header>
-                <Body>{review.text}</Body>
-              </RightColumn>
-              <LeftColumn>
-                <ImageWrapper>
-                  <Image src={review.imageBack} alt="Review background" />
-                  <Image src={review.imageFront} alt="Review front" />
-                </ImageWrapper>
-              </LeftColumn>
-            </>
-          )}
+      {currentReviews.map((review) => (
+        <ReviewCard key={review.id}>
+          <LeftColumn>
+            <ImageWrapper>
+              <Image src={review.imageBack} alt="Review background" />
+
+              <Image src={review.imageFront} alt="Review front" />
+            </ImageWrapper>
+          </LeftColumn>
+          <RightColumn>
+            <Header>
+              <UserImage src={review.userPhoto} alt="User" />
+              <UserName>{review.reviewer}</UserName>
+            </Header>
+            <Body>{review.text}</Body>
+          </RightColumn>
         </ReviewCard>
       ))}
-
       <Pagination>
         <ArrowButton onClick={handlePrev}>&lt;</ArrowButton>
         {Array.from(
