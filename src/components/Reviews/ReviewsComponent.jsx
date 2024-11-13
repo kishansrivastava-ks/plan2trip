@@ -11,11 +11,11 @@ const Container = styled.div`
 
 const ReviewCard = styled.div`
   width: 85%;
-  border: 2px solid red;
-  margin-bottom: 20px;
+  /* border: 2px solid red; */
+  margin-bottom: 5rem;
   display: flex;
   height: 40rem;
-  gap: 2rem;
+  gap: 4rem;
 `;
 
 const LeftColumn = styled.div`
@@ -24,14 +24,14 @@ const LeftColumn = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
   width: 80%;
   height: 80%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   display: flex;
   justify-content: center;
   margin-top: -5rem;
@@ -57,30 +57,36 @@ const RightColumn = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* border: 2px solid blue; */
 `;
 
 const Header = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
 `;
 
 const UserImage = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 `;
 
 const UserName = styled.h3`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
 const Body = styled.p`
-  font-size: 1rem;
+  font-size: 2rem;
+  text-align: center;
   color: #333;
+  width: 80%;
+  line-height: 1.6;
 `;
 
 const Pagination = styled.div`
@@ -135,9 +141,7 @@ const ArrowButton = styled.button`
 const reviewsData = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
   reviewer: `Reviewer ${i + 1}`,
-  text: `This is a sample review number ${
-    i + 1
-  }. It provides feedback and insights about the experience.`,
+  text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur laborum sit expedita est et neque, quam vitae dolorum hic velit totam, ducimus vel enim id in sed itaque ea doloribus voluptatibus quisquam consequatur magnam cum consequuntur. Id at, exercitationem nemo rem, quibusdam veniam voluptatum harum tempora quidem nostrum temporibus molestias.`,
   imageBack: "/manali-2.jpg",
   imageFront: "/mountain.jpeg",
   userPhoto: "/user.jpg",
@@ -176,6 +180,7 @@ const ReviewsComponent = () => {
           <LeftColumn>
             <ImageWrapper>
               <Image src={review.imageBack} alt="Review background" />
+
               <Image src={review.imageFront} alt="Review front" />
             </ImageWrapper>
           </LeftColumn>
