@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ReviewsComponent from "../components/Reviews/ReviewsComponent";
+import ShareExperience from "../components/Reviews/ShareExperience";
 
 const Container = styled.div`
   margin-top: 15vh;
@@ -19,6 +20,7 @@ function Reviews() {
     <Container>
       <Heading>Reviews</Heading>
       <ReviewsComponent />
+      <ShareExperience />
     </Container>
   );
 }
