@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import TourPackage from "./pages/TourPackage";
 import Reviews from "./pages/Reviews";
 import TourPackages from "./pages/TourPackages";
+import MyCart from "./pages/MyCart";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/tour-package" element={<TourPackage />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/tour-packages" element={<TourPackages />} />
+            <Route path="/cart" element={<MyCart />} />
           </Route>
         </Routes>
       </BrowserRouter>
