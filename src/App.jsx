@@ -4,6 +4,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Home from "./pages/Home";
 import TourPackage from "./pages/TourPackage";
 import Reviews from "./pages/Reviews";
+import TourPackages from "./pages/TourPackages";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Applayout />}>
             <Route path="" element={<Home />} />
-            <Route path="/tour-packages" element={<TourPackage />} />
+            <Route path="/tour-package" element={<TourPackage />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/tour-packages" element={<TourPackages />} />
           </Route>
         </Routes>
       </BrowserRouter>
