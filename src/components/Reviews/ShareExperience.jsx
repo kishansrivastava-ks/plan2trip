@@ -57,7 +57,7 @@ const ReviewInput = styled.textarea`
   /* box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); */
   &::placeholder {
     color: #00000080;
-    font-style: italic;
+    /* font-style: italic; */
   }
   &:focus {
     outline: none;
@@ -76,21 +76,21 @@ const RightColumn = styled.div`
 `;
 
 const UserImage = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 3px solid #fff;
   margin-bottom: 1rem;
 `;
 
 const UserName = styled.h3`
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 `;
 
 const Button = styled.button`
-  width: 80%;
+  width: 90%;
   padding: 1rem;
   font-size: 1.6rem;
   font-weight: bold;
@@ -106,6 +106,8 @@ const Button = styled.button`
   gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
+  transform: translateY(2rem);
+  margin-bottom: 2rem;
 
   &:hover {
     background-color: #f0f0f0;
@@ -115,11 +117,14 @@ const Button = styled.button`
     outline: none;
   }
   & > img {
-    width: 25px;
+    width: 30px;
     margin: 0 1rem;
   }
   & > p {
     margin-right: auto;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
   }
 `;
 

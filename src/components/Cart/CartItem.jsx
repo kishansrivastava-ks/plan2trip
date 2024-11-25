@@ -65,12 +65,12 @@ const Travelers = styled.div`
   color: #000;
 
   button {
-    background: #159dd1;
+    background: #159fd3;
     color: #fff;
     border: none;
     border-radius: 4px;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     font-size: 1.8rem;
     cursor: pointer;
     display: flex;
@@ -79,13 +79,18 @@ const Travelers = styled.div`
   }
 
   button:disabled {
-    background: #ccc;
+    /* background: #ccc; */
     cursor: not-allowed;
+    background: #159fd3;
   }
 
   span {
     min-width: 2rem;
     text-align: center;
+    background: #159fd3;
+    color: #fff;
+    padding: 0.2rem 2rem;
+    border-radius: 4px;
   }
 `;
 
@@ -110,7 +115,7 @@ const PriceText = styled.div`
 `;
 
 const RemoveButton = styled.button`
-  background: #159dd1;
+  background: #159fd3;
   border: none;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -152,7 +157,7 @@ const CartItem = ({ name, duration, ratings, reviews, price, key }) => {
             <button onClick={handleDecrease} disabled={travelers <= 1}>
               -
             </button>
-            <span>{travelers}</span>
+            <span>{travelers} Travellers</span>
             <button onClick={handleIncrease}>+</button>
           </Travelers>
         </div>

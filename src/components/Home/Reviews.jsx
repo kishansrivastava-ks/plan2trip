@@ -28,7 +28,8 @@ const Heading = styled.h2`
   text-align: center;
   z-index: 2;
   /* margin-bottom: 3rem; */
-  margin-top: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 2px;
 `;

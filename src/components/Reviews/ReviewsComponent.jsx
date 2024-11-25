@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled from "styled-components";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Container = styled.div`
   width: 90%;
@@ -12,7 +14,7 @@ const Container = styled.div`
 const ReviewCard = styled.div`
   width: 85%;
   /* border: 2px solid red; */
-  margin-bottom: 8rem;
+  margin-bottom: 10rem;
   display: flex;
   height: 40rem;
   /* gap: 2rem; */
@@ -42,6 +44,8 @@ const Image = styled.img`
   height: auto;
   position: absolute;
   border-radius: 10px;
+  transform-origin: bottom left;
+
   &:first-child {
     transform: rotate(-5deg);
     z-index: 1;
@@ -49,6 +53,7 @@ const Image = styled.img`
   &:last-child {
     transform: rotate(5deg);
     z-index: 2;
+    margin-top: -2rem;
   }
 `;
 
@@ -83,10 +88,10 @@ const UserName = styled.h3`
 
 const Body = styled.p`
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
   color: #333;
   width: 80%;
-  line-height: 1.6;
+  line-height: 1.8;
 `;
 
 const Pagination = styled.div`
@@ -102,11 +107,13 @@ const PageNumber = styled.button`
 
   color: ${({ active }) => (active ? "#fff" : "#000")};
   border: 1px solid #ccc;
-  padding: 8px 14px;
+  padding: 6px 16px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 2.5rem;
 
   &:hover {
     /* background-color: #007bff; */
@@ -123,11 +130,12 @@ const PageNumber = styled.button`
 const ArrowButton = styled.button`
   background-color: #fff;
   border: 1px solid #ccc;
-  padding: 8px 14px;
+  padding: 9px 9px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  font-size: 3rem;
 
   &:hover {
     background: linear-gradient(180deg, #159dd1 72.54%, #1286ba 100%);
@@ -217,7 +225,9 @@ const ReviewsComponent = () => {
       ))}
 
       <Pagination>
-        <ArrowButton onClick={handlePrev}>&lt;</ArrowButton>
+        <ArrowButton onClick={handlePrev}>
+          <FiChevronLeft />
+        </ArrowButton>
         {Array.from(
           { length: Math.ceil(reviewsData.length / reviewsPerPage) },
           (_, i) => (
@@ -230,7 +240,9 @@ const ReviewsComponent = () => {
             </PageNumber>
           )
         )}
-        <ArrowButton onClick={handleNext}>&gt;</ArrowButton>
+        <ArrowButton onClick={handleNext}>
+          <FiChevronRight />
+        </ArrowButton>
       </Pagination>
     </Container>
   );
