@@ -6,7 +6,7 @@ import styled from "styled-components";
 const ItemContainer = styled.div`
   display: flex;
   width: 90%;
-  height: 42rem;
+  min-height: 42rem;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 3rem;
@@ -25,10 +25,16 @@ const DetailsContainer = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   border: 2px solid lightgray;
   border-radius: 0 24px 24px 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  & > :nth-child(1) {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -38,6 +44,7 @@ const Title = styled.h3`
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 1.5rem;
 `;
 
 const Text = styled.p`
@@ -61,7 +68,7 @@ const Travelers = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #000;
 
   button {
@@ -93,6 +100,21 @@ const Travelers = styled.div`
     border-radius: 4px;
   }
 `;
+const Price = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #000;
+  span {
+    min-width: 2rem;
+    text-align: center;
+    background: #159fd3;
+    color: #fff;
+    padding: 0.2rem 4rem;
+    border-radius: 4px;
+  }
+`;
 
 const PriceSection = styled.div`
   margin-top: 2rem;
@@ -100,17 +122,21 @@ const PriceSection = styled.div`
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 `;
 
 const PriceText = styled.div`
   display: flex;
   justify-content: flex-end;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  /* font-weight: bold; */
+  margin-bottom: 0.5rem;
+  color: #000;
+  letter-spacing: 1px;
 
   &.subtotal {
-    font-weight: normal;
+    font-weight: 600;
+    color: #000;
+    font-size: 2.5rem;
   }
 `;
 
@@ -118,7 +144,7 @@ const RemoveButton = styled.button`
   background: #159fd3;
   border: none;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   font-size: 1.8rem;
   border-radius: 5px;
   cursor: pointer;
@@ -147,19 +173,22 @@ const CartItem = ({ name, duration, ratings, reviews, price, key }) => {
       <DetailsContainer>
         <div>
           <Title>Manali Tour Package</Title>
-          <Text>Duration: 5 Nights - 4 Days</Text>
+          <Text>Duration : 5 Nights - 4 Days</Text>
           <Ratings>
-            <span className="star-icon">⭐</span>
+            Ratings : <span className="star-icon">⭐</span>
             {4.5 / 5} ({2005} Reviews)
           </Ratings>
           <Travelers>
-            Travelers:
+            Travelers :
             <button onClick={handleDecrease} disabled={travelers <= 1}>
               -
             </button>
             <span>{travelers} Travellers</span>
             <button onClick={handleIncrease}>+</button>
           </Travelers>
+          <Price>
+            Price : <span>$420</span> Per person
+          </Price>
         </div>
         <PriceSection>
           <PriceText className="subtotal">Sub-Total:</PriceText>

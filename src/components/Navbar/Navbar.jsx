@@ -74,20 +74,18 @@ const Nav = styled.nav`
   z-index: 1000;
   transition: background-color 0.3s ease;
   background-color: transparent;
+  background: linear-gradient(
+    90deg,
+    #21709b 0%,
+    #0297cf 25%,
+    #0297cf 75.26%,
+    #2178a9 100%
+  );
 
-  &.scrolled {
-    /* background-color: rgba(21, 98, 178, 0.85); */
-    /* background-color: rgba(21, 98, 178, 0.95); */
+  /* &.scrolled {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
     background-color: rgba(21, 159, 211, 0.95);
-    /* background: linear-gradient(
-      90deg,
-      #21709b 0%,
-      #0297cf 25%,
-      #0297cf 75.26%,
-      #2178a9 100%
-    ); */
-  }
+  } */
 
   @media (max-width: 768px) {
     padding: 1rem;
