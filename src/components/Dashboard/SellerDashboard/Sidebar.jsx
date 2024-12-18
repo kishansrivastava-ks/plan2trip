@@ -62,25 +62,25 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <ItemContainer>
-        <SidebarLink to="/home" activeClassName="active">
+        <SidebarLink to="/seller-dashboard/home" activeClassName="active">
           <Icon>
             <FiHome />
           </Icon>
           <p>Home</p>
         </SidebarLink>
-        <SidebarLink to="/packages" activeClassName="active">
+        <SidebarLink to="/seller-dashboard/packages" activeClassName="active">
           <Icon>
             <FiPackage />
           </Icon>
           Packages
         </SidebarLink>
-        <SidebarLink to="/orders" activeClassName="active">
+        <SidebarLink to="/seller-dashboard/orders" activeClassName="active">
           <Icon>
             <FiShoppingCart />
           </Icon>
           My Orders
         </SidebarLink>
-        <SidebarLink to="/payments" activeClassName="active">
+        <SidebarLink to="/seller-dashboard/payments" activeClassName="active">
           <Icon>
             <FiDollarSign />
           </Icon>

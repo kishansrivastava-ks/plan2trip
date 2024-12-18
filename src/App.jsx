@@ -7,6 +7,10 @@ import Reviews from "./pages/Reviews";
 import TourPackages from "./pages/TourPackages";
 import MyCart from "./pages/MyCart";
 import DashboardLayout from "./pages/Dashboards/DashboardLayout";
+import SellerHome from "./components/Dashboard/SellerDashboard/SellerHome";
+import MyPackages from "./components/Dashboard/SellerDashboard/MyPackages";
+import Orders from "./components/Dashboard/SellerDashboard/Orders";
+import Payments from "./components/Dashboard/SellerDashboard/Payments";
 
 function App() {
   return (
@@ -16,12 +20,19 @@ function App() {
         <Routes>
           <Route path="/" element={<Applayout />}>
             <Route path="" element={<Home />} />
-            <Route path="/tour-package" element={<TourPackage />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/tour-packages" element={<TourPackages />} />
-            <Route path="/cart" element={<MyCart />} />
+            <Route path="tour-package" element={<TourPackage />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="tour-packages" element={<TourPackages />} />
+            <Route path="cart" element={<MyCart />} />
           </Route>
-          <Route path="/seller-dashboard" element={<DashboardLayout />} />
+
+          <Route path="/seller-dashboard" element={<DashboardLayout />}>
+            <Route path="" element={<SellerHome />} />
+            <Route path="home" element={<SellerHome />} />
+            <Route path="packages" element={<MyPackages />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="payments" element={<Payments />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

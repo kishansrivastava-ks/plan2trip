@@ -16,17 +16,6 @@ const BodyContainer = styled.div`
   flex: 1;
 `;
 
-// const Sidebar = styled.nav`
-//   width: 250px;
-//   background-color: #f7f7f7;
-//   border-right: 1px solid #ddd;
-//   padding: 20px;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 15px;
-//   font-size: 1rem;
-// `;
-
 const MainBody = styled.main`
   flex: 1;
   padding: 20px;
