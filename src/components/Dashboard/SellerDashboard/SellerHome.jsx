@@ -4,7 +4,7 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 `;
 
 const StatsContainer = styled.div`
@@ -15,22 +15,32 @@ const StatsContainer = styled.div`
 
 const StatBox = styled.div`
   flex: 1;
-  height: 30rem;
-  background-color: #f7f7f7;
+  height: 16rem;
+  background-color: #fff;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
-  box-shadow: 2px 2px 4px 0px #00000040;
+  box-shadow: 2px 2px 2px 2px #00000040;
+  padding: 2rem;
+  & > div {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  & > h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 `;
 
 const StatIcon = styled.div`
   background-color: #0297cf;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,22 +55,20 @@ const StatText = styled.div`
   text-align: center;
 
   & > h3 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: black;
     margin: 0;
-  }
-
-  & > h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
+    font-weight: 200;
+    letter-spacing: 1px;
   }
 `;
 
 const SectionHeading = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: black;
+  letter-spacing: 2px;
+  margin: 1rem 0;
 `;
 
 const TableContainer = styled.div`
@@ -76,13 +84,14 @@ const TableHeader = styled.div`
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #000000;
+  color: #000;
 `;
 
 const TableRow = styled.div`
   display: flex;
   padding: 10px 0;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
 
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -93,10 +102,15 @@ const TableColumn = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  /* justify-content: center; */
+  /* border: 1px solid red; */
   gap: 10px;
+  color: #000;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
 
   &:first-child {
-    flex: 2;
+    flex: 5;
   }
 `;
 
@@ -105,6 +119,7 @@ const PackagePhoto = styled.div`
   height: 50px;
   background-color: #ddd;
   border-radius: 4px;
+  margin-right: 2rem;
 `;
 
 const StatusCircle = styled.span`
@@ -120,25 +135,31 @@ function SellerHome() {
     <Container>
       <StatsContainer>
         <StatBox>
-          <StatIcon>👜</StatIcon>
-          <StatText>
-            <h3>Today&apos;s Sales</h3>
-            <h1>$5000</h1>
-          </StatText>
+          <div>
+            <StatIcon>👜</StatIcon>
+            <StatText>
+              <h3>Today&apos;s Sales</h3>
+            </StatText>
+          </div>
+          <h1>$5000</h1>
         </StatBox>
         <StatBox>
-          <StatIcon>👜</StatIcon>
-          <StatText>
-            <h3>Today&apos;s Packages</h3>
-            <h1>25 Packages</h1>
-          </StatText>
+          <div>
+            <StatIcon>👜</StatIcon>
+            <StatText>
+              <h3>Today&apos;s Packages</h3>
+            </StatText>
+          </div>
+          <h1>25 Packages</h1>
         </StatBox>
         <StatBox>
-          <StatIcon>👜</StatIcon>
-          <StatText>
-            <h3>Monthly Sales</h3>
-            <h1>@$42,000</h1>
-          </StatText>
+          <div>
+            <StatIcon>👜</StatIcon>
+            <StatText>
+              <h3>Monthly Sales</h3>
+            </StatText>
+          </div>
+          <h1>$42,000</h1>
         </StatBox>
       </StatsContainer>
 
