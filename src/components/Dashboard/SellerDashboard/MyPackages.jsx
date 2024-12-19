@@ -23,6 +23,7 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  padding-top: 0;
   border-bottom: 1px solid #ddd;
 `;
 
@@ -53,6 +54,7 @@ const GridContainer = styled.div`
   grid-template-columns: ${(props) =>
     props.showDetails ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   gap: 20px;
+  padding-right: 1rem;
   max-height: 500px;
   overflow-y: auto;
   transition: grid-template-columns 0.5s ease;
@@ -66,7 +68,14 @@ const GridContainer = styled.div`
 
   &::-webkit-scrollbar-thumb {
     background-color: #2a93d5;
-    border-radius: 6px;
+    background-color: #333333;
+    border-radius: 16px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
   }
 `;
 
@@ -163,7 +172,7 @@ const DetailsPanel = styled.div`
   padding: 20px;
   transform: ${(props) =>
     props.showDetails ? "translateX(0)" : "translateX(100%)"};
-  transition: transform 0.5s ease;
+  transition: transform 1s ease-in-out;
   z-index: 10;
   display: ${(props) => (props.showDetails ? "block" : "none")};
 `;
