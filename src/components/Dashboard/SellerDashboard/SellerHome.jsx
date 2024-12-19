@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FiShoppingBag } from "react-icons/fi";
 
 const Container = styled.div`
   padding: 20px;
@@ -45,7 +46,7 @@ const StatIcon = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
 `;
 
 const StatText = styled.div`
@@ -136,7 +137,9 @@ function SellerHome() {
       <StatsContainer>
         <StatBox>
           <div>
-            <StatIcon>👜</StatIcon>
+            <StatIcon>
+              <FiShoppingBag />
+            </StatIcon>
             <StatText>
               <h3>Today&apos;s Sales</h3>
             </StatText>
@@ -145,7 +148,9 @@ function SellerHome() {
         </StatBox>
         <StatBox>
           <div>
-            <StatIcon>👜</StatIcon>
+            <StatIcon>
+              <FiShoppingBag />
+            </StatIcon>
             <StatText>
               <h3>Today&apos;s Packages</h3>
             </StatText>
@@ -154,7 +159,9 @@ function SellerHome() {
         </StatBox>
         <StatBox>
           <div>
-            <StatIcon>👜</StatIcon>
+            <StatIcon>
+              <FiShoppingBag />
+            </StatIcon>
             <StatText>
               <h3>Monthly Sales</h3>
             </StatText>
