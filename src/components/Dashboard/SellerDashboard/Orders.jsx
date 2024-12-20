@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled from "styled-components";
 import { FiFile, FiX } from "react-icons/fi";
@@ -165,7 +166,7 @@ const DetailsPanel = styled.div`
   background-color: #f9f9f9;
   box-shadow: -2px 0px 4px 0px #00000040;
   border-left: 1px solid #ddd;
-  padding: 20px;
+  padding: 15px;
   transform: ${(props) =>
     props.showDetails ? "translateX(0)" : "translateX(100%)"};
   transition: transform 1s ease-in-out;
@@ -173,24 +174,70 @@ const DetailsPanel = styled.div`
   display: ${(props) => (props.showDetails ? "block" : "none")};
 `;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
+const DetailsHeader = styled.h1`
   font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  line-height: 1.1;
+`;
 
-  &:hover {
-    color: #ff0000;
+const PriceInfo = styled.p`
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 5px;
+`;
+
+const Image = styled.div`
+  background-image: url("/package-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+`;
+
+const ListSection = styled.div`
+  margin-bottom: 10px;
+`;
+
+const ListHeading = styled.h3`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 1px;
+  /* margin-bottom: 10px; */
+`;
+
+const ListItem = styled.ul`
+  /* list-style-type: circle; */
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 6rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+
+  & > li {
+    /* margin-bottom: 5px; */
   }
 `;
 
-const DetailsTitle = styled.h3`
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+const ExitButton = styled.button`
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #555555;
+  }
 `;
 
 function Orders() {
@@ -246,17 +293,29 @@ function Orders() {
         </GridContainer>
       </MainContent>
       <DetailsPanel showDetails={showDetails}>
-        <CloseButton onClick={closeDetails}>
-          <FiX />
-        </CloseButton>
-        <DetailsTitle>Order Details</DetailsTitle>
-        {selectedOrder && (
-          <div>
-            <p>Name: {selectedOrder.name}</p>
-            <p>Quantity: {selectedOrder.quantity}</p>
-            <p>Date: {selectedOrder.date}</p>
-          </div>
-        )}
+        <DetailsHeader>
+          Best Tea Plantation of South India - Coorg (3N-2D) Package
+        </DetailsHeader>
+        <PriceInfo>Price: $250 Per person</PriceInfo>
+        <Image />
+        <ListSection>
+          <ListHeading>Highlighted Spots:</ListHeading>
+          <ListItem>
+            <li>Abbey Waterfalls</li>
+            <li>Omkareshwara Temple</li>
+            <li>Mallalli Waterfalls</li>
+            <li>Nagaraholl Tiger Reserve</li>
+            <li>Dubare Elephant Camp</li>
+          </ListItem>
+        </ListSection>
+        <ListSection>
+          <ListHeading>Stays:</ListHeading>
+          <ListItem>
+            <li>Taj Hotel</li>
+            <li>Oberoi Mension</li>
+          </ListItem>
+        </ListSection>
+        <ExitButton onClick={closeDetails}>Exit</ExitButton>
       </DetailsPanel>
     </Container>
   );
