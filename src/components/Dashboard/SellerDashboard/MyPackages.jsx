@@ -185,9 +185,13 @@ const CloseButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 2rem;
+  outline: none;
 
   &:hover {
     color: #ff0000;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
