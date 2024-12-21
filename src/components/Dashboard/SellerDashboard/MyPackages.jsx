@@ -136,6 +136,7 @@ const ActionButton = styled.button`
   font-size: 1.6rem;
   cursor: pointer;
   gap: 10px;
+  text-decoration: none; /* Ensures link appears like a button */
 
   &:hover {
     background-color: #237ab8;
@@ -278,7 +279,10 @@ function MyPackages() {
                 </PackageDetails>
               </ImageContainer>
               <ButtonsContainer>
-                <ActionButton>
+                <ActionButton
+                  as={Link}
+                  to="/seller-dashboard/packages/modify-package"
+                >
                   <span>
                     <FiEdit />
                   </span>{" "}

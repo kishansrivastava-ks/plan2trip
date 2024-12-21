@@ -11,6 +11,8 @@ import SellerHome from "./components/Dashboard/SellerDashboard/SellerHome";
 import MyPackages from "./components/Dashboard/SellerDashboard/MyPackages";
 import Orders from "./components/Dashboard/SellerDashboard/Orders";
 import Payments from "./components/Dashboard/SellerDashboard/Payments";
+import ModifyPackage from "./pages/Dashboards/ModifyPackage";
+import AddPackage from "./pages/Dashboards/AddPackage";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="" element={<SellerHome />} />
             <Route path="home" element={<SellerHome />} />
             <Route path="packages" element={<MyPackages />} />
+            <Route path="packages/modify-package" element={<ModifyPackage />} />
+            <Route path="packages/add-package" element={<AddPackage />} />
             <Route path="orders" element={<Orders />} />
             <Route path="payments" element={<Payments />} />
           </Route>
