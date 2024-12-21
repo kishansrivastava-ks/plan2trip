@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Overview from "../../components/Dashboard/SellerDashboard/ModifyPackage/Overview";
 import AvailabilityQuantity from "../../components/Dashboard/SellerDashboard/ModifyPackage/AvailabilityQuantity";
+import Itinerary from "../../components/Dashboard/SellerDashboard/ModifyPackage/Itinerary";
 
 const Container = styled.div`
   width: 100%;
@@ -74,6 +75,7 @@ function ModifyPackage() {
       </Header>
       <Overview />
       <AvailabilityQuantity />
+      <Itinerary />
     </Container>
   );
 }

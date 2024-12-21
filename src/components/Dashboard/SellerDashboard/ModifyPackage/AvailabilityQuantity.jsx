@@ -85,6 +85,10 @@ const CalendarContainer = styled.div`
   }
 `;
 
+const SeparateDatesContainer = styled(CalendarContainer)`
+  display: inline-block;
+`;
+
 const AvailabilityQuantity = () => {
   const [currentDates, setCurrentDates] = useState(
     "30-12-24 / 01-01-25 / 05-01-25 / 07-01-25 / "
@@ -183,7 +187,7 @@ const AvailabilityQuantity = () => {
             </CalendarContainer>
           )}
           {dateType === "separate" && (
-            <CalendarContainer>
+            <SeparateDatesContainer className="separate_dates">
               <Input
                 type="number"
                 min="1"
@@ -198,7 +202,7 @@ const AvailabilityQuantity = () => {
                   onChange={(e) => handleDateSelection(index, e.target.value)}
                 />
               ))}
-            </CalendarContainer>
+            </SeparateDatesContainer>
           )}
         </Column>
         <Divider />
