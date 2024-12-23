@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import Overview from "../../components/Dashboard/SellerDashboard/ModifyPackage/Overview";
 import AvailabilityQuantity from "../../components/Dashboard/SellerDashboard/ModifyPackage/AvailabilityQuantity";
 import Itinerary from "../../components/Dashboard/SellerDashboard/ModifyPackage/Itinerary";
+import Inclusion from "../../components/Dashboard/SellerDashboard/ModifyPackage/Inclusion";
+import Stay from "../../components/Dashboard/SellerDashboard/ModifyPackage/Stay";
+import Highlights from "../../components/Dashboard/SellerDashboard/ModifyPackage/Highlights";
 
 const Container = styled.div`
   width: 100%;
@@ -76,6 +79,9 @@ function ModifyPackage() {
       <Overview />
       <AvailabilityQuantity />
       <Itinerary />
+      <Inclusion />
+      <Stay />
+      <Highlights />
     </Container>
   );
 }
