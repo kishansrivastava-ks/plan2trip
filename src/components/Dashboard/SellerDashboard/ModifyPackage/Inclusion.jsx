@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled from "styled-components";
 import { FaTrash } from "react-icons/fa";
+import { FiCheck } from "react-icons/fi";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
 const Container = styled.div`
   width: 100%;
@@ -10,7 +13,9 @@ const Container = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  border-radius: 10px;
+  min-height: max-content;
 `;
 
 const Heading = styled.div`
@@ -18,23 +23,21 @@ const Heading = styled.div`
   align-items: center;
 `;
 
-const BulletCircle = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: black;
-  margin-right: 0.8rem;
-`;
-
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  text-transform: uppercase;
+  &::before {
+    content: "\u2022";
+    color: black;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
-  height: 40rem; /* Fixed height for the container */
+  height: 30rem; /* Fixed height for the container */
+  gap: 1rem;
 `;
 
 const LeftColumn = styled.div`
@@ -42,47 +45,75 @@ const LeftColumn = styled.div`
   border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
   overflow-y: auto;
+  padding-right: 1rem;
 
-  &::-webkit-scrollbar {
-    width: 8px;
+  /* &::-webkit-scrollbar {
+    width: 80px;
+    display: none;
   }
   &::-webkit-scrollbar-thumb {
     background: #159fd3;
     border-radius: 10px;
-  }
+    display: none;
+  } */
 `;
 
 const LeftItemContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
+  /* justify-content: space-between; */
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
   cursor: pointer;
   background-color: ${(props) => (props.active ? "#159FD3" : "white")};
   color: ${(props) => (props.active ? "white" : "black")};
   transition: background-color 0.3s ease;
+  border-radius: 5px;
 
   &:hover {
     background-color: #159fd3;
     color: white;
+    /* font-weight: bold; */
+  }
+
+  .check_mark {
+    background-color: ${(props) => (props.active ? "white" : "#159FD3")};
+    color: ${(props) => (props.active ? "#159FD3" : "white")};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    border-radius: 50%;
   }
 `;
 
 const LeftItem = styled.span`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  /* font-weight: bold; */
+  margin-right: 1rem;
 `;
 
 const TrashIcon = styled(FaTrash)`
   cursor: pointer;
   color: ${(props) => (props.active ? "white" : "#555")};
+  margin-left: auto;
 
   &:hover {
     color: red;
   }
 `;
 
+const PointTrash = styled(FaTrash)`
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
+`;
 const AddItemContainer = styled.div`
   display: flex;
   align-items: center;
@@ -90,8 +121,9 @@ const AddItemContainer = styled.div`
   position: sticky;
   bottom: 0;
   background-color: #fff;
-  padding: 1rem;
-  border-top: 1px solid #ddd;
+  /* padding: 1rem; */
+  /* border-top: 1px solid #ddd; */
+  /* border: 2px solid red; */
 `;
 
 const AddItemInput = styled.input`
@@ -105,7 +137,8 @@ const AddItemInput = styled.input`
 const AddItemButton = styled.button`
   background-color: #2a93d5;
   color: white;
-  padding: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
   font-size: 1.6rem;
   font-weight: bold;
   border: none;
@@ -119,37 +152,46 @@ const AddItemButton = styled.button`
 
 const RightColumn = styled.div`
   width: 70%;
-  padding: 1rem;
+  padding: 2rem;
   overflow-y: auto;
-
+  background-color: #0297cf;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 
   &::-webkit-scrollbar {
     width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background: #159fd3;
     border-radius: 10px;
-  }
+  } */
+  /* border: 2px solid red; */
 `;
 
 const TabContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
 `;
 
 const BulletPointContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.6rem;
-  margin-left: 1rem;
+  font-size: 2rem;
+  /* border: 2px solid white; */
+  padding: 0.5rem 1rem;
 `;
 
 const BulletPoint = styled.span`
   &::before {
     content: "•";
-    margin-right: 0.5rem;
-    color: #159fd3;
+    margin-right: 1rem;
+    color: #fff;
   }
 `;
 
@@ -159,9 +201,10 @@ const AddPointContainer = styled.div`
   gap: 1rem;
   position: sticky;
   bottom: 0;
-  background-color: #fff;
-  padding: 1rem;
-  border-top: 1px solid #ddd;
+  background-color: transparent;
+  /* padding: 1rem; */
+  /* border-top: 1px solid #ddd; */
+  /* border: 2px solid red; */
 `;
 
 const AddPointInput = styled.input`
@@ -173,27 +216,33 @@ const AddPointInput = styled.input`
 `;
 
 const AddPointButton = styled.button`
-  background-color: #2a93d5;
-  color: white;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem 2.5rem;
+  border-radius: 5px;
+
   font-size: 1.6rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   border: none;
   cursor: pointer;
   text-align: center;
 
   &:hover {
     background-color: #237ab8;
+    color: #fff;
   }
 `;
 
 function Inclusion() {
   const [items, setItems] = useState([
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
+    "Accomodation",
+    "Meals",
+    "Transport",
+    "Guide",
+    "Train/Flight",
   ]);
   const [activeItem, setActiveItem] = useState(0);
   const [points, setPoints] = useState(
@@ -241,7 +290,6 @@ function Inclusion() {
   return (
     <Container>
       <Heading>
-        <BulletCircle />
         <Title>Inclusion</Title>
       </Heading>
       <ContentContainer>
@@ -254,6 +302,9 @@ function Inclusion() {
               onClick={() => setActiveItem(index)}
             >
               <LeftItem>{item}</LeftItem>
+              <span className="check_mark">
+                <FiCheck />
+              </span>
               <TrashIcon
                 active={index === activeItem}
                 onClick={(e) => {
@@ -279,7 +330,8 @@ function Inclusion() {
             {points[items[activeItem]]?.map((point, index) => (
               <BulletPointContainer key={index}>
                 <BulletPoint>{point}</BulletPoint>
-                <TrashIcon onClick={() => deletePoint(index)} />
+                {/* <TrashIcon onClick={() => deletePoint(index)} /> */}
+                <PointTrash onClick={() => deletePoint(index)} />
               </BulletPointContainer>
             ))}
           </TabContent>
@@ -289,7 +341,12 @@ function Inclusion() {
               onChange={(e) => setNewPoint(e.target.value)}
               placeholder="New Point"
             />
-            <AddPointButton onClick={addPoint}>Add Point</AddPointButton>
+            <AddPointButton onClick={addPoint}>
+              <span>
+                <FiPlusCircle />
+              </span>
+              Add Point
+            </AddPointButton>
           </AddPointContainer>
         </RightColumn>
       </ContentContainer>
