@@ -9,7 +9,9 @@ const Container = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  border-radius: 10px;
+  /* border: 1px solid re d; */
 `;
 
 const Heading = styled.div`
@@ -17,40 +19,40 @@ const Heading = styled.div`
   align-items: center;
 `;
 
-const BulletCircle = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: black;
-  margin-right: 0.8rem;
-`;
-
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  text-transform: uppercase;
+  &::before {
+    content: "\u2022";
+    color: black;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 5px;
+  margin-bottom: 1rem;
 `;
 
 const LeftColumn = styled.div`
-  flex: 8;
+  flex: 7;
   position: relative;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 100%;
+  height: 30rem;
+  /* border-radius: 10px 0 0 10px; */
+  /* border: 1px solid red; */
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px 0 0 12px;
 `;
 
 const EditButton = styled.button`
@@ -74,18 +76,23 @@ const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #333333;
+  border-radius: 0 12px 12px 0;
+  padding: 2rem;
 `;
 
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* border: 1px solid white; */
 `;
 
 const Detail = styled.div`
-  font-size: 1.6rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
   font-weight: 500;
-  color: #333;
+  color: #fff;
 `;
 
 const ArrowButton = styled.button`
@@ -111,9 +118,9 @@ const AddStayButton = styled.button`
   background-color: #2a93d5;
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
-  font-weight: bold;
+  padding: 0.7rem 4rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
   border-radius: 5px;
   cursor: pointer;
   align-self: flex-end;
@@ -128,7 +135,6 @@ function Stay() {
     <Container>
       {/* Title */}
       <Heading>
-        <BulletCircle />
         <Title>Stay</Title>
       </Heading>
 
@@ -138,7 +144,7 @@ function Stay() {
         <LeftColumn>
           <ImageContainer>
             <Image
-              src="https://via.placeholder.com/400x300" // Replace with actual image URL
+              src="/room.jpg" // Replace with actual image URL
               alt="Stay Image"
             />
             <EditButton>

@@ -12,7 +12,8 @@ const Container = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  border-radius: 10px;
+  gap: 1rem;
 `;
 
 const Heading = styled.div`
@@ -20,18 +21,15 @@ const Heading = styled.div`
   align-items: center;
 `;
 
-const BulletCircle = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: black;
-  margin-right: 0.8rem;
-`;
-
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  text-transform: uppercase;
+  &::before {
+    content: "\u2022";
+    color: black;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
 `;
 
 const HighlightsContainer = styled.div`
@@ -41,11 +39,11 @@ const HighlightsContainer = styled.div`
 `;
 
 const Card = styled.div`
-  width: 30rem;
+  width: 29rem;
   height: 40rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 2px;
 `;
 
 const UpperRow = styled.div`
@@ -56,7 +54,7 @@ const UpperRow = styled.div`
     props.image ? `url(${props.image})` : "none"};
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
+  border-radius: 12px 12px 0 0;
   cursor: pointer;
 `;
 
@@ -97,15 +95,15 @@ const Button = styled.button`
 `;
 
 const BottomRow = styled.div`
-  flex: 2;
+  flex: 1.5;
   background-color: #333333;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  font-weight: bold;
-  border-radius: 8px;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  border-radius: 0 0 12px 12px;
   cursor: pointer;
 `;
 
@@ -113,9 +111,9 @@ const AddHighlightButton = styled.button`
   background-color: #2a93d5;
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
-  font-weight: bold;
+  padding: 0.7rem 4rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
   border-radius: 5px;
   cursor: pointer;
   align-self: flex-end;
@@ -128,8 +126,8 @@ const AddHighlightButton = styled.button`
 // Component Function
 const Highlights = () => {
   const [highlights, setHighlights] = useState([
-    { id: 1, name: "Highlight 1", image: "https://via.placeholder.com/400" },
-    { id: 2, name: "Highlight 2", image: "https://via.placeholder.com/400" },
+    { id: 1, name: "Highlight 1", image: "/highlight.jpg" },
+    { id: 2, name: "Highlight 2", image: "/highlight.jpg" },
   ]);
 
   const handleAddHighlight = () => {
@@ -167,7 +165,6 @@ const Highlights = () => {
     <Container>
       {/* Title */}
       <Heading>
-        <BulletCircle />
         <Title>Highlights</Title>
       </Heading>
 
