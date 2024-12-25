@@ -46,6 +46,32 @@ const Card = styled.div`
   gap: 2px;
 `;
 
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 5%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+`;
+
 const UpperRow = styled.div`
   flex: 8;
   position: relative;
@@ -56,41 +82,31 @@ const UpperRow = styled.div`
   background-position: center;
   border-radius: 12px 12px 0 0;
   cursor: pointer;
-`;
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    white,
-    rgba(0, 0, 0, 0.8)
-  );
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  &:hover ${Overlay} {
+    opacity: 1;
+  }
 `;
 
 const Button = styled.button`
-  background-color: ${(props) => (props.danger ? "#333" : "#2A93D5")};
-  color: white;
+  /* background-color: ${(props) => (props.danger ? "#333" : "#2A93D5")}; */
+  background-color: #fff;
+  color: #000;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  width: 18rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.6rem;
   border-radius: 5px;
   margin: 0.5rem 0;
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => (props.danger ? "#555" : "#237AB8")};
+    background-color: ${(props) => (props.danger ? "red" : "#237AB8")};
+    /* color: ${(props) => (props.danger ? "#fff" : "##fff")}; */
+    color: #fff;
+  }
+  &:last-child {
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -126,8 +142,8 @@ const AddHighlightButton = styled.button`
 // Component Function
 const Highlights = () => {
   const [highlights, setHighlights] = useState([
-    { id: 1, name: "Highlight 1", image: "/highlight.jpg" },
-    { id: 2, name: "Highlight 2", image: "/highlight.jpg" },
+    { id: 1, name: "Abbey Waterfalls", image: "/highlight.jpg" },
+    { id: 2, name: "Abbey Waterfalls", image: "/highlight.jpg" },
   ]);
 
   const handleAddHighlight = () => {
