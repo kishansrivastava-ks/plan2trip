@@ -150,7 +150,7 @@ const Highlights = () => {
     const newHighlight = {
       id: Date.now(),
       name: "Text here",
-      image: null,
+      image: "/default-add-image.png",
     };
     setHighlights([...highlights, newHighlight]);
   };
