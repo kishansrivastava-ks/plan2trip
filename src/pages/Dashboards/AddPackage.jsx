@@ -2,6 +2,8 @@ import styled from "styled-components";
 import AvbQty from "../../components/Dashboard/SellerDashboard/AddPackage/AvbQty";
 import AddPkgItinerary from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgItinerary";
 import AddPkgInclusion from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgInclusion";
+import AddPkgHighlights from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgHighlights";
+import AddPkgStay from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgStay";
 
 const Container = styled.div`
   /* border: 1px solid red; */
@@ -71,6 +73,32 @@ const RadioButton = styled.label`
     transform: scale(1.2);
   }
 `;
+
+const SaveButtonContainer = styled.div`
+  width: 100%;
+  /* border: 1px solid red;  */
+  margin: 3rem 0;
+  margin-bottom: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+`;
+const SaveBtn = styled.button`
+  background-color: #2a93d5;
+  color: white;
+  border: none;
+  padding: 0.6rem 3.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+
+  &:hover {
+    background-color: #237ab8;
+  }
+`;
+
 function AddPackage() {
   return (
     <Container>
@@ -97,6 +125,11 @@ function AddPackage() {
       <AvbQty />
       <AddPkgItinerary />
       <AddPkgInclusion />
+      <AddPkgHighlights />
+      <AddPkgStay />
+      <SaveButtonContainer>
+        <SaveBtn>Save Changes</SaveBtn>
+      </SaveButtonContainer>
     </Container>
   );
 }
