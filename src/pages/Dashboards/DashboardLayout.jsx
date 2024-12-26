@@ -18,7 +18,8 @@ const BodyContainer = styled.div`
 
 const MainBody = styled.main`
   flex: 1;
-  padding: 20px;
+  padding: 20px 0;
+  padding-left: 20px;
   background-color: #ffffff;
   overflow-y: auto;
 `;

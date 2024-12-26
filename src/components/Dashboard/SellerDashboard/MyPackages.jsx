@@ -264,7 +264,7 @@ function MyPackages() {
       <MainContent showDetails={showDetails}>
         <Header>
           <Title>My Packages</Title>
-          <AddPackageButton to="/add-package">
+          <AddPackageButton to="/seller-dashboard/packages/add-package">
             <span>+</span> Add Package
           </AddPackageButton>
         </Header>
