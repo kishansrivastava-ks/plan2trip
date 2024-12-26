@@ -4,6 +4,7 @@ import AddPkgItinerary from "../../components/Dashboard/SellerDashboard/AddPacka
 import AddPkgInclusion from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgInclusion";
 import AddPkgHighlights from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgHighlights";
 import AddPkgStay from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgStay";
+import TravellersAndPrice from "../../components/Dashboard/SellerDashboard/AddPackage/TravellersAndPrice";
 
 const Container = styled.div`
   /* border: 1px solid red; */
@@ -122,6 +123,7 @@ function AddPackage() {
           </RadioGroup>
         </span>
       </PriceMatrix>
+      <TravellersAndPrice />
       <AvbQty />
       <AddPkgItinerary />
       <AddPkgInclusion />
