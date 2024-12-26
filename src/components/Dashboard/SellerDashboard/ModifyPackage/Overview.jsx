@@ -201,16 +201,6 @@ const Actions = styled.div`
     color: #fff;
     background-color: #2a93d5;
   }
-  /* 
-  & > button:first-child {
-    background-color: #2a93d5;
-    color: white;
-  }
-
-  & > button:last-child {
-    background-color: #333;
-    color: white;
-  } */
 `;
 
 function Overview() {
