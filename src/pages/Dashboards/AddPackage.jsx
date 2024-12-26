@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AvbQty from "../../components/Dashboard/SellerDashboard/AddPackage/AvbQty";
 import AddPkgItinerary from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgItinerary";
+import AddPkgInclusion from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgInclusion";
 
 const Container = styled.div`
   /* border: 1px solid red; */
@@ -95,6 +96,7 @@ function AddPackage() {
       </PriceMatrix>
       <AvbQty />
       <AddPkgItinerary />
+      <AddPkgInclusion />
     </Container>
   );
 }
