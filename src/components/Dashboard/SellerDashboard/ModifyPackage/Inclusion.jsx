@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaTrash } from "react-icons/fa";
-import { FiCheck } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
 const Container = styled.div`
@@ -97,7 +97,7 @@ const LeftItem = styled.span`
   margin-right: 1rem;
 `;
 
-const TrashIcon = styled(FaTrash)`
+const CrossIcon = styled(FiX)`
   cursor: pointer;
   color: ${(props) => (props.active ? "white" : "#555")};
   margin-left: auto;
@@ -107,7 +107,7 @@ const TrashIcon = styled(FaTrash)`
   }
 `;
 
-const PointTrash = styled(FaTrash)`
+const PointCross = styled(FiX)`
   color: #fff;
   &:hover {
     cursor: pointer;
@@ -302,10 +302,10 @@ function Inclusion() {
               onClick={() => setActiveItem(index)}
             >
               <LeftItem>{item}</LeftItem>
-              <span className="check_mark">
+              {/* <span className="check_mark">
                 <FiCheck />
-              </span>
-              <TrashIcon
+              </span> */}
+              <CrossIcon
                 active={index === activeItem}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -331,7 +331,7 @@ function Inclusion() {
               <BulletPointContainer key={index}>
                 <BulletPoint>{point}</BulletPoint>
                 {/* <TrashIcon onClick={() => deletePoint(index)} /> */}
-                <PointTrash onClick={() => deletePoint(index)} />
+                <PointCross onClick={() => deletePoint(index)} />
               </BulletPointContainer>
             ))}
           </TabContent>

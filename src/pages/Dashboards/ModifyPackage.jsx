@@ -69,7 +69,6 @@ const AddPackageButton = styled(Link)`
 
 const SaveButtonContainer = styled.div`
   width: 100%;
-  /* border: 1px solid red;  */
   margin: 3rem 0;
   margin-bottom: 5rem;
   display: flex;
