@@ -163,6 +163,7 @@ body {
   font-size: 1.6rem;
   overflow-x: hidden;
   overflow-y: hidden;
+  -webkit-tap-highlight-color: transparent
 }
 body::-webkit-scrollbar {
     display: none;
@@ -195,8 +196,7 @@ input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-brand-600);
-  outline-offset: -1px;
+  outline: none;
 }
 
 button:has(svg) {

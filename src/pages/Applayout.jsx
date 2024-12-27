@@ -14,6 +14,7 @@ const Layout = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  scroll-behavior: smooth;
   /* border: 0.5rem solid red; */
 `;
 

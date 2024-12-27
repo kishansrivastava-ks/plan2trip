@@ -30,13 +30,13 @@ const DetailsContainer = styled.div`
   border: 2px solid lightgray;
   border-radius: 0 24px 24px 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* border: 2px solid red; */
 `;
 
 const Title = styled.h3`
   font-size: 2.5rem;
   font-weight: bold;
   color: #000;
-  text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   /* border: 1px solid red; */
@@ -105,8 +105,9 @@ const Price = styled.div`
   .price {
     background: #159dd1;
     color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 3rem;
     border-radius: 5px;
+    margin-right: 1rem;
   }
 `;
 
@@ -120,7 +121,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
-  /* margin-bottom: -1rem; */
+  margin-bottom: -1.5rem;
 
   &:hover {
     background: ${({ outline }) => (outline ? "#159dd1" : "transparent")};
@@ -162,7 +163,7 @@ const TourPackageItem = ({ name, duration, ratings, reviews, price, key }) => {
         </Travelers>
         <Price>
           {/* Price: <span className="price">${price} per person</span> */}
-          Price : <span className="price">${400} per person</span>
+          Price : <span className="price">${400} </span> Per Person
         </Price>
         <Button>Add to Cart</Button>
         <Button outline>See Details</Button>

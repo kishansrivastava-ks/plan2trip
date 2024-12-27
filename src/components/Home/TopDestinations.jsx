@@ -10,6 +10,7 @@ const Section = styled.section`
   align-items: center;
   max-width: 100vw;
   /* border: 2px solid green; */
+  margin-top: 4rem;
 `;
 
 const Heading = styled.h2`

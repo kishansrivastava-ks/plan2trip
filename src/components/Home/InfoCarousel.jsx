@@ -7,10 +7,11 @@ const CarouselSection = styled.section`
   height: 100vh;
   width: 100vw;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 `;
 
 const SlideContainer = styled.div`
@@ -54,8 +55,9 @@ const DotContainer = styled.div`
 
 const SearchContainer = styled.div`
   position: absolute;
-  bottom: 1rem;
-  z-index: 1;
+  bottom: -5rem;
+  z-index: 10;
+  /* border: 2px solid red; */
 `;
 
 const Dot = styled.div`

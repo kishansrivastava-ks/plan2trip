@@ -113,9 +113,14 @@ const Button = styled.button`
   /* font-weight: bold; */
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background: ${(props) => (props.cartBtn ? "#fff" : "#159fd3")};
+  color: ${(props) => (props.cartBtn ? "#000" : "#fff")};
+  border: ${(props) => (props.cartBtn ? "2px solid #159fd3" : "none")};
 
   &:hover {
-    background-color: #005bb5;
+    /* background-color: #; */
+    background-color: ${(props) => (props.cartBtn ? "#159fd3" : "#005bb5")};
+    color: #fff;
   }
 `;
 
@@ -145,7 +150,7 @@ function Stay() {
       </TwoColumnLayout>
 
       <ButtonsContainer>
-        <Button>Add to Cart</Button>
+        <Button cartBtn={true}>Add to Cart</Button>
         <Button>Buy Now</Button>
       </ButtonsContainer>
     </StayContainer>

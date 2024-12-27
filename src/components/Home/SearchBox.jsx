@@ -15,6 +15,12 @@ const SearchContainer = styled.div`
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin: 0 auto;
+  /* border: 2px solid red; */
+  .mr {
+    /* padding-right: 5rem; */
+    /* border: 2px solid red; */
+    /* margin-right: -3rem; */
+  }
 `;
 
 const InputContainer = styled.div`
@@ -78,8 +84,11 @@ const DateInputContainer = styled.div`
     border: none;
     outline: none;
     font-size: 2rem;
-    /* border: 1px solid red; */
   }
+  /* border: 1px solid red; */
+  /* margin-left: 2rem;
+  max-width: 30rem;
+  margin-right: 2rem; */
 `;
 
 const SearchButton = styled.button`
@@ -105,7 +114,7 @@ function SearchBox() {
 
   return (
     <SearchContainer>
-      <InputContainer>
+      <InputContainer className="mr">
         <Icon>
           <FaMapMarkerAlt />
         </Icon>

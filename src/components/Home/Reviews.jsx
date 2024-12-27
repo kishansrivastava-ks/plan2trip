@@ -99,6 +99,11 @@ const SeeMoreButton = styled(Link)`
 
   &:hover {
     background-color: var(--color-main);
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    /* border: 2px solid black; */
+    outline: 2px solid black;
   }
 `;
 
