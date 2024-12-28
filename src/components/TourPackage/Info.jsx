@@ -15,7 +15,8 @@ const fadeIn = keyframes`
 
 const InfoContainer = styled.div`
   width: 90vw;
-  height: 100vh;
+  /* height: 100vh; */
+  height: max-content;
   margin: 0 auto;
   /* padding: 2rem; */
   padding-top: 2rem;
@@ -29,12 +30,14 @@ const Heading = styled.h1`
   font-weight: bold;
   text-transform: uppercase;
   color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 `;
 
 const CarouselContainer = styled.div`
   position: relative;
   width: 90vw;
-  height: 80vh;
+  height: 78vh;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -99,6 +102,10 @@ const PackageDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: auto;
+  /* border: 1px solid red; */
+  padding: 0 2rem;
+  gap: 10rem;
+  margin: 3rem 0;
 `;
 
 const DetailItem = styled.div`
@@ -107,18 +114,22 @@ const DetailItem = styled.div`
 `;
 
 const DetailHeading = styled.h4`
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const DetailInfo = styled.div`
-  background-color: #0000ff;
+  background-color: #159fd3;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 `;
 
 const Info = () => {
