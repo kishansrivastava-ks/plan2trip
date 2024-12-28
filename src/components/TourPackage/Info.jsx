@@ -1,73 +1,104 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-
 import { FaCircle } from "react-icons/fa";
 
-// Keyframes for sliding animation (reuse from previous work)
-const slideIn = keyframes`
+const fadeIn = keyframes`
   from {
-    transform: translateX(100%);
     opacity: 0;
+    transform: scale(1.02);
   }
   to {
-    transform: translateX(0);
     opacity: 1;
+    transform: scale(1);
   }
 `;
 
-// Styled Components
 const InfoContainer = styled.div`
-  padding: 2rem;
-  max-width: 80vw;
+  width: 90vw;
+  height: 100vh;
   margin: 0 auto;
+  /* padding: 2rem; */
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const Heading = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 2rem;
   color: #333;
 `;
 
 const CarouselContainer = styled.div`
   position: relative;
+  width: 90vw;
+  height: 80vh;
   overflow: hidden;
-  width: 100%;
-  height: 300px;
-  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 `;
 
-const CarouselSlide = styled.div`
+const CarouselTrack = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
-  transition: transform 0.8s ease;
-  animation: ${slideIn} 1s ease;
+  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
 `;
 
-const Slide = styled.img`
+const Slide = styled.div`
+  flex-shrink: 0;
   width: 100%;
-  height: 300px;
+  height: 100%;
+`;
+
+const SlideImage = styled.img`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  object-position: center;
+  animation: ${fadeIn} 0.6s ease-out;
 `;
 
 const DotsContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  margin-top: 1rem;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
 `;
 
-const Dot = styled(FaCircle)`
-  margin: 0 5px;
-  color: ${(props) => (props.isActive ? "#0000FF" : "#000")};
-  font-size: ${(props) => (props.isActive ? "0.8rem" : "0.6rem")};
-  opacity: ${(props) => (props.isActive ? 1 : 0.5)};
+const Dot = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  svg {
+    width: ${(props) => (props.isActive ? "12px" : "8px")};
+    height: ${(props) => (props.isActive ? "12px" : "8px")};
+    color: ${(props) =>
+      props.isActive ? "#ffffff" : "rgba(255, 255, 255, 0.6)"};
+    transition: all 0.3s ease;
+  }
 `;
 
 const PackageDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: auto;
 `;
 
 const DetailItem = styled.div`
@@ -90,47 +121,63 @@ const DetailInfo = styled.div`
   font-weight: bold;
 `;
 
-// Info Component
 const Info = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isTransitioning, setIsTransitioning] = React.useState(false);
   const images = [
     "/manali-1.jpg",
     "/manali-2.jpg",
     "/manali-3.jpg",
     "/manali-4.jpg",
-    "/manali-4.jpg",
+    "/manali-1.jpg",
   ];
 
+  const goToSlide = (index) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setActiveIndex(index);
+    setTimeout(() => setIsTransitioning(false), 600); // Match transition duration
+  };
+
+  const nextSlide = () => {
+    goToSlide((activeIndex + 1) % images.length);
+  };
+
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    const interval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
     return () => clearInterval(interval);
-  }, [images.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex]);
 
   return (
     <InfoContainer>
       <Heading>MANALI TOUR PACKAGE (5-N;4-D)</Heading>
 
-      {/* Carousel */}
       <CarouselContainer>
-        <CarouselSlide
+        <CarouselTrack
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
           {images.map((src, index) => (
-            <Slide key={index} src={src} alt={`Slide ${index + 1}`} />
+            <Slide key={index}>
+              <SlideImage src={src} alt={`Manali Tour ${index + 1}`} />
+            </Slide>
           ))}
-        </CarouselSlide>
+        </CarouselTrack>
 
-        {/* Dots */}
         <DotsContainer>
           {images.map((_, index) => (
-            <Dot key={index} isActive={index === activeIndex} />
+            <Dot
+              key={index}
+              isActive={index === activeIndex}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <FaCircle />
+            </Dot>
           ))}
         </DotsContainer>
       </CarouselContainer>
 
-      {/* Package Details */}
       <PackageDetailsContainer>
         <DetailItem>
           <DetailHeading>Tour Operator</DetailHeading>

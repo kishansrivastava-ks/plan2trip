@@ -29,34 +29,87 @@ const LeftColumn = styled.div`
   /* border: 2px solid blue; */
 `;
 
+// const ImageWrapper = styled.div`
+//   position: relative;
+//   width: 80%;
+//   height: 80%;
+//   /* border: 2px solid green; */
+//   display: flex;
+//   justify-content: center;
+//   margin-top: -5rem;
+// `;
+
 const ImageWrapper = styled.div`
   position: relative;
   width: 80%;
   height: 80%;
-  /* border: 2px solid green; */
   display: flex;
   justify-content: center;
   margin-top: -5rem;
+  perspective: 1000px; /* Adds depth perception for 3D transforms */
 `;
+
+// const Image = styled.img`
+//   width: 65%;
+//   height: auto;
+//   position: absolute;
+//   border-radius: 10px;
+//   transform-origin: bottom left;
+
+//   &:first-child {
+//     transform: rotate(-5deg);
+//     z-index: 1;
+//   }
+//   &:last-child {
+//     transform: rotate(5deg);
+//     z-index: 2;
+//     margin-top: -2rem;
+//   }
+// `;
 
 const Image = styled.img`
   width: 65%;
   height: auto;
   position: absolute;
   border-radius: 10px;
-  transform-origin: bottom left;
+  transform-origin: bottom center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:first-child {
+    /* transform: rotate(-5deg) translateY(0); */
     transform: rotate(-5deg);
     z-index: 1;
+
+    &:hover {
+      transform: rotate(0deg) translateY(-20px) scale(1.05);
+      z-index: 3;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      outline: 5px solid #2a93d5;
+      outline-offset: 0.5rem;
+      filter: brightness(1.1);
+      /* border-radius: 0; */
+      cursor: pointer;
+    }
   }
+
   &:last-child {
+    /* transform: rotate(5deg) translateY(-2rem); */
     transform: rotate(5deg);
     z-index: 2;
-    margin-top: -2rem;
+
+    &:hover {
+      transform: rotate(0deg) translateY(-30px) scale(1.05);
+      z-index: 3;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      outline: 5px solid #2a93d5;
+      outline-offset: 0.5rem;
+      filter: brightness(1.1);
+      cursor: pointer;
+      /* border-radius: 0; */
+    }
   }
 `;
-
 const RightColumn = styled.div`
   flex: 1;
   padding: 1rem;
