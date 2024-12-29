@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled from "styled-components";
+import { Plus, X } from "lucide-react";
 
 const Container = styled.div`
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -85,10 +87,52 @@ const CalendarContainer = styled.div`
   }
 `;
 
-const SeparateDatesContainer = styled(CalendarContainer)`
-  display: inline-block;
+const SeparateDatesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 `;
 
+const DateInputGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+const AddButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2a93d5;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(42, 147, 213, 0.1);
+  }
+`;
+const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.$isRemove ? "rgba(244, 67, 54, 0.1)" : "rgba(42, 147, 213, 0.1)"};
+  }
+
+  color: ${(props) => (props.$isRemove ? "#f44336" : "#2a93d5")};
+`;
 const AvailabilityQuantity = () => {
   const [currentDates, setCurrentDates] = useState(
     "30-12-24 / 01-01-25 / 05-01-25 / 07-01-25 / "
@@ -100,7 +144,7 @@ const AvailabilityQuantity = () => {
   const [rangeEnd, setRangeEnd] = useState("");
 
   const [numDates, setNumDates] = useState(0);
-  const [selectedDates, setSelectedDates] = useState([]);
+  const [selectedDates, setSelectedDates] = useState([""]);
 
   const handleRangeEnd = (e) => {
     setRangeEnd(e.target.value);
@@ -117,16 +161,35 @@ const AvailabilityQuantity = () => {
     setSelectedDates(Array(num).fill(""));
   };
 
-  const handleDateSelection = (index, date) => {
-    const updatedDates = [...selectedDates];
-    updatedDates[index] = date;
-    setSelectedDates(updatedDates);
+  // const handleDateSelection = (index, date) => {
+  //   const updatedDates = [...selectedDates];
+  //   updatedDates[index] = date;
+  //   setSelectedDates(updatedDates);
 
-    if (updatedDates.every((d) => d !== "")) {
-      setCurrentDates(updatedDates.join(" / ") + " / ");
-      setNumDates(0);
-      setSelectedDates([]);
+  //   if (updatedDates.every((d) => d !== "")) {
+  //     setCurrentDates(updatedDates.join(" / ") + " / ");
+  //     setNumDates(0);
+  //     setSelectedDates([]);
+  //   }
+  // };
+
+  const handleDateSelection = (index, value) => {
+    const newDates = [...selectedDates];
+    newDates[index] = value;
+    setSelectedDates(newDates);
+  };
+
+  const handleAddDate = () => {
+    setSelectedDates([...selectedDates, ""]);
+  };
+
+  const handleRemoveDate = (index) => {
+    const newDates = selectedDates.filter((_, i) => i !== index);
+    // Ensure there's always at least one date input
+    if (newDates.length === 0) {
+      newDates.push("");
     }
+    setSelectedDates(newDates);
   };
 
   const handleQuantityChange = (e) => {
@@ -188,19 +251,26 @@ const AvailabilityQuantity = () => {
           )}
           {dateType === "separate" && (
             <SeparateDatesContainer className="separate_dates">
-              <Input
-                type="number"
-                min="1"
-                value={numDates}
-                onChange={handleNumDatesChange}
-                placeholder="Number of Dates"
-              />
-              {selectedDates.map((_, index) => (
-                <Input
-                  key={index}
-                  type="date"
-                  onChange={(e) => handleDateSelection(index, e.target.value)}
-                />
+              {selectedDates.map((date, index) => (
+                <DateInputGroup key={index}>
+                  <Input
+                    type="date"
+                    value={date}
+                    onChange={(e) => handleDateSelection(index, e.target.value)}
+                  />
+                  <IconButton
+                    onClick={() => handleRemoveDate(index)}
+                    type="button"
+                    $isRemove={true}
+                  >
+                    <X size={20} />
+                  </IconButton>
+                  {index === selectedDates.length - 1 && (
+                    <IconButton onClick={handleAddDate} type="button">
+                      <Plus size={24} />
+                    </IconButton>
+                  )}
+                </DateInputGroup>
               ))}
             </SeparateDatesContainer>
           )}

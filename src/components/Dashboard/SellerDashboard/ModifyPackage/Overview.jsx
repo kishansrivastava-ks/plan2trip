@@ -81,12 +81,13 @@ const ModalOverlay = styled.div`
 const ModalContainer = styled.div`
   background: white;
   border-radius: 8px;
-  max-width: 75vw;
+  min-width: 75vw;
   min-height: max-content;
   /* height: 70vh; */
   padding: 4rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   position: relative;
+  /* border: 2px solid red; */
 `;
 
 const CloseButton = styled.button`
@@ -148,17 +149,23 @@ const RadioOption = styled.label`
 const PhotosContainer = styled.div`
   display: flex;
   gap: 1rem;
-  /* border: 2px solid red; */
 `;
 
 const PhotoLeftCol = styled.div`
   min-width: 75%;
-  background: url("/package-bg.jpeg");
+  background: ${(props) =>
+    props.$hasPhotos ? `url("${props.$mainPhoto}")` : "none"};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* border: 2px solid blue; */
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30rem;
+  color: #666;
+  font-size: 1.5rem;
+  border: 2px solid #ccc;
 `;
 const PhotoRightCol = styled.div`
   flex: 3;
@@ -174,22 +181,44 @@ const PhotoGrid = styled.div`
   height: 30rem;
   overflow-y: auto;
   border-radius: 5px;
-  /* border: 1px solid red; */
+  position: relative;
+  /* border: 2px solid red; */
+`;
+
+const EmptyPhotoGrid = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1.5rem;
+`;
+
+const PhotoWrapper = styled.div`
+  aspect-ratio: 4 / 3;
+  border: ${(props) =>
+    props.$selected ? "3px solid #2a93d5" : "3px solid transparent"};
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  /* border: 2px solid red; */
 `;
 
 const Photo = styled.img`
   width: 100%;
-  height: auto;
-  border-radius: 5px;
-  cursor: pointer;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
 `;
 
 const Actions = styled.div`
   display: flex;
   gap: 1rem;
-  /* justify-content: center; */
   margin-top: 1rem;
-  /* border: 1px solid green; */
 
   & > button {
     flex: 1;
@@ -200,6 +229,12 @@ const Actions = styled.div`
     cursor: pointer;
     color: #fff;
     background-color: #2a93d5;
+    opacity: ${(props) => (props.$disabled ? 0.5 : 1)};
+    pointer-events: ${(props) => (props.$disabled ? "none" : "auto")};
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -209,7 +244,10 @@ function Overview() {
     "Best Tea Plantation of South India - Coorg (3N-2D) Package"
   );
   const [price, setPrice] = useState("250");
+  // const [photos, setPhotos] = useState(["/package-bg.jpeg"]);
+
   const [photos, setPhotos] = useState(["/package-bg.jpeg"]);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleAddPhoto = (e) => {
     const file = e.target.files[0];
@@ -219,8 +257,15 @@ function Overview() {
     }
   };
 
-  const handleRemovePhoto = (index) => {
-    setPhotos(photos.filter((_, i) => i !== index));
+  const handleRemovePhoto = () => {
+    if (selectedPhoto !== null) {
+      setPhotos(photos.filter((_, i) => i !== selectedPhoto));
+      setSelectedPhoto(null);
+    }
+  };
+
+  const handlePhotoClick = (index) => {
+    setSelectedPhoto(selectedPhoto === index ? null : index);
   };
 
   return (
@@ -265,7 +310,7 @@ function Overview() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </Row>
-          <PhotosContainer>
+          {/* <PhotosContainer>
             <PhotoLeftCol>left columnm</PhotoLeftCol>
             <PhotoRightCol>
               <PhotoGrid>
@@ -287,6 +332,49 @@ function Overview() {
               <input
                 type="file"
                 id="photo-upload"
+                style={{ display: "none" }}
+                onChange={handleAddPhoto}
+              />
+            </PhotoRightCol>
+          </PhotosContainer> */}
+
+          <PhotosContainer>
+            <PhotoLeftCol
+              $hasPhotos={photos.length > 0}
+              $mainPhoto={photos[0] || ""}
+            >
+              {photos.length === 0 && "No photos added yet"}
+            </PhotoLeftCol>
+            <PhotoRightCol>
+              <PhotoGrid>
+                {photos.length === 0 && (
+                  <EmptyPhotoGrid>Add photos</EmptyPhotoGrid>
+                )}
+                {photos.map((photo, index) => (
+                  <PhotoWrapper
+                    key={index}
+                    $selected={selectedPhoto === index}
+                    onClick={() => handlePhotoClick(index)}
+                  >
+                    <Photo src={photo} alt={`Gallery item ${index + 1}`} />
+                  </PhotoWrapper>
+                ))}
+              </PhotoGrid>
+              <Actions $disabled={photos.length === 0 && !selectedPhoto}>
+                <button>
+                  <label htmlFor="photo-upload">Add Photo</label>
+                </button>
+                <button
+                  onClick={handleRemovePhoto}
+                  disabled={selectedPhoto === null}
+                >
+                  Remove Photo
+                </button>
+              </Actions>
+              <input
+                type="file"
+                id="photo-upload"
+                accept="image/*"
                 style={{ display: "none" }}
                 onChange={handleAddPhoto}
               />
