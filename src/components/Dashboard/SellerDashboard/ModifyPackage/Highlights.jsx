@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { FaEdit, FaTrash, FaImage } from "react-icons/fa";
 
-// Styled Components
 const Container = styled.div`
   width: 100%;
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -35,15 +34,21 @@ const Title = styled.h2`
 const HighlightsContainer = styled.div`
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Card = styled.div`
-  width: 29rem;
+  min-width: 29rem;
   height: 40rem;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex-shrink: 0;
 `;
 
 const Overlay = styled.div`
@@ -89,7 +94,6 @@ const UpperRow = styled.div`
 `;
 
 const Button = styled.button`
-  /* background-color: ${(props) => (props.danger ? "#333" : "#2A93D5")}; */
   background-color: #fff;
   color: #000;
   border: none;
@@ -102,7 +106,6 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${(props) => (props.danger ? "red" : "#237AB8")};
-    /* color: ${(props) => (props.danger ? "#fff" : "##fff")}; */
     color: #fff;
   }
   &:last-child {
@@ -123,6 +126,24 @@ const BottomRow = styled.div`
   cursor: pointer;
 `;
 
+const EditableText = styled.input`
+  background: none;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 0 1rem;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const HiddenFileInput = styled.input`
+  display: none;
+`;
+
 const AddHighlightButton = styled.button`
   background-color: #2a93d5;
   color: white;
@@ -139,17 +160,19 @@ const AddHighlightButton = styled.button`
   }
 `;
 
-// Component Function
 const Highlights = () => {
   const [highlights, setHighlights] = useState([
     { id: 1, name: "Abbey Waterfalls", image: "/highlight.jpg" },
     { id: 2, name: "Abbey Waterfalls", image: "/highlight.jpg" },
   ]);
+  const [editingId, setEditingId] = useState(null);
+  const fileInputRef = useRef(null);
+  const currentHighlightRef = useRef(null);
 
   const handleAddHighlight = () => {
     const newHighlight = {
       id: Date.now(),
-      name: "Text here",
+      name: "New Highlight",
       image: "/default-add-image.png",
     };
     setHighlights([...highlights, newHighlight]);
@@ -159,38 +182,47 @@ const Highlights = () => {
     setHighlights(highlights.filter((highlight) => highlight.id !== id));
   };
 
-  const handleEditHighlight = (id, type) => {
-    if (type === "name") {
-      const newName = prompt("Enter new name:");
-      setHighlights(
-        highlights.map((highlight) =>
-          highlight.id === id ? { ...highlight, name: newName } : highlight
-        )
-      );
-    } else if (type === "image") {
-      const newImage = prompt("Enter image URL:");
-      setHighlights(
-        highlights.map((highlight) =>
-          highlight.id === id ? { ...highlight, image: newImage } : highlight
-        )
-      );
-    }
+  const handleNameChange = (id, newName) => {
+    if (newName.trim() === "") return;
+    setHighlights(
+      highlights.map((highlight) =>
+        highlight.id === id ? { ...highlight, name: newName } : highlight
+      )
+    );
+  };
+
+  const handleImageClick = (id) => {
+    currentHighlightRef.current = id;
+    fileInputRef.current.click();
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+    setHighlights(
+      highlights.map((highlight) =>
+        highlight.id === currentHighlightRef.current
+          ? { ...highlight, image: imageUrl }
+          : highlight
+      )
+    );
+    event.target.value = "";
   };
 
   return (
     <Container>
-      {/* Title */}
       <Heading>
         <Title>Highlights</Title>
       </Heading>
 
-      {/* Cards Container */}
       <HighlightsContainer>
         {highlights.map((highlight) => (
           <Card key={highlight.id}>
             <UpperRow
               image={highlight.image}
-              onClick={() => handleEditHighlight(highlight.id, "image")}
+              onClick={() => handleImageClick(highlight.id)}
             >
               <Overlay>
                 <Button
@@ -205,23 +237,44 @@ const Highlights = () => {
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleEditHighlight(highlight.id, "name");
+                    handleImageClick(highlight.id);
                   }}
                 >
                   Edit Highlight
                 </Button>
               </Overlay>
             </UpperRow>
-            <BottomRow
-              onClick={() => handleEditHighlight(highlight.id, "name")}
-            >
-              {highlight.name}
+            <BottomRow onClick={() => setEditingId(highlight.id)}>
+              {editingId === highlight.id ? (
+                <EditableText
+                  type="text"
+                  value={highlight.name}
+                  onChange={(e) =>
+                    handleNameChange(highlight.id, e.target.value)
+                  }
+                  onBlur={() => setEditingId(null)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      setEditingId(null);
+                    }
+                  }}
+                  autoFocus
+                />
+              ) : (
+                highlight.name
+              )}
             </BottomRow>
           </Card>
         ))}
       </HighlightsContainer>
 
-      {/* Add Highlight Button */}
+      <HiddenFileInput
+        type="file"
+        ref={fileInputRef}
+        onChange={handleImageChange}
+        accept="image/*"
+      />
+
       <AddHighlightButton onClick={handleAddHighlight}>
         Add Highlight
       </AddHighlightButton>
