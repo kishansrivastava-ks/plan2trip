@@ -9,6 +9,7 @@ import {
 
 const SidebarContainer = styled.nav`
   width: 250px;
+  /* background-color: #f7f7f7; */
   border-right: 1px solid #00000080;
   padding: 20px;
   padding-top: 0;
@@ -27,6 +28,7 @@ const ItemContainer = styled.div`
 `;
 
 const SidebarLink = styled(NavLink)`
+  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -60,25 +62,25 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <ItemContainer>
-        <SidebarLink to="/seller-dashboard" end>
+        <SidebarLink to="/seller-dashboard/home" activeClassName="active">
           <Icon>
             <FiHome />
           </Icon>
-          Home
+          <p>Home</p>
         </SidebarLink>
-        <SidebarLink to="/seller-dashboard/packages">
+        <SidebarLink to="/seller-dashboard/packages" activeClassName="active">
           <Icon>
             <FiPackage />
           </Icon>
           Packages
         </SidebarLink>
-        <SidebarLink to="/seller-dashboard/orders">
+        <SidebarLink to="/seller-dashboard/orders" activeClassName="active">
           <Icon>
             <FiShoppingCart />
           </Icon>
           My Orders
         </SidebarLink>
-        <SidebarLink to="/seller-dashboard/payments">
+        <SidebarLink to="/seller-dashboard/payments" activeClassName="active">
           <Icon>
             <FiDollarSign />
           </Icon>
