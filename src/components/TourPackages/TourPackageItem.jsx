@@ -158,7 +158,9 @@ const TourPackageItem = ({ name, duration, ratings, reviews, price, key }) => {
           <button onClick={handleDecrease} disabled={travelers <= 1}>
             -
           </button>
-          <span>{travelers}</span>
+          <span>
+            {travelers} {travelers === 1 ? "Traveler" : `Travelers`}
+          </span>
           <button onClick={handleIncrease}>+</button>
         </Travelers>
         <Price>

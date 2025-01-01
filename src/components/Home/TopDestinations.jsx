@@ -126,9 +126,16 @@ function TopDestinations() {
   };
 
   useEffect(() => {
-    sliderRef.current.addEventListener("scroll", updateHighlight);
+    const currentRef = sliderRef.current;
+
+    if (currentRef) {
+      currentRef.addEventListener("scroll", updateHighlight);
+    }
+
     return () => {
-      sliderRef.current.removeEventListener("scroll", updateHighlight);
+      if (currentRef) {
+        currentRef.removeEventListener("scroll", updateHighlight);
+      }
     };
   }, []);
 
