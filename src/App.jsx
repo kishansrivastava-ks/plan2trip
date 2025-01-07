@@ -13,6 +13,10 @@ import Orders from "./components/Dashboard/SellerDashboard/Orders";
 import Payments from "./components/Dashboard/SellerDashboard/Payments";
 import ModifyPackage from "./pages/Dashboards/ModifyPackage";
 import AddPackage from "./pages/Dashboards/AddPackage";
+import AdminLayout from "./pages/AdminDashboard/AdminDashboardLayout";
+import AdminHome from "./components/Dashboard/AdminPanel/AdminHome";
+import Sellers from "./components/Dashboard/AdminPanel/Sellers";
+import Requests from "./components/Dashboard/AdminPanel/Requests";
 
 function App() {
   return (
@@ -36,6 +40,12 @@ function App() {
             <Route path="packages/add-package" element={<AddPackage />} />
             <Route path="orders" element={<Orders />} />
             <Route path="payments" element={<Payments />} />
+          </Route>
+
+          <Route path="/superadmin-panel" element={<AdminLayout />}>
+            <Route path="" element={<AdminHome />} />
+            <Route path="sellers" element={<Sellers />} />
+            <Route path="requests" element={<Requests />} />
           </Route>
         </Routes>
       </BrowserRouter>

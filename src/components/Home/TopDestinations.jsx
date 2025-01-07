@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -9,7 +8,6 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   max-width: 100vw;
-  /* border: 2px solid green; */
   margin-top: 4rem;
 `;
 
@@ -29,11 +27,8 @@ const SliderContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-  /* width: 100%; */
   overflow: hidden;
   height: 50rem;
-  /* padding: 1rem; */
   width: 60%;
   /* border: 2px solid red; */
 `;
@@ -43,11 +38,9 @@ const Slider = styled.div`
   gap: 1rem;
   transition: transform 0.5s ease;
   overflow-x: scroll;
-  /* padding-bottom: 3rem; */
-  /* max-width: 50%; */
-  /* width: 100%; */
-  /* border: 2px solid blue; */
   padding: 5rem 0;
+  scroll-behavior: smooth;
+  /* border: 2px solid red; */
 
   &::-webkit-scrollbar {
     height: 15px;
@@ -62,8 +55,6 @@ const Slider = styled.div`
 `;
 
 const Card = styled.div`
-  /* min-width: ${(props) => (props.isHighlighted ? "280px" : "250px")};
-  height: ${(props) => (props.isHighlighted ? "380px" : "350px")}; */
   min-width: ${(props) => (props.isHighlighted ? "300px" : "270px")};
   height: ${(props) => (props.isHighlighted ? "400px" : "370px")};
   display: flex;
@@ -118,10 +109,19 @@ function TopDestinations() {
 
   const updateHighlight = () => {
     if (sliderRef.current) {
-      const scrollLeft = sliderRef.current.scrollLeft;
-      const cardWidth = 250 + 10; // Width of each card plus gap
-      const centerIndex = Math.round(scrollLeft / cardWidth) + 1;
-      setHighlightedIndex(centerIndex);
+      const container = sliderRef.current;
+      const containerWidth = container.offsetWidth;
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = 280; // Average width of a card (including margin)
+
+      // Calculate the center position of the viewport
+      const centerViewport = containerWidth / 2;
+      // Calculate which card should be centered based on scroll position
+      const centerCard = Math.round(
+        (scrollLeft + centerViewport - cardWidth / 2) / cardWidth
+      );
+
+      setHighlightedIndex(centerCard);
     }
   };
 
