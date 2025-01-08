@@ -58,7 +58,7 @@ const ProfileIcon = styled(FiUser)`
 const MainContent = styled.main`
   flex: 1;
   padding: 3rem 4rem;
-  background-color: #f5f5f5;
+  background-color: #fff;
 `;
 
 function AdminLayout() {
