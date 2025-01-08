@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
-import { FiEdit, FiFile } from "react-icons/fi";
+import { FiFile, FiTrash2 } from "react-icons/fi";
 
 const Container = styled.div`
   display: flex;
@@ -14,52 +13,17 @@ const Header = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: center; */
   padding-bottom: 1rem;
   border-bottom: 2px solid #cccccc;
 
   & > h2 {
     text-shadow: 0px 4px 4px 0px #00000040;
   }
-
-  & > div {
-    & > button {
-      box-shadow: -2px -2px 4px 0px #00000040, 2px 2px 4px 0px #00000040;
-      margin-left: 1rem;
-      padding: 0.5rem 2rem;
-      border-radius: 5px;
-      border: none;
-      background: #ffffff;
-      font-size: 1.7rem;
-      color: #8b8b8b;
-      cursor: pointer;
-
-      &:hover {
-        background: #f0f0f0;
-      }
-    }
-  }
-`;
-
-const StyledNavLink = styled(NavLink)`
-  box-shadow: -2px -2px 4px 0px #00000040, 2px 2px 4px 0px #00000040;
-  margin-left: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  border: none;
-  background: #ffffff;
-  font-size: 1.7rem;
-  color: #8b8b8b;
-  cursor: pointer;
-
-  &:hover {
-    background: #f0f0f0;
-  }
 `;
 
 const Packages = styled.div`
   margin-top: 1rem;
-  /* border: 1px solid green; */
   width: 100%;
   padding: 1rem;
   max-height: 80vh;
@@ -80,7 +44,6 @@ const Packages = styled.div`
 
 const GridItem = styled.div`
   display: grid;
-  /* grid-template-rows: 5fr  1fr 1fr; */
   grid-template-rows: auto;
   gap: 8px;
   border-radius: 8px;
@@ -117,32 +80,10 @@ const PackageDetails = styled.div`
   }
 `;
 
-const PropertiesButton = styled.button`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #2a93d5;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1.8rem;
-  padding: 1.5rem 0;
-  cursor: pointer;
-  gap: 10px;
-
-  &:hover {
-    background-color: #237ab8;
-  }
-`;
-
-const ActionButtonsContainer = styled.button`
+const ActionButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  border: none;
-  background-color: #fff;
 `;
 
 const RemovePackageButton = styled.button`
@@ -151,7 +92,7 @@ const RemovePackageButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 15px 15px;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
@@ -164,7 +105,7 @@ const RemovePackageButton = styled.button`
   }
 `;
 
-const ApprovePackageButton = styled.button`
+const PropertiesButton = styled.button`
   flex: 1;
   background-color: #2a93d5;
   color: white;
@@ -183,7 +124,7 @@ const ApprovePackageButton = styled.button`
   }
 `;
 
-function Requests() {
+function ApprovedPackages() {
   const packages = Array.from({ length: 16 }, (_, index) => ({
     id: index,
     name: `Package ${index + 1}`,
@@ -191,22 +132,10 @@ function Requests() {
     rating: `${(4.0 + index * 0.1).toFixed(1)}/5`,
   }));
 
-  const handlePropertiesClick = (packageDetails) => {
-    console.log("Package properties clicked:", packageDetails);
-  };
-
   return (
     <Container>
       <Header>
-        <h2>Requests</h2>
-        <div>
-          <StyledNavLink to="/superadmin-panel/requests/rejected">
-            Rejected Packages
-          </StyledNavLink>
-          <StyledNavLink to="/superadmin-panel/requests/approved">
-            Approved Packages
-          </StyledNavLink>
-        </div>
+        <h2>Approved Packages</h2>
       </Header>
       <Packages>
         {packages.map((pkg, index) => (
@@ -218,19 +147,19 @@ function Requests() {
                 <p>⭐ {pkg.rating}</p>
               </PackageDetails>
             </ImageContainer>
-            <PropertiesButton>
-              <span>
-                <FiFile />
-              </span>{" "}
-              Properties
-            </PropertiesButton>
             <ActionButtonsContainer>
               <RemovePackageButton>
-                <span>🗑</span> Remove Package
+                <span>
+                  <FiTrash2 />
+                </span>{" "}
+                Remove Package
               </RemovePackageButton>
-              <ApprovePackageButton>
-                <span>✔</span> Approve Package
-              </ApprovePackageButton>
+              <PropertiesButton>
+                <span>
+                  <FiFile />
+                </span>{" "}
+                Properties
+              </PropertiesButton>
             </ActionButtonsContainer>
           </GridItem>
         ))}
@@ -239,4 +168,4 @@ function Requests() {
   );
 }
 
-export default Requests;
+export default ApprovedPackages;
