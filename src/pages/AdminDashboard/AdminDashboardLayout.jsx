@@ -17,7 +17,7 @@ const Header = styled.header`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 `;
 
-const Logo = styled.h1`
+const Logo = styled(NavLink)`
   color: white;
   font-size: 2.8rem;
   font-weight: bold;
@@ -65,7 +65,7 @@ function AdminLayout() {
   return (
     <AdminContainer>
       <Header>
-        <Logo>Super Admin Panel</Logo>
+        <Logo to="/superadmin-panel">Super Admin Panel</Logo>
         <Nav>
           <StyledNavLink to="/superadmin-panel/edits">Edits</StyledNavLink>
           <StyledNavLink to="/superadmin-panel/sellers">Sellers</StyledNavLink>
