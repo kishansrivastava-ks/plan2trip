@@ -235,7 +235,7 @@ const ActionButton = styled.button`
   padding: 10px;
   font-size: 1.5rem;
   cursor: pointer;
-  gap: 10px;
+  gap: 5px;
   text-decoration: none; /* Ensures link appears like a button */
 
   &:hover {
@@ -344,9 +344,6 @@ const Sellers = () => {
                       Properties
                     </ActionButton>
                   </ButtonsContainer>
-                  {/* <RemoveButton>
-                    <span>🗑</span> Remove Package
-                  </RemoveButton> */}
                 </PackageItem>
               ))}
             </PackagesGrid>

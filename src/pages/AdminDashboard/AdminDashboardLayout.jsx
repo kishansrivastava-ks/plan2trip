@@ -65,7 +65,7 @@ function AdminLayout() {
   return (
     <AdminContainer>
       <Header>
-        <Logo to="/superadmin-panel">Super Admin Panel</Logo>
+        <Logo to="/superadmin-panel">Super-Admin</Logo>
         <Nav>
           <StyledNavLink to="/superadmin-panel/edits">Edits</StyledNavLink>
           <StyledNavLink to="/superadmin-panel/sellers">Sellers</StyledNavLink>

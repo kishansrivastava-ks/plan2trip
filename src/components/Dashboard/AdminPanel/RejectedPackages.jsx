@@ -121,22 +121,22 @@ const PropertiesButton = styled.button`
 const ButtonRow = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 5px;
 `;
 
 const RemovePackageButton = styled.button`
-  flex: 1;
+  /* flex: 1; */
   background-color: #2a93d5;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 2px;
 
   &:hover {
     background-color: #d93838;

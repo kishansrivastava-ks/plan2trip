@@ -151,7 +151,7 @@ const RemovePackageButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
@@ -170,7 +170,7 @@ const ApprovePackageButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;

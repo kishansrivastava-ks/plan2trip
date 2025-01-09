@@ -97,11 +97,11 @@ const PackageDetails = styled.div`
 const ActionButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 5px;
 `;
 
 const RemovePackageButton = styled.button`
-  flex: 1;
+  /* flex: 1; */
   background-color: #2a93d5;
   color: white;
   border: none;
