@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
 import { FiFile, FiTrash2 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Container = styled.div`
   display: flex;
@@ -13,13 +15,25 @@ const Header = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: space-between;
   padding-bottom: 1rem;
   border-bottom: 2px solid #cccccc;
 
   & > h2 {
     text-shadow: 0px 4px 4px 0px #00000040;
   }
+`;
+const BackButton = styled.button`
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 `;
 
 const Packages = styled.div`
@@ -132,10 +146,15 @@ function ApprovedPackages() {
     rating: `${(4.0 + index * 0.1).toFixed(1)}/5`,
   }));
 
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Header>
         <h2>Approved Packages</h2>
+        <BackButton onClick={() => navigate(-1)}>
+          Back <ArrowRight size={24} strokeWidth={2} color="#2a93d5" />
+        </BackButton>
       </Header>
       <Packages>
         {packages.map((pkg, index) => (
