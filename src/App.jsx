@@ -19,6 +19,7 @@ import Sellers from "./components/Dashboard/AdminPanel/Sellers";
 import Requests from "./components/Dashboard/AdminPanel/Requests";
 import RejectedPackages from "./components/Dashboard/AdminPanel/RejectedPackages";
 import ApprovedPackages from "./components/Dashboard/AdminPanel/ApprovedPackages";
+import Edits from "./components/Dashboard/AdminPanel/Edits";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="" element={<AdminHome />} />
             <Route path="sellers" element={<Sellers />} />
             <Route path="requests" element={<Requests />} />
+            <Route path="edits" element={<Edits />} />
             <Route path="requests/rejected" element={<RejectedPackages />} />
             <Route path="requests/approved" element={<ApprovedPackages />} />
           </Route>
