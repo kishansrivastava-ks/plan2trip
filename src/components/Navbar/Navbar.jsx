@@ -2,98 +2,9 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-function Navbar({ isScrolled }) {
-  // const [isScrolled, setIsScrolled] = useState(false);
-
-  // const handleScroll = () => {
-  //   if (window.scrollY > 50) {
-  //     setIsScrolled(true);
-  //   } else {
-  //     setIsScrolled(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-  return (
-    <Nav className={isScrolled ? "scrolled" : ""}>
-      {/* // <Nav className="scrolled"> */}
-      <BrandName>PLAN2TRIP</BrandName>
-      <NavLinks>
-        <NavLink href="#home">HOME</NavLink>
-        <NavLink href="#explore">EXPLORE</NavLink>
-        <NavLink href="#packages">PACKAGES</NavLink>
-        <NavLink href="#review">REVIEW</NavLink>
-        <NavLink href="#contact">CONTACT</NavLink>
-      </NavLinks>
-      <Buttons>
-        <ActionButton>Sign Up</ActionButton>
-        <ActionButton secondary>Login</ActionButton>
-      </Buttons>
-    </Nav>
-  );
-}
-
-export default Navbar;
-
-// Styled Components
-
-// const Nav = styled.nav`
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 2rem 4rem;
-//   z-index: 1000;
-//   transition: background-color 0.3s ease;
-//   background-color: ${(props) =>
-//     props.isScrolled ? "rgba(21, 98, 178, 0.85)" : "transparent"};
-//   /* background-color: red; */
-//   @media (max-width: 768px) {
-//     padding: 1rem;
-//     flex-direction: column;
-//   }
-// `;
-
-const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 4rem;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-  background-color: transparent;
-  background: linear-gradient(
-    90deg,
-    #21709b 0%,
-    #0297cf 25%,
-    #0297cf 75.26%,
-    #2178a9 100%
-  );
-
-  /* &.scrolled {
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
-    background-color: rgba(21, 159, 211, 0.95);
-  } */
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-    flex-direction: column;
-  }
-`;
-
-const BrandName = styled.div`
+const BrandName = styled(Link)`
   font-family: "IntegralCF-Bold", sans-serif;
   font-size: 2.5rem;
   letter-spacing: 3px;
@@ -147,8 +58,6 @@ const Buttons = styled.div`
 
 const ActionButton = styled.button`
   background-color: ${(props) => (props.secondary ? "#34A4D4" : "transparent")};
-  /* background-color: transparent; */
-  /* color: ${(props) => (props.secondary ? "#1562B2" : "#fff")}; */
   box-shadow: ${(props) =>
     props.secondary ? "2px 2px 4px rgba(0, 0, 0, 0.3)" : "none"};
   color: #fff;
@@ -171,5 +80,63 @@ const ActionButton = styled.button`
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
+  }
+`;
+
+function Navbar({ isScrolled }) {
+  const handleClick = (e, targetId) => {
+    e.preventDefault();
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <Nav className={isScrolled ? "scrolled" : ""}>
+      <BrandName to="/">PLAN2TRIP</BrandName>
+      <NavLinks>
+        <NavLink onClick={(e) => handleClick(e, "pageTop")}>HOME</NavLink>
+        <NavLink onClick={(e) => handleClick(e, "topDestinations")}>
+          EXPLORE
+        </NavLink>
+        <NavLink onClick={(e) => handleClick(e, "popularPackages")}>
+          PACKAGES
+        </NavLink>
+        <NavLink onClick={(e) => handleClick(e, "reviews")}>REVIEW</NavLink>
+        <NavLink onClick={(e) => handleClick(e, "footer")}>CONTACT</NavLink>
+      </NavLinks>
+      <Buttons>
+        <ActionButton>Sign Up</ActionButton>
+        <ActionButton secondary>Login</ActionButton>
+      </Buttons>
+    </Nav>
+  );
+}
+
+export default Navbar;
+
+const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+  background: linear-gradient(
+    90deg,
+    #21709b 0%,
+    #0297cf 25%,
+    #0297cf 75.26%,
+    #2178a9 100%
+  );
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    flex-direction: column;
   }
 `;

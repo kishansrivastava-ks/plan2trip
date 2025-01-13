@@ -105,7 +105,7 @@ function InfoCarousel() {
   };
 
   return (
-    <CarouselSection>
+    <CarouselSection id="pageTop">
       <SlideContainer activeIndex={activeIndex}>
         {slides.map((slide) => (
           <Slide

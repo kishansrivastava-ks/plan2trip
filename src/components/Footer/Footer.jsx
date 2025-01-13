@@ -111,7 +111,7 @@ const PaymentIcons = styled.div`
 
 function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer id="footer">
       {/* First Row */}
       <FirstRow>
         <FooterColumn>

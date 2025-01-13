@@ -140,7 +140,7 @@ function TopDestinations() {
   }, []);
 
   return (
-    <Section>
+    <Section id="topDestinations">
       <Heading>Top Destinations</Heading>
       <SliderContainer>
         <Slider ref={sliderRef}>

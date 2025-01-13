@@ -146,7 +146,7 @@ const PlaceVisited = styled.p`
 
 function Reviews() {
   return (
-    <ReviewsSection>
+    <ReviewsSection id="reviews">
       <Overlay />
       <Heading>REVIEWS</Heading>
       <ReviewsContainer>

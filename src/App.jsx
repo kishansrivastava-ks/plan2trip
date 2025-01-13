@@ -20,12 +20,14 @@ import Requests from "./components/Dashboard/AdminPanel/Requests";
 import RejectedPackages from "./components/Dashboard/AdminPanel/RejectedPackages";
 import ApprovedPackages from "./components/Dashboard/AdminPanel/ApprovedPackages";
 import Edits from "./components/Dashboard/AdminPanel/Edits";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Applayout />}>
             <Route path="" element={<Home />} />

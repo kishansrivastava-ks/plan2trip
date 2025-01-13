@@ -186,7 +186,7 @@ function PopularPackages() {
   };
 
   return (
-    <Section>
+    <Section id="popularPackages">
       <Heading>Popular Packages</Heading>
       <SliderContainer>
         {/* <LeftArrow onClick={() => handleScroll("left")}>
