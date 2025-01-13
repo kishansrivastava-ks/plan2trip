@@ -115,7 +115,7 @@ const Button = styled.button`
   background: ${({ outline }) => (outline ? "transparent" : "#159dd1")};
   border: 2px solid #159dd1;
   color: ${({ outline }) => (outline ? "#159dd1" : "#fff")};
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   font-size: 1.8rem;
   letter-spacing: 1px;
   border-radius: 5px;

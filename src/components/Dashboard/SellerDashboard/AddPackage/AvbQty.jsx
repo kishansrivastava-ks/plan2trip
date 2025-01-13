@@ -93,13 +93,30 @@ const AvbQty = () => {
   const [selectedDates, setSelectedDates] = useState([]);
 
   const handleRangeEnd = (e) => {
-    setRangeEnd(e.target.value);
-    if (rangeStart && e.target.value) {
+    const endDate = e.target.value;
+    setRangeEnd(endDate);
+
+    if (rangeStart && endDate && isValidDateRange(rangeStart, endDate)) {
       setRangeStart("");
       setRangeEnd("");
     }
   };
 
+  const isValidDateRange = (start, end) => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    if (
+      startDate.toString() === "Invalid Date" ||
+      endDate.toString() === "Invalid Date"
+    ) {
+      return false;
+    }
+
+    return endDate >= startDate;
+  };
+
+  // Rest of your component remains the same...
   const handleNumDatesChange = (e) => {
     const num = parseInt(e.target.value, 10);
     setNumDates(num);

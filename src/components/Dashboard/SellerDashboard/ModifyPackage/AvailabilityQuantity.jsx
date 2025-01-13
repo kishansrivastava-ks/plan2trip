@@ -147,12 +147,28 @@ const AvailabilityQuantity = () => {
   const [selectedDates, setSelectedDates] = useState([""]);
 
   const handleRangeEnd = (e) => {
-    setRangeEnd(e.target.value);
-    if (rangeStart && e.target.value) {
+    const endDate = e.target.value;
+    setRangeEnd(endDate);
+
+    if (rangeStart && endDate && isValidDateRange(rangeStart, endDate)) {
       setCurrentDates(`${rangeStart} to ${e.target.value}`);
       setRangeStart("");
       setRangeEnd("");
     }
+  };
+
+  const isValidDateRange = (start, end) => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    if (
+      startDate.toString() === "Invalid Date" ||
+      endDate.toString() === "Invalid Date"
+    ) {
+      return false;
+    }
+
+    return endDate >= startDate;
   };
 
   const handleNumDatesChange = (e) => {
@@ -160,18 +176,6 @@ const AvailabilityQuantity = () => {
     setNumDates(num);
     setSelectedDates(Array(num).fill(""));
   };
-
-  // const handleDateSelection = (index, date) => {
-  //   const updatedDates = [...selectedDates];
-  //   updatedDates[index] = date;
-  //   setSelectedDates(updatedDates);
-
-  //   if (updatedDates.every((d) => d !== "")) {
-  //     setCurrentDates(updatedDates.join(" / ") + " / ");
-  //     setNumDates(0);
-  //     setSelectedDates([]);
-  //   }
-  // };
 
   const handleDateSelection = (index, value) => {
     const newDates = [...selectedDates];

@@ -1,0 +1,7 @@
+1. navbar links now scroll to respective sections
+2. scrollbar added to top destinations
+3. page horizontal scrolling on home page resolved
+4. buttons on tour packges page made bigger
+5. components on add package page modified to new ones
+6. fixed and variable price radio buttons selecting separately
+7. entering date issue resolved

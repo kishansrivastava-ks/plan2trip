@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import { FiMinusCircle, FiPlusCircle, FiX } from "react-icons/fi";
 
 const Container = styled.div`
   width: 100%;
@@ -29,12 +28,6 @@ const Title = styled.h2`
   }
 `;
 
-const HorizontalLine = styled.hr`
-  width: 100%;
-  border: 1px solid #ddd;
-  margin-bottom: 1.5rem;
-`;
-
 const Tabs = styled.div`
   display: flex;
   align-items: center;
@@ -57,7 +50,6 @@ const Tab = styled.button`
   transition: background-color 0.3s ease;
   text-transform: uppercase;
   font-size: 1.8rem;
-  /* padding-bottom: 0.8rem; */
 
   &:hover {
     background-color: #159fd3;
@@ -78,7 +70,6 @@ const ActionButton = styled.button`
   display: flex;
   align-items: center;
   gap: 1rem;
-
   border: none;
   border-radius: 5px;
   margin-bottom: 5px;
@@ -90,7 +81,6 @@ const ActionButton = styled.button`
 `;
 
 const TabContent = styled.div`
-  /* background: linear-gradient(180deg, #159fd3 0%, #1286ba 65.15%); */
   background-color: #0297cf;
   color: white;
   padding: 2rem;
@@ -98,23 +88,22 @@ const TabContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: 30rem;
+  max-height: 40rem;
   overflow-y: auto;
+  position: relative;
 
   &::-webkit-scrollbar {
-    width: 10px;
+    display: none;
   }
-
-  &::-webkit-scrollbar-thumb {
-    background: #159fd3;
-    border-radius: 10px;
-  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const TimelineItem = styled.div`
   display: flex;
   align-items: flex-start;
   position: relative;
+  /* border: 2px solid white; */
 `;
 
 const TimelineBullet = styled.div`
@@ -125,12 +114,13 @@ const TimelineBullet = styled.div`
   margin-right: 1rem;
   position: relative;
   z-index: 1;
+  margin-top: 9px;
 `;
 
 const TimelineLine = styled.div`
   position: absolute;
   left: 5.5px;
-  top: 12px;
+  top: 18px;
   width: 2px;
   height: calc(100%);
   background-color: white;
@@ -138,9 +128,57 @@ const TimelineLine = styled.div`
 
 const TimelineContent = styled.div`
   padding-left: 1.5rem;
-  /* margin: 1rem 0; */
   margin-bottom: 1rem;
   font-size: 2rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 100%;
+`;
+
+const AddPointButton = styled(ActionButton)`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: white;
+  color: #0297cf;
+
+  &:hover {
+    background-color: #f0f0f0;
+    color: #0297cf;
+  }
+`;
+
+const EditablePoint = styled.input`
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 90%;
+  padding: 0;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+
+  &:hover {
+    color: #f0f0f0;
+  }
 `;
 
 function AddPkgItinerary() {
@@ -148,11 +186,23 @@ function AddPkgItinerary() {
   const [itineraryDetails, setItineraryDetails] = useState({
     1: ["Morning departure", "Lunch", "Evening tour"],
   });
+  const [editingIndex, setEditingIndex] = useState(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (editingIndex !== null && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [editingIndex]);
 
   const addDay = () => {
     const newDay = Object.keys(itineraryDetails).length + 1;
-    setItineraryDetails({ ...itineraryDetails, [newDay]: [] });
+    setItineraryDetails({
+      ...itineraryDetails,
+      [newDay]: ["Add a point"],
+    });
     setActiveDay(newDay);
+    setEditingIndex(0);
   };
 
   const removeDay = () => {
@@ -165,10 +215,48 @@ function AddPkgItinerary() {
   };
 
   const addPoint = () => {
+    const updatedPoints = [...itineraryDetails[activeDay], "Add a point"];
     setItineraryDetails({
       ...itineraryDetails,
-      [activeDay]: [...itineraryDetails[activeDay], "New Point"],
+      [activeDay]: updatedPoints,
     });
+    setEditingIndex(updatedPoints.length - 1);
+  };
+
+  const removePoint = (index) => {
+    const updatedPoints = itineraryDetails[activeDay].filter(
+      (_, i) => i !== index
+    );
+    setItineraryDetails({
+      ...itineraryDetails,
+      [activeDay]: updatedPoints,
+    });
+  };
+
+  const handlePointChange = (index, value) => {
+    if (value.trim() === "") return;
+    const updatedPoints = [...itineraryDetails[activeDay]];
+    updatedPoints[index] = value;
+    setItineraryDetails({
+      ...itineraryDetails,
+      [activeDay]: updatedPoints,
+    });
+  };
+
+  const handleBlur = (index, value) => {
+    if (value.trim() === "" || value === "Add a point") {
+      const updatedPoints = [...itineraryDetails[activeDay]];
+      if (updatedPoints.length === 1) {
+        updatedPoints[index] = "Add a point";
+      } else {
+        updatedPoints.splice(index, 1);
+      }
+      setItineraryDetails({
+        ...itineraryDetails,
+        [activeDay]: updatedPoints,
+      });
+    }
+    setEditingIndex(null);
   };
 
   return (
@@ -208,9 +296,35 @@ function AddPkgItinerary() {
           <TimelineItem key={index}>
             <TimelineBullet />
             {index < itineraryDetails[activeDay].length - 1 && <TimelineLine />}
-            <TimelineContent>{item}</TimelineContent>
+            <TimelineContent>
+              {editingIndex === index ? (
+                <EditablePoint
+                  ref={inputRef}
+                  type="text"
+                  value={item}
+                  onChange={(e) => handlePointChange(index, e.target.value)}
+                  onBlur={(e) => handleBlur(index, e.target.value)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      handleBlur(index, e.target.value);
+                    }
+                  }}
+                />
+              ) : (
+                <>
+                  <span onClick={() => setEditingIndex(index)}>{item}</span>
+                  <DeleteButton onClick={() => removePoint(index)}>
+                    <FiX size={20} />
+                  </DeleteButton>
+                </>
+              )}
+            </TimelineContent>
           </TimelineItem>
         ))}
+        <AddPointButton onClick={addPoint}>
+          <FiPlusCircle />
+          <span>Add Point</span>
+        </AddPointButton>
       </TabContent>
     </Container>
   );

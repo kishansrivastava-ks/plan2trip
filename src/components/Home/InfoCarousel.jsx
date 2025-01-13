@@ -4,14 +4,16 @@ import styled from "styled-components";
 import SearchBox from "./SearchBox";
 
 const CarouselSection = styled.section`
-  height: 100vh;
+  margin-top: 8vh;
+  height: 92vh;
   width: 100vw;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  /* border: 1rem solid red; */
 `;
 
 const SlideContainer = styled.div`
@@ -55,7 +57,7 @@ const DotContainer = styled.div`
 
 const SearchContainer = styled.div`
   position: absolute;
-  bottom: -5rem;
+  bottom: 1rem;
   z-index: 10;
   /* border: 2px solid red; */
 `;

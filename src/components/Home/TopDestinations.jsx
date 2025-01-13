@@ -28,7 +28,7 @@ const SliderContainer = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  height: 50rem;
+  height: 52rem;
   width: 60%;
   /* border: 2px solid red; */
 `;
@@ -43,15 +43,25 @@ const Slider = styled.div`
   /* border: 2px solid red; */
 
   &::-webkit-scrollbar {
-    height: 15px;
-    border: none;
-    width: 30%;
-    margin: 0 auto;
-    display: none;
-    @media (max-width: 768px) {
-      display: none;
-    }
+    height: 8px;
   }
+
+  &::-webkit-scrollbar-thumb {
+    /* background: linear-gradient(90deg, #ff7a18, #af002d 70%); */
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    /* background: linear-gradient(90deg, #ff5500, #850022 70%); */
+  }
+
+  scrollbar-width: thin;
+  /* scrollbar-color: linear-gradient(90deg, #ff7a18, #af002d) #f0f0f0; */
 `;
 
 const Card = styled.div`

@@ -113,11 +113,11 @@ function AddPackage() {
         <span>
           <RadioGroup>
             <RadioButton>
-              <input type="radio" />
+              <input type="radio" name="priceType" value="fixed" />
               Fixed Price
             </RadioButton>
             <RadioButton>
-              <input type="radio" />
+              <input type="radio" name="priceType" value="variable" />
               Variable Price
             </RadioButton>
           </RadioGroup>
