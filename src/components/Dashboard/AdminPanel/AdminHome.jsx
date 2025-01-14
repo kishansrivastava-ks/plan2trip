@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled from "styled-components";
 import { FiFile } from "react-icons/fi";
@@ -12,6 +13,7 @@ const Container = styled.div`
   height: 80vh;
   transition: width 0.3s ease;
   ${(props) => (props.isPanelOpen ? "width: 70%;" : "width: 100%;")}
+  width: 70%;
 `;
 
 const TopSelling = styled.div`
@@ -51,34 +53,6 @@ const Packages = styled.div`
   &::-webkit-scrollbar-track {
     background: transparent;
   }
-`;
-
-const SlidingPanel = styled.div`
-  position: fixed;
-  top: 12%;
-  right: 0;
-  width: 30%;
-  height: 85%;
-  background-color: #fff;
-  /* box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); */
-  border-left: 2px solid #8b8b8b;
-  transform: ${(props) =>
-    props.isOpen ? "translateX(0)" : "translateX(100%)"};
-  transition: transform 0.3s ease;
-  z-index: 100;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  /* border: 2px solid red; */
-`;
-
-const CloseButton = styled.button`
-  align-self: flex-end;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
 `;
 
 const GridItem = styled.div`
@@ -150,7 +124,14 @@ const ActionButton = styled.button`
   }
 `;
 
-const SidePanelHeader = styled.div`
+// TOP SELLERS
+const TopSellers = styled.div`
+  width: 30%;
+  border-left: 2px solid #8b8b8b;
+  padding-left: 2rem;
+  height: 85vh;
+`;
+const TopSellerHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -207,13 +188,98 @@ const SellerName = styled.div`
   letter-spacing: 1px;
 `;
 
+// slider
+const SlidingPanel = styled.div`
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 30%;
+  height: 89%;
+  background-color: #fff;
+  border-left: 2px solid #8b8b8b;
+  transform: ${(props) =>
+    props.isOpen ? "translateX(0)" : "translateX(100%)"};
+  transition: transform 0.3s ease;
+  z-index: 100;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* border: 2px solid red; */
+`;
+
+const DetailsHeader = styled.h1`
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  line-height: 1.1;
+`;
+
+const PriceInfo = styled.p`
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 5px;
+`;
+
+const Image = styled.div`
+  background-image: url("/package-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+`;
+
+const ListSection = styled.div`
+  margin-bottom: 10px;
+`;
+
+const ListHeading = styled.h3`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 1px;
+  /* margin-bottom: 10px; */
+`;
+
+const ListItem = styled.ul`
+  /* list-style-type: circle; */
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 6rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+
+  & > li {
+    /* margin-bottom: 5px; */
+  }
+`;
+
+const ExitButton = styled.button`
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #555555;
+  }
+`;
+
 function AdminHome() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
 
   const handlePropertiesClick = () => {
     setIsPanelOpen(true);
   };
-
   const closePanel = () => {
     setIsPanelOpen(false);
   };
@@ -232,62 +298,88 @@ function AdminHome() {
   }));
 
   return (
-    <div style={{ display: "flex", width: "100%" }}>
-      <Container isPanelOpen={isPanelOpen}>
-        <TopSelling>
-          <Header>TOP SELLINGS</Header>
-          <Packages>
-            {dummyPackages.map((pkg, index) => (
-              <GridItem key={index}>
-                <ImageContainer>
-                  <PackageDetails>
-                    <h3>{pkg.name}</h3>
-                    <p>Price: {pkg.price}</p>
-                    <p>{pkg.rating}</p>
-                  </PackageDetails>
-                </ImageContainer>
-                <ButtonsContainer>
-                  <ActionButton
-                    as={Link}
-                    to="/seller-dashboard/packages/modify-package"
-                  >
-                    <span>🗑</span>
-                    Remove Package
-                  </ActionButton>
-                  <ActionButton onClick={handlePropertiesClick}>
-                    <span>
-                      <FiFile />
-                    </span>
-                    Properties
-                  </ActionButton>
-                </ButtonsContainer>
-              </GridItem>
+    <>
+      <div style={{ display: "flex", width: "100%", gap: "2rem  " }}>
+        <Container isPanelOpen={isPanelOpen}>
+          <TopSelling>
+            <Header>TOP SELLINGS</Header>
+            <Packages>
+              {dummyPackages.map((pkg, index) => (
+                <GridItem key={index}>
+                  <ImageContainer>
+                    <PackageDetails>
+                      <h3>{pkg.name}</h3>
+                      <p>Price: {pkg.price}</p>
+                      <p>{pkg.rating}</p>
+                    </PackageDetails>
+                  </ImageContainer>
+                  <ButtonsContainer>
+                    <ActionButton
+                      as={Link}
+                      to="/seller-dashboard/packages/modify-package"
+                    >
+                      <span>🗑</span>
+                      Remove Package
+                    </ActionButton>
+                    <ActionButton onClick={handlePropertiesClick}>
+                      <span>
+                        <FiFile />
+                      </span>
+                      Properties
+                    </ActionButton>
+                  </ButtonsContainer>
+                </GridItem>
+              ))}
+            </Packages>
+          </TopSelling>
+          <Revenues>
+            <Header>REVENUES</Header>
+          </Revenues>
+        </Container>
+        <TopSellers>
+          <TopSellerHeader>
+            <h2>TOP SELLING</h2>
+          </TopSellerHeader>
+          <SellerList>
+            {sellers.map((seller) => (
+              <SellerItem
+                key={seller.id}
+                // onClick={() => setSelectedSeller(seller)}
+              >
+                <SellerNumber>{seller.id}</SellerNumber>
+                <SellerImage src={seller.image} alt={seller.name} />
+                <SellerName>{seller.name}</SellerName>
+              </SellerItem>
             ))}
-          </Packages>
-        </TopSelling>
-        <Revenues>
-          <Header>REVENUES</Header>
-        </Revenues>
-      </Container>
+          </SellerList>
+        </TopSellers>
+      </div>
       <SlidingPanel isOpen={isPanelOpen}>
-        <SidePanelHeader>
-          <h2>TOP SELLING</h2>
-          <CloseButton onClick={closePanel}>✖</CloseButton>
-        </SidePanelHeader>
-        <SellerList>
-          {sellers.map((seller) => (
-            <SellerItem
-              key={seller.id}
-              // onClick={() => setSelectedSeller(seller)}
-            >
-              <SellerNumber>{seller.id}</SellerNumber>
-              <SellerImage src={seller.image} alt={seller.name} />
-              <SellerName>{seller.name}</SellerName>
-            </SellerItem>
-          ))}
-        </SellerList>
+        <DetailsHeader>
+          Best Tea Plantation of South India - Coorg (3N-2D) Package
+        </DetailsHeader>
+        <PriceInfo>Price: $250 Per person</PriceInfo>
+        <Image />
+        <ListSection>
+          <ListHeading>Highlighted Spots:</ListHeading>
+          <ListItem>
+            <li>Abbey Waterfalls</li>
+            <li>Omkareshwara Temple</li>
+            <li>Mallalli Waterfalls</li>
+            <li>Nagaraholl Tiger Reserve</li>
+            <li>Dubare Elephant Camp</li>
+          </ListItem>
+        </ListSection>
+        <ListSection>
+          <ListHeading>Stays:</ListHeading>
+          <ListItem>
+            <li>Taj Hotel</li>
+            <li>Oberoi Mension</li>
+          </ListItem>
+        </ListSection>
+        <ExitButton onClick={closePanel}>Exit</ExitButton>
       </SlidingPanel>
-    </div>
+    </>
   );
 }
 
