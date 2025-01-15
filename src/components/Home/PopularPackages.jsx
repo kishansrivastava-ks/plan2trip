@@ -38,7 +38,7 @@ const SliderContainer = styled.div`
   padding-bottom: 3rem;
 
   &::-webkit-scrollbar {
-    height: 15px;
+    height: 12px;
     border: none;
     width: 30%;
     margin: 0 auto;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const OverviewContainer = styled.div`
   display: flex;
@@ -176,12 +177,15 @@ const PhotoRightCol = styled.div`
 
 const PhotoGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
   gap: 0.5rem;
   height: 30rem;
   overflow-y: auto;
   border-radius: 5px;
   position: relative;
+  min-height: 120px;
   /* border: 2px solid red; */
 `;
 
@@ -268,6 +272,23 @@ function Overview() {
     setSelectedPhoto(selectedPhoto === index ? null : index);
   };
 
+  // const reorderPhotos = (list, startIndex, endIndex) => {
+  //   const result = Array.from(list);
+  //   const [removed] = result.splice(startIndex, 1);
+  //   result.splice(endIndex, 0, removed);
+  //   return result;
+  // };
+  // const onDragEnd = (result) => {
+  //   if (!result.destination) return;
+
+  //   const reorderedPhotos = reorderPhotos(
+  //     photos,
+  //     result.source.index,
+  //     result.destination.index
+  //   );
+  //   setPhotos(reorderedPhotos);
+  // };
+
   return (
     <OverviewContainer>
       <Title>{packageName}</Title>
@@ -310,33 +331,6 @@ function Overview() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </Row>
-          {/* <PhotosContainer>
-            <PhotoLeftCol>left columnm</PhotoLeftCol>
-            <PhotoRightCol>
-              <PhotoGrid>
-                {photos.map((photo, index) => (
-                  <Photo
-                    key={index}
-                    src={photo}
-                    alt="Gallery"
-                    onClick={() => handleRemovePhoto(index)}
-                  />
-                ))}
-              </PhotoGrid>
-              <Actions>
-                <button>
-                  <label htmlFor="photo-upload">Add Photo</label>
-                </button>
-                <button onClick={() => setPhotos([])}>Remove Photo</button>
-              </Actions>
-              <input
-                type="file"
-                id="photo-upload"
-                style={{ display: "none" }}
-                onChange={handleAddPhoto}
-              />
-            </PhotoRightCol>
-          </PhotosContainer> */}
 
           <PhotosContainer>
             <PhotoLeftCol
@@ -360,6 +354,7 @@ function Overview() {
                   </PhotoWrapper>
                 ))}
               </PhotoGrid>
+
               <Actions $disabled={photos.length === 0 && !selectedPhoto}>
                 <button>
                   <label htmlFor="photo-upload">Add Photo</label>

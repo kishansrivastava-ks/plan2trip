@@ -145,6 +145,7 @@ const ModalOverlay = styled.div`
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   pointer-events: ${(props) => (props.isVisible ? "auto" : "none")};
   transition: opacity 0.3s ease;
+  z-index: 5;
 `;
 
 const EditStayModal = styled.div`

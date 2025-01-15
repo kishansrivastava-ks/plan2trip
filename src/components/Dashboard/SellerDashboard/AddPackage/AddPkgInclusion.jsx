@@ -255,7 +255,6 @@ function AddPkgInclusion() {
   };
 
   const handleItemChange = (index, value) => {
-    if (value.trim() === "") return;
     const updatedItems = [...items];
     const oldValue = updatedItems[index];
     updatedItems[index] = value;
@@ -303,7 +302,6 @@ function AddPkgInclusion() {
   };
 
   const handlePointChange = (index, value) => {
-    if (value.trim() === "") return;
     const updatedPoints = { ...points };
     updatedPoints[items[activeItem]][index] = value;
     setPoints(updatedPoints);

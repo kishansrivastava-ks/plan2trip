@@ -30,7 +30,6 @@ const SliderContainer = styled.div`
   overflow: hidden;
   height: 52rem;
   width: 60%;
-  /* border: 2px solid red; */
 `;
 
 const Slider = styled.div`
@@ -40,28 +39,31 @@ const Slider = styled.div`
   overflow-x: scroll;
   padding: 5rem 0;
   scroll-behavior: smooth;
-  /* border: 2px solid red; */
 
   &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    /* background: linear-gradient(90deg, #ff7a18, #af002d 70%); */
-    border-radius: 10px;
+    height: 12px;
+    border: none;
+    width: 30%;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &::-webkit-scrollbar-track {
-    background: #f0f0f0;
     border-radius: 10px;
+    background-color: #100;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 3.5px solid black;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    /* background: linear-gradient(90deg, #ff5500, #850022 70%); */
+    background: #555;
   }
-
-  scrollbar-width: thin;
-  /* scrollbar-color: linear-gradient(90deg, #ff7a18, #af002d) #f0f0f0; */
 `;
 
 const Card = styled.div`

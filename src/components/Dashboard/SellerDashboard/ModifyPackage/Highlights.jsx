@@ -75,6 +75,7 @@ const Overlay = styled.div`
   justify-content: flex-end;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  /* z-index: -1; */
 `;
 
 const UpperRow = styled.div`
@@ -91,6 +92,7 @@ const UpperRow = styled.div`
   &:hover ${Overlay} {
     opacity: 1;
   }
+  /* z-index: -2; */
 `;
 
 const Button = styled.button`

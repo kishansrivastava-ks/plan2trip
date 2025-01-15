@@ -234,7 +234,6 @@ function AddPkgItinerary() {
   };
 
   const handlePointChange = (index, value) => {
-    if (value.trim() === "") return;
     const updatedPoints = [...itineraryDetails[activeDay]];
     updatedPoints[index] = value;
     setItineraryDetails({
