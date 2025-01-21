@@ -3,38 +3,45 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
 @font-face {
-    font-family: 'IntegralCF-Bold';
-    src: url('/fonts/integralcf-bold.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'Integral CF Bold';
+  src: url('/fonts/IntegralCF-Bold.woff2') format('woff2'),
+       url('/fonts/IntegralCF-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
 
-    /*
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Sono:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
-*/
+@font-face {
+  font-family: 'Integral CF';
+  src: url('/fonts/FSP-DEMO-IntegralCF.woff2') format('woff2'),
+       url('/fonts/FSP-DEMO-IntegralCF.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins.woff2') format('woff2'),
+       url('/fonts/Poppins.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Franklin-Gothic-Demi-Cond';
+  src: url('/fonts/Franklin-Gothic-Demi-Cond.woff2') format('woff2'),
+       url('/fonts/Franklin-Gothic-Demi-Cond.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
 
 /* Colors adapted from https://tailwindcss.com/docs/customizing-colors */
-#root {
-  /* transform: scale(0.9); */
-  /* transform-origin: center; */
-}
+
 
 * {
     -webkit-tap-highlight-color: transparent;
-    /* transform: scale(0.); */
   }
-
-
- 
 
 :root {
   --color-main: #4c50e0;
@@ -135,7 +142,10 @@ const GlobalStyles = createGlobalStyle`
 --border-radius-lg: 9px;
 
 /* FONTS */
---brand-font-1: 'Integral CF', sans-serif;
+/* --brand-font-1: 'Integral CF', sans-serif; */
+--font-poppins :  "Poppins", sans-serif
+--font-integral : "Integral CF Bold", sans-serif;
+
 
 }
 
@@ -155,7 +165,9 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-poppins);
+  font-family: "Poppins", sans-serif;
+
   color: var(--color-grey-700);
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;

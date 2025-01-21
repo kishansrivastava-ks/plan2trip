@@ -9,9 +9,10 @@ const Heading = styled.h1`
   text-transform: uppercase;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   color: #000;
   font-weight: 800;
+  font-family: "Integral CF", sans-serif;
 `;
 
 function MyCart() {

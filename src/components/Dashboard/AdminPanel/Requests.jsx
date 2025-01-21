@@ -130,7 +130,7 @@ const PropertiesButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   padding: 1.3rem 0;
   cursor: pointer;
   gap: 10px;

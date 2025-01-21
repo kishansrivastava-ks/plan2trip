@@ -151,12 +151,34 @@ const ModalOverlay = styled.div`
 const EditStayModal = styled.div`
   background: white;
   border-radius: 8px;
-  max-width: 75vw;
+  min-width: 75vw;
   min-height: max-content;
   padding: 4rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   position: relative;
 `;
+const EditStayHeader = styled.div``;
+const EditStayDetails = styled.div`
+  border: 2px solid #ccc;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2rem;
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+    /* border: 2px solid red; */
+    width: 30%;
+    margin-top: 2rem;
+  }
+  & > ul {
+    margin-left: 3rem;
+    & > li {
+      list-style: disc;
+    }
+  }
+`;
+
 const AddStayModal = styled.div`
   background: white;
   border-radius: 8px;
@@ -350,7 +372,19 @@ function Stay() {
           <CloseButton onClick={() => setEditStayModalOpen(false)}>
             x
           </CloseButton>
-          edit stay modal
+          <h3>Photos:</h3>
+          <EditStayDetails>
+            <h3>Details</h3>
+            <ul>
+              <li>Hotel Taj</li>
+              <li>Double Sharing</li>
+              <li>Full AC Rooms</li>
+            </ul>
+            <div>
+              <ActionButton>Add Point</ActionButton>
+              <ActionButton>Remove Point</ActionButton>
+            </div>
+          </EditStayDetails>
         </EditStayModal>
       </ModalOverlay>
     </Container>

@@ -18,8 +18,8 @@ const Heading = styled.h2`
   margin-bottom: 3rem;
   margin-top: 3rem;
   letter-spacing: 3px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #000;
+  font-family: "Integral CF", sans-serif;
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `;
@@ -97,16 +97,17 @@ const Image = styled.img`
 
 const PlaceName = styled.h3`
   font-weight: bold;
-  color: var(--color-grey-800);
+  /* color: var(--color-grey-800); */
   margin: 12px 0 2px;
   text-align: center;
   font-size: 2.5rem;
   letter-spacing: 1px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
 `;
 
 const Price = styled.p`
-  font-weight: 500;
+  font-weight: 300;
   /* color: var(--color-blue-700); */
   font-size: 2rem;
   text-align: center;

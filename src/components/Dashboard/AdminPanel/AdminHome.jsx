@@ -314,10 +314,7 @@ function AdminHome() {
                     </PackageDetails>
                   </ImageContainer>
                   <ButtonsContainer>
-                    <ActionButton
-                      as={Link}
-                      to="/seller-dashboard/packages/modify-package"
-                    >
+                    <ActionButton as={Link} to="#">
                       <span>🗑</span>
                       Remove Package
                     </ActionButton>

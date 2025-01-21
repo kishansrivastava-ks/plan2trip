@@ -15,6 +15,7 @@ const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: var(--font-poppins);
 `;
 
 const FirstRow = styled.div`
@@ -46,7 +47,6 @@ const FooterColumn = styled.div`
 
 const FooterHeading = styled.h3`
   margin-bottom: 1rem;
-  /* font-family: var(--brand-font-1); */
   letter-spacing: 1px;
 `;
 
@@ -55,13 +55,14 @@ const FooterLink = styled.a`
   margin-bottom: 0.5rem;
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 1px;
 
   &:hover {
     color: var(--color-main);
   }
   transition: all 0.2s ease-in-out;
+  font-family: var(--font-poppins);
 `;
 
 const SocialIcons = styled.div`

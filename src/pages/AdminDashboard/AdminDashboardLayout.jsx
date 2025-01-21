@@ -6,6 +6,7 @@ const AdminContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* font-family: "Franklin-Gothic-Demi-Cond"; */
 `;
 
 const Header = styled.header`
@@ -19,9 +20,10 @@ const Header = styled.header`
 
 const Logo = styled(NavLink)`
   color: white;
-  font-size: 2.8rem;
-  font-weight: bold;
-  letter-spacing: 2px;
+  font-size: 3rem;
+  /* font-weight: bold; */
+  letter-spacing: 4px;
+  font-family: "Franklin-Gothic-Demi-Cond";
 `;
 
 const Nav = styled.nav`

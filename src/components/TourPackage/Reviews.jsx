@@ -35,7 +35,8 @@ const Title = styled.h2`
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: #000;
   letter-spacing: 1px;
 `;
 

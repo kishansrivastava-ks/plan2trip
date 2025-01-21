@@ -10,6 +10,7 @@ const ReviewsSection = styled.section`
   justify-content: center;
   align-items: center;
   background: url("/reviews-bg.jpeg") center center/cover no-repeat;
+  font-family: var(--font-poppins);
 `;
 
 const Overlay = styled.div`
@@ -30,8 +31,8 @@ const Heading = styled.h2`
   /* margin-bottom: 3rem; */
   margin-top: 3rem;
   margin-bottom: 2.5rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  letter-spacing: 2px;
+  font-family: "Integral CF", sans-serif;
+  letter-spacing: 4px;
 `;
 
 const ReviewsContainer = styled.div`
@@ -76,8 +77,10 @@ const LeftColumn = styled.div`
 
 const ReviewText = styled.p`
   font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 1rem;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: var(--font-poppins);
+
+  margin-bottom: 1.5rem;
   /* width: 100%; */
   letter-spacing: 1px;
   line-height: 1.6;
@@ -140,7 +143,7 @@ const UserDesignation = styled.p`
 
 const PlaceVisited = styled.p`
   /* font-size: 1rem; */
-  font-weight: bold;
+  /* font-weight: bold; */
   letter-spacing: 1px;
 `;
 

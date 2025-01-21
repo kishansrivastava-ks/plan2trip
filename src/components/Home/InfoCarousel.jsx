@@ -46,6 +46,7 @@ const InfoText = styled.h2`
   font-weight: bold;
   text-align: center;
   text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  font-family: "Integral CF Bold", sans-serif;
 `;
 
 const DotContainer = styled.div`

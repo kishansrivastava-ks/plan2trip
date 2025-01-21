@@ -30,7 +30,7 @@ const Heading = styled.h1`
   font-weight: bold;
   text-transform: uppercase;
   color: #333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
 `;
 

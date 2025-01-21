@@ -19,7 +19,8 @@ const Heading = styled.h2`
   margin-top: 5rem;
   letter-spacing: 3px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Integral CF", sans-serif;
+
   color: #000;
 `;
 
@@ -100,6 +101,7 @@ const PlaceName = styled.h3`
   font-size: 2.2rem;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* font-family: var(--font-poppins); */
 `;
 
 const Price = styled.p`

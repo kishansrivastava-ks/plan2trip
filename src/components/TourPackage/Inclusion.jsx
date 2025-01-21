@@ -28,7 +28,8 @@ const Title = styled.h2`
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: #000;
   letter-spacing: 1px;
 `;
 
@@ -71,6 +72,7 @@ const TabContent = styled.div`
   border-radius: 15px;
   position: relative;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* border: 2px solid red; */
 `;
 
 // Bullet List inside Tab Content
@@ -81,6 +83,10 @@ const BulletList = styled.ul`
   letter-spacing: 1px;
   line-height: 1.6;
   margin-left: 2.5rem;
+  /* border: 2px solid red; */
+  max-height: 27rem;
+  overflow-y: auto;
+  scrollbar-width: none;
 `;
 
 const BulletListItem = styled.li`
@@ -123,6 +129,10 @@ function Inclusion() {
         "Breakfast and dinner included",
         "Complimentary Wi-Fi",
         "Daily housekeeping",
+        "Room service available",
+        "Room service available",
+        "Room service available",
+        "Room service available",
         "Room service available",
       ],
     },
@@ -199,7 +209,7 @@ function Inclusion() {
             ))}
           </BulletList>
 
-          <SeeMoreButton>See More</SeeMoreButton>
+          {/* <SeeMoreButton>See More</SeeMoreButton> */}
         </TabContent>
       </TabbedContentContainer>
     </InclusionContainer>

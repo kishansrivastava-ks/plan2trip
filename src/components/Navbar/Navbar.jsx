@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const BrandName = styled(Link)`
-  font-family: "IntegralCF-Bold", sans-serif;
+  /* font-family: "IntegralCF-Bold", sans-serif; */
   font-size: 2.5rem;
   letter-spacing: 3px;
   font-style: var(--brand-font-1);
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
@@ -66,9 +66,9 @@ const ActionButton = styled.button`
   padding: 0.5rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   letter-spacing: 2px;
-  font-weight: bold;
+  /* font-weight: bold; */
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
@@ -139,4 +139,6 @@ const Nav = styled.nav`
     padding: 1rem;
     flex-direction: column;
   }
+
+  font-family: "Integral CF", sans-serif;
 `;
