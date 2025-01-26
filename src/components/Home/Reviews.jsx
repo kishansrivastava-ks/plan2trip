@@ -11,6 +11,10 @@ const ReviewsSection = styled.section`
   align-items: center;
   background: url("/reviews-bg.jpeg") center center/cover no-repeat;
   font-family: var(--font-poppins);
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 2rem 0;
+  }
 `;
 
 const Overlay = styled.div`
@@ -28,15 +32,18 @@ const Heading = styled.h2`
   font-weight: bold;
   text-align: center;
   z-index: 2;
-  /* margin-bottom: 3rem; */
   margin-top: 3rem;
   margin-bottom: 2.5rem;
   font-family: "Integral CF", sans-serif;
   letter-spacing: 4px;
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const ReviewsContainer = styled.div`
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,19 +56,19 @@ const ReviewsContainer = styled.div`
 
 const ReviewBox = styled.div`
   width: 65%;
-  /* height: 30%; */
   background-color: #fff;
   padding: 4rem;
   padding-right: 1rem;
   display: flex;
   justify-content: space-between;
   box-shadow: var(--shadow-md);
-  /* border-radius: 38px; */
   border-radius: 8px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
+    width: 90%;
+    padding: 2rem;
   }
 `;
 
@@ -71,20 +78,27 @@ const LeftColumn = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border-right: 2px solid #aaaa;
-  /* border: 1px solid red; */
   padding-right: 2rem;
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 2px solid #aaaa;
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
 `;
 
 const ReviewText = styled.p`
   font-size: 1.8rem;
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: var(--font-poppins);
 
   margin-bottom: 1.5rem;
-  /* width: 100%; */
   letter-spacing: 1px;
   line-height: 1.6;
   text-align: justify;
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const SeeMoreButton = styled(Link)`
@@ -105,7 +119,6 @@ const SeeMoreButton = styled(Link)`
     background-color: #fff;
     color: #000;
     font-weight: bold;
-    /* border: 2px solid black; */
     outline: 2px solid black;
   }
 `;
@@ -116,7 +129,10 @@ const RightColumn = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    align-items: flex-start;
+  }
 `;
 
 const UserPhoto = styled.img`
@@ -130,20 +146,18 @@ const UserPhoto = styled.img`
 const UserName = styled.h3`
   font-size: 2.5rem;
   font-weight: bold;
-  /* margin-bottom: 0.5rem; */
   letter-spacing: 1px;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const UserDesignation = styled.p`
-  /* font-size: 1rem; */
   color: gray;
-  /* margin-bottom: 0.5rem; */
   letter-spacing: 1px;
 `;
 
 const PlaceVisited = styled.p`
-  /* font-size: 1rem; */
-  /* font-weight: bold; */
   letter-spacing: 1px;
 `;
 

@@ -16,6 +16,9 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   font-family: var(--font-poppins);
+  @media (max-width: 768px) {
+    padding: 3rem 2rem;
+  }
 `;
 
 const FirstRow = styled.div`
@@ -42,12 +45,16 @@ const FooterColumn = styled.div`
   @media (max-width: 768px) {
     margin: 1rem 0;
     text-align: center;
+    width: 100%;
   }
 `;
 
 const FooterHeading = styled.h3`
   margin-bottom: 1rem;
   letter-spacing: 1px;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const FooterLink = styled.a`
@@ -63,6 +70,9 @@ const FooterLink = styled.a`
   }
   transition: all 0.2s ease-in-out;
   font-family: var(--font-poppins);
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const SocialIcons = styled.div`
@@ -107,6 +117,7 @@ const PaymentIcons = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 1rem;
+    gap: 0.5rem;
   }
 `;
 

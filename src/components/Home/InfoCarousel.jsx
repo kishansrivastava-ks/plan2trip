@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import SearchBox from "./SearchBox";
@@ -13,7 +12,11 @@ const CarouselSection = styled.section`
   align-items: center;
   justify-content: center;
   z-index: 1;
-  /* border: 1rem solid red; */
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    height: 100dvh;
+  }
 `;
 
 const SlideContainer = styled.div`
@@ -47,6 +50,13 @@ const InfoText = styled.h2`
   text-align: center;
   text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
   font-family: "Integral CF Bold", sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    top: 25%;
+    padding: 0 20px;
+    letter-spacing: 2px;
+  }
 `;
 
 const DotContainer = styled.div`
@@ -54,13 +64,25 @@ const DotContainer = styled.div`
   bottom: 20%;
   display: flex;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    bottom: 15%;
+  }
 `;
 
 const SearchContainer = styled.div`
   position: absolute;
   bottom: 1rem;
   z-index: 10;
-  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    bottom: 40%;
+    transform: translateY(50%);
+    padding: 0 20px;
+  }
 `;
 
 const Dot = styled.div`

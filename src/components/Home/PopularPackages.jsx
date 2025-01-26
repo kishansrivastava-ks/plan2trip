@@ -9,6 +9,9 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   margin-bottom: 10rem;
+  @media (max-width: 768px) {
+    margin-bottom: 5rem;
+  }
 `;
 
 const Heading = styled.h2`
@@ -22,6 +25,11 @@ const Heading = styled.h2`
   font-family: "Integral CF", sans-serif;
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const SliderContainer = styled.div`
@@ -57,6 +65,11 @@ const SliderContainer = styled.div`
     border-radius: 10px;
     background-color: #100;
   }
+  @media (max-width: 768px) {
+    width: 95vw;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
+  }
 `;
 
 const Slider = styled.div`
@@ -64,6 +77,10 @@ const Slider = styled.div`
   gap: 1rem;
   transition: transform 0.5s ease;
   margin-bottom: 5rem;
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Card = styled.div`
@@ -83,6 +100,11 @@ const Card = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 768px) {
+    width: 220px;
+    height: 320px;
+    margin: 0 5px;
+  }
 `;
 
 const Image = styled.img`
@@ -93,6 +115,10 @@ const Image = styled.img`
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    width: 95%;
+    height: 250px;
+  }
 `;
 
 const PlaceName = styled.h3`
@@ -104,6 +130,9 @@ const PlaceName = styled.h3`
   letter-spacing: 1px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #000;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Price = styled.p`
@@ -111,6 +140,9 @@ const Price = styled.p`
   /* color: var(--color-blue-700); */
   font-size: 2rem;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ArrowButton = styled.button`

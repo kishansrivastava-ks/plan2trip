@@ -165,7 +165,7 @@ html {
 }
 
 body {
-  font-family: var(--font-poppins);
+  /* font-family: var(--font-poppins); */
   font-family: "Poppins", sans-serif;
 
   color: var(--color-grey-700);

@@ -22,6 +22,11 @@ const Heading = styled.h2`
   font-family: "Integral CF", sans-serif;
 
   color: #000;
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const SliderContainer = styled.div`
@@ -31,6 +36,10 @@ const SliderContainer = styled.div`
   overflow: hidden;
   height: 52rem;
   width: 60%;
+  @media (max-width: 768px) {
+    width: 95%;
+    height: auto;
+  }
 `;
 
 const Slider = styled.div`
@@ -65,6 +74,10 @@ const Slider = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+    gap: 0.5rem;
+  }
 `;
 
 const Card = styled.div`
@@ -81,6 +94,11 @@ const Card = styled.div`
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: ${(props) =>
     props.isHighlighted ? "0 8px 16px rgba(0, 0, 0, 0.3)" : "none"};
+  @media (max-width: 768px) {
+    min-width: 250px;
+    height: 350px;
+    margin: 0 5px;
+  }
 `;
 
 const Image = styled.img`
@@ -91,6 +109,9 @@ const Image = styled.img`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin: 1rem;
   margin-top: 1.2rem;
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 `;
 
 const PlaceName = styled.h3`

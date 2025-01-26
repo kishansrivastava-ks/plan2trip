@@ -15,22 +15,29 @@ const SearchContainer = styled.div`
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin: 0 auto;
-  /* border: 2px solid red; */
-  .mr {
-    /* padding-right: 5rem; */
-    /* border: 2px solid red; */
-    /* margin-right: -3rem; */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    width: 90%;
   }
 `;
 
 const InputContainer = styled.div`
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   padding: 0 1rem;
   flex: 1;
   position: relative;
-  /* margin-top: 1rem; */
+  border-right: 1px solid gray;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem 0;
+  }
 
   & + &::before {
     content: "";
@@ -39,14 +46,22 @@ const InputContainer = styled.div`
     height: 60%;
     width: 1px;
     background-color: #ccc;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
-  border-right: 1px solid gray;
 `;
 
 const Icon = styled.div`
   color: #666;
   font-size: 2.5rem;
   margin-right: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
 `;
 
 const Input = styled.input`
@@ -59,15 +74,19 @@ const Input = styled.input`
   margin-top: -0.7rem;
   margin-left: -1rem;
 
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
   &::placeholder {
     color: #747373;
-    /* color: #000; */
     font-size: 1.8rem;
-    /* letter-spacing: 1px; */
-  }
-  &:active {
-    outline: none;
-    border: none;
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
 `;
 
@@ -75,34 +94,44 @@ const DateInputContainer = styled.div`
   flex: 1;
   position: relative;
   font-size: 2rem;
+  display: flex;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   .react-datepicker-wrapper {
     width: 100%;
     border: none;
   }
-  display: flex;
+
   .datepicker-input {
     border: none;
     outline: none;
     font-size: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
-  /* border: 1px solid red; */
-  /* margin-left: 2rem;
-  max-width: 30rem;
-  margin-right: 2rem; */
 `;
 
 const SearchButton = styled.button`
   background-color: #159fd3;
   color: white;
   padding: 0.5rem 2.5rem;
-  /* font-size: 1rem; */
-  /* font-weight: bold; */
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
 
   &:hover {
     background-color: darkblue;
@@ -114,7 +143,7 @@ function SearchBox() {
 
   return (
     <SearchContainer>
-      <InputContainer className="mr">
+      <InputContainer>
         <Icon>
           <FaMapMarkerAlt />
         </Icon>
