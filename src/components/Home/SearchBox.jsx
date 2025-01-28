@@ -98,20 +98,25 @@ const DateInputContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    /* border: 2px solid red; */
   }
 
   .react-datepicker-wrapper {
-    width: 100%;
+    width: 88%;
+
     border: none;
+    /* border: 2px solid green; */
   }
 
   .datepicker-input {
     border: none;
     outline: none;
     font-size: 2rem;
+    /* border: 2px solid blue; */
 
     @media (max-width: 768px) {
       font-size: 1.5rem;
+      width: 100%;
     }
   }
 `;

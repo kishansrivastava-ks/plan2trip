@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ReviewsSection = styled.section`
-  height: 110vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -11,9 +11,10 @@ const ReviewsSection = styled.section`
   align-items: center;
   background: url("/reviews-bg.jpeg") center center/cover no-repeat;
   font-family: var(--font-poppins);
+  padding: 6rem 0;
+
   @media (max-width: 768px) {
-    height: auto;
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 `;
 
@@ -32,14 +33,18 @@ const Heading = styled.h2`
   font-weight: bold;
   text-align: center;
   z-index: 2;
-  margin-top: 3rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   font-family: "Integral CF", sans-serif;
   letter-spacing: 4px;
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    letter-spacing: 2px;
   }
 `;
 
@@ -47,28 +52,43 @@ const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
   z-index: 2;
   padding: 2rem;
-  margin-bottom: 5rem;
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+    padding: 1rem;
+  }
 `;
 
 const ReviewBox = styled.div`
   width: 65%;
   background-color: #fff;
   padding: 4rem;
-  padding-right: 1rem;
   display: flex;
   justify-content: space-between;
-  box-shadow: var(--shadow-md);
-  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
-    height: auto;
     width: 90%;
     padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem;
   }
 `;
 
@@ -77,11 +97,12 @@ const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 2px solid #aaaa;
+  border-right: 2px solid #eeeeee;
   padding-right: 2rem;
+
   @media (max-width: 768px) {
     border-right: none;
-    border-bottom: 2px solid #aaaa;
+    border-bottom: 2px solid #eeeeee;
     padding-right: 0;
     padding-bottom: 2rem;
   }
@@ -90,20 +111,28 @@ const LeftColumn = styled.div`
 const ReviewText = styled.p`
   font-size: 1.8rem;
   font-family: var(--font-poppins);
-
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-  line-height: 1.6;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
   text-align: justify;
+  color: #333;
+
   @media (max-width: 768px) {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    /* font-size: 1.2rem; */
+    line-height: 1.6;
   }
 `;
 
 const SeeMoreButton = styled(Link)`
   align-self: flex-start;
-  padding: 0.7rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   background-color: black;
   color: white;
   border: none;
@@ -111,27 +140,38 @@ const SeeMoreButton = styled(Link)`
   font-size: 1.4rem;
   letter-spacing: 2px;
   border-radius: 24px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
   margin-left: auto;
+  display: inline-block;
 
   &:hover {
-    background-color: var(--color-main);
     background-color: #fff;
     color: #000;
     font-weight: bold;
     outline: 2px solid black;
   }
+
+  @media (max-width: 768px) {
+    margin: 1rem auto 0;
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    display: none;
+  }
 `;
 
 const RightColumn = styled.div`
-  flex: 18%;
+  flex: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: 2rem;
+
   @media (max-width: 768px) {
-    margin-top: 1rem;
-    align-items: flex-start;
+    margin-top: 2rem;
+    padding-left: 0;
+    text-align: center;
   }
 `;
 
@@ -141,24 +181,51 @@ const UserPhoto = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+  border: 3px solid #f5f5f5;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const UserName = styled.h3`
   font-size: 2.5rem;
   font-weight: bold;
   letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: #222;
+
   @media (max-width: 768px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
   }
 `;
 
 const UserDesignation = styled.p`
-  color: gray;
+  color: #666;
   letter-spacing: 1px;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const PlaceVisited = styled.p`
   letter-spacing: 1px;
+  color: #444;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 function Reviews() {
