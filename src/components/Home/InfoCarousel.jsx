@@ -67,6 +67,7 @@ const DotContainer = styled.div`
 
   @media (max-width: 768px) {
     bottom: 15%;
+    display: none;
   }
 `;
 
