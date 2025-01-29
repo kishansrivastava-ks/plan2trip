@@ -5,6 +5,9 @@ import ShareExperience from "../components/Reviews/ShareExperience";
 const Container = styled.div`
   margin-top: 15vh;
   /* border: 0.5rem solid red; */
+  @media (max-width: 768px) {
+    margin-top: 10vh;
+  }
 `;
 
 const Heading = styled.h1`
