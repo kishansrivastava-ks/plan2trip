@@ -1,92 +1,54 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import styled from "styled-components";
 
 const ItemContainer = styled.div`
   display: flex;
-  flex-direction: column;
   width: 90%;
-  height: auto;
+  height: 42rem;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 3rem;
   gap: 2rem;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    height: 42rem;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-    gap: 0;
-    /* border: 2px solid red; */
-    border-radius: 24px;
-  }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
-  min-height: 30rem;
+  flex: 3;
   background: url("tour-package-thumb.jpeg") center/cover no-repeat;
-  border-radius: 24px 24px 0 0;
+  border-radius: 24px 0 0 24px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
-  @media (min-width: 768px) {
-    flex: 3;
-    border-radius: 24px 0 0 24px;
-  }
-  @media (max-width: 768px) {
-    box-shadow: none;
-  }
 `;
 
 const DetailsContainer = styled.div`
-  flex: 1;
+  flex: 1.1;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: space-around;
   border: 2px solid lightgray;
-  border-radius: 0 0 24px 24px;
+  border-radius: 0 24px 24px 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
-  @media (min-width: 768px) {
-    flex: 1.1;
-    border-radius: 0 24px 24px 0;
-    justify-content: space-around;
-    gap: 0;
-  }
-  @media (max-width: 768px) {
-    border-top: none;
-  }
+  /* border: 2px solid red; */
 `;
 
 const Title = styled.h3`
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #000;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-  }
+  /* border: 1px solid red; */
 `;
 
 const Text = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #000;
-
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
-  }
 `;
 
 const Ratings = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -95,17 +57,13 @@ const Ratings = styled.div`
   .star-icon {
     color: #ffd700;
   }
-
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
-  }
 `;
 
 const Travelers = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #000;
 
   button {
@@ -113,8 +71,8 @@ const Travelers = styled.div`
     color: #fff;
     border: none;
     border-radius: 4px;
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     font-size: 1.8rem;
     cursor: pointer;
     display: flex;
@@ -131,24 +89,14 @@ const Travelers = styled.div`
     min-width: 2rem;
     text-align: center;
   }
-
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
-
-    button {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
 `;
 
 const Price = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: #000;
-  flex-wrap: wrap;
 
   & > span {
     margin-left: 1rem;
@@ -161,50 +109,27 @@ const Price = styled.div`
     border-radius: 5px;
     margin-right: 1rem;
   }
-
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
-    flex-wrap: nowrap;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1rem;
-
-  @media (min-width: 768px) {
-    gap: 1rem;
-    margin-top: 0;
-  }
 `;
 
 const Button = styled.button`
   background: ${({ outline }) => (outline ? "transparent" : "#159dd1")};
   border: 2px solid #159dd1;
   color: ${({ outline }) => (outline ? "#159dd1" : "#fff")};
-  padding: 1.2rem 1rem;
-  font-size: 1.6rem;
+  padding: 0.8rem 1rem;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
-  width: 100%;
+  margin-bottom: -1.5rem;
 
   &:hover {
     background: ${({ outline }) => (outline ? "#159dd1" : "transparent")};
     color: ${({ outline }) => (outline ? "#fff" : "#159dd1")};
   }
-
-  @media (min-width: 768px) {
-    padding: 0.8rem 1rem;
-    font-size: 1.8rem;
-    margin-bottom: ${({ outline }) => (outline ? "0" : "-1.5rem")};
-  }
 `;
 
-const TourPackageItem = ({ name, duration, ratings, reviews, price }) => {
+const TourPackageItem = ({ name, duration, ratings, reviews, price, key }) => {
   const [travelers, setTravelers] = useState(1);
 
   const handleIncrease = () => {
@@ -238,10 +163,8 @@ const TourPackageItem = ({ name, duration, ratings, reviews, price }) => {
         <Price>
           Price : <span className="price">${400} </span> Per Person
         </Price>
-        <ButtonContainer>
-          <Button>Add to Cart</Button>
-          <Button outline>See Details</Button>
-        </ButtonContainer>
+        <Button>Add to Cart</Button>
+        <Button outline>See Details</Button>
       </DetailsContainer>
     </ItemContainer>
   );
