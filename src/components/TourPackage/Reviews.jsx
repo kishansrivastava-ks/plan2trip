@@ -6,13 +6,21 @@ import {
   FaCar,
   FaUser,
   FaPlane,
-} from "react-icons/fa"; // Importing icons from react-icons
+} from "react-icons/fa";
+
+const MOBILE_BREAKPOINT = "768px";
 
 // Main Container for the Reviews component
 const ReviewsContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
   margin-bottom: 8rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 95%;
+    margin: 1rem auto;
+    margin-bottom: 4rem;
+  }
 `;
 
 // Heading and Bullet
@@ -38,12 +46,20 @@ const Title = styled.h2`
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   color: #000;
   letter-spacing: 1px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+  }
 `;
 
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
   margin-bottom: 6rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    margin-bottom: 3rem;
+  }
 `;
 
 // Reviews List
@@ -51,6 +67,12 @@ const ReviewsList = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
 `;
 
 // Individual Review Item
@@ -66,9 +88,7 @@ const ReviewItem = styled.div`
 const IconCircle = styled.div`
   width: 10rem;
   height: 10rem;
-
   background: linear-gradient(180deg, #159dd1 0%, #1286ba 100%);
-
   color: white;
   display: flex;
   justify-content: center;
@@ -77,32 +97,48 @@ const IconCircle = styled.div`
   font-size: 5rem;
   margin-bottom: 0.5rem;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 7rem;
+    height: 7rem;
+    font-size: 3.5rem;
+  }
 `;
 
 // Review Text
 const ReviewText = styled.p`
   font-size: 2.5rem;
   letter-spacing: 2px;
-
   font-weight: 500;
   color: black;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 0.3rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
 `;
 
-// Rating Container
 const Rating = styled.div`
   display: flex;
   align-items: center;
   font-size: 2.5rem;
   color: #444;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+  }
 `;
 
-// Yellow Star Icon for Rating
 const StarIcon = styled(FaStar)`
   color: #ffd700;
   margin-right: 1rem;
   font-size: 3rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2.2rem;
+  }
 `;
 
 function Reviews() {

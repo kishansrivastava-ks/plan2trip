@@ -1,11 +1,19 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+const MOBILE_BREAKPOINT = "768px";
+
 // Container for the entire itinerary
 const ItineraryContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
   margin-bottom: 8rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 95%;
+    margin: 1rem auto;
+    margin-bottom: 4rem;
+  }
 `;
 
 // Heading section with bullet circle
@@ -31,6 +39,10 @@ const Title = styled.h2`
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   color: #000;
   letter-spacing: 1px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+  }
 `;
 
 // Horizontal rule below heading
@@ -38,13 +50,27 @@ const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
   margin-bottom: 4rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    margin-bottom: 2rem;
+  }
 `;
 
 // Tabs container
 const Tabs = styled.div`
   display: flex;
   gap: 1rem;
-  /* margin-bottom: -1rem; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 // Individual Tab button
@@ -57,14 +83,21 @@ const Tab = styled.button`
   cursor: pointer;
   border-radius: 12px 12px 0 0;
   transition: background-color 0.3s ease;
-  /* border-bottom: ${(props) =>
-    props.active ? "none" : "2px solid #007bff"}; */
   text-transform: uppercase;
   font-size: 2rem;
   letter-spacing: 2px;
+
   &:hover {
     background-color: #159fd3;
     color: white;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.4rem;
+    padding: 0.4rem 1rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    border-radius: 8px 8px 0 0;
   }
 `;
 
@@ -74,12 +107,18 @@ const TabContent = styled.div`
   color: white;
   padding: 2rem;
   border-radius: 0 15px 15px 15px;
-  /* border-radius: 15px; */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   min-height: 30rem;
   box-shadow: 0px 4px 4px 0px #00000040;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    min-height: 20rem;
+    gap: 1rem;
+    border-radius: 0 8px 8px 8px;
+  }
 `;
 
 // Timeline item
@@ -105,6 +144,12 @@ const TimelineContent = styled.div`
   padding-left: 1.5rem;
   margin: 1rem 0;
   font-size: 2.5rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 const TimelineLine = styled.div`
@@ -114,6 +159,9 @@ const TimelineLine = styled.div`
   width: 2px;
   height: 100%;
   background-color: white;
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    top: 24px;
+  }
 `;
 
 function Itinerary() {

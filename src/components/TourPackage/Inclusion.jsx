@@ -1,14 +1,21 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-// Main Container for the Inclusion component
+const MOBILE_BREAKPOINT = "768px";
+
 const InclusionContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
   margin-bottom: 8rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 95%;
+    margin: 1rem auto;
+    margin-bottom: 4rem;
+  }
 `;
 
-// Heading and Bullet
 const Heading = styled.div`
   display: flex;
   align-items: center;
@@ -31,6 +38,10 @@ const Title = styled.h2`
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   color: #000;
   letter-spacing: 1px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+  }
 `;
 
 const HorizontalLine = styled.hr`
@@ -39,17 +50,25 @@ const HorizontalLine = styled.hr`
   margin-bottom: 2rem;
 `;
 
-// Tabbed Content Layout
 const TabbedContentContainer = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `;
 
-// Left Tab List
 const TabList = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    display: none;
+  }
 `;
 
 const Tab = styled.div`
@@ -63,7 +82,6 @@ const Tab = styled.div`
   color: ${(props) => (props.isActive ? "black" : "#555")};
 `;
 
-// Right Tab Content
 const TabContent = styled.div`
   flex: 1;
   background: linear-gradient(180deg, #159ed2 0%, #1286ba 66.88%);
@@ -72,10 +90,53 @@ const TabContent = styled.div`
   border-radius: 15px;
   position: relative;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  /* border: 2px solid red; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: none;
+  }
 `;
 
-// Bullet List inside Tab Content
+// New Mobile Accordion Components
+const MobileAccordion = styled.div`
+  display: none;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+`;
+
+const AccordionItem = styled.div`
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const AccordionHeader = styled.div`
+  background: ${(props) =>
+    props.isActive
+      ? "linear-gradient(180deg, #159ed2 0%, #1286ba 66.88%)"
+      : "#f5f5f5"};
+  color: ${(props) => (props.isActive ? "white" : "black")};
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+`;
+
+const AccordionContent = styled.div`
+  background: linear-gradient(180deg, #159ed2 0%, #1286ba 66.88%);
+  color: white;
+  padding: ${(props) => (props.isActive ? "1.5rem" : "0")};
+  max-height: ${(props) => (props.isActive ? "300px" : "0")};
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+`;
+
 const BulletList = styled.ul`
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -83,44 +144,30 @@ const BulletList = styled.ul`
   letter-spacing: 1px;
   line-height: 1.6;
   margin-left: 2.5rem;
-  /* border: 2px solid red; */
   max-height: 27rem;
   overflow-y: auto;
   scrollbar-width: none;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+    line-height: 1.4;
+    max-height: none;
+  }
 `;
 
 const BulletListItem = styled.li`
   margin-bottom: 1rem;
-`;
 
-// See More Button
-const SeeMoreButton = styled.button`
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background: #333333;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 0.5rem 3rem;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0px 4px 4px 0px #ffffff40;
-
-  &:hover {
-    background-color: #000;
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    margin-bottom: 0.8rem;
   }
 `;
 
 function Inclusion() {
-  // State to track active tab
   const [activeTab, setActiveTab] = useState(0);
+  const [activeAccordion, setActiveAccordion] = useState(0);
 
-  // Sample tab content
   const tabs = [
     {
       title: "Accommodation",
@@ -129,10 +176,6 @@ function Inclusion() {
         "Breakfast and dinner included",
         "Complimentary Wi-Fi",
         "Daily housekeeping",
-        "Room service available",
-        "Room service available",
-        "Room service available",
-        "Room service available",
         "Room service available",
       ],
     },
@@ -178,17 +221,20 @@ function Inclusion() {
     },
   ];
 
+  const handleAccordionClick = (index) => {
+    setActiveAccordion(activeAccordion === index ? -1 : index);
+  };
+
   return (
     <InclusionContainer>
-      {/* Heading with Bullet and Line */}
       <Heading>
         <BulletCircle />
         <Title>INCLUSION</Title>
       </Heading>
       <HorizontalLine />
 
+      {/* Desktop Layout */}
       <TabbedContentContainer>
-        {/* Left Tab List */}
         <TabList>
           {tabs.map((tab, index) => (
             <Tab
@@ -201,17 +247,40 @@ function Inclusion() {
           ))}
         </TabList>
 
-        {/* Right Tab Content */}
         <TabContent>
           <BulletList>
             {tabs[activeTab].content.map((item, idx) => (
               <BulletListItem key={idx}>{item}</BulletListItem>
             ))}
           </BulletList>
-
-          {/* <SeeMoreButton>See More</SeeMoreButton> */}
         </TabContent>
       </TabbedContentContainer>
+
+      {/* Mobile Accordion Layout */}
+      <MobileAccordion>
+        {tabs.map((tab, index) => (
+          <AccordionItem key={index}>
+            <AccordionHeader
+              isActive={activeAccordion === index}
+              onClick={() => handleAccordionClick(index)}
+            >
+              {tab.title}
+              {activeAccordion === index ? (
+                <ChevronUp size={20} />
+              ) : (
+                <ChevronDown size={20} />
+              )}
+            </AccordionHeader>
+            <AccordionContent isActive={activeAccordion === index}>
+              <BulletList>
+                {tab.content.map((item, idx) => (
+                  <BulletListItem key={idx}>{item}</BulletListItem>
+                ))}
+              </BulletList>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </MobileAccordion>
     </InclusionContainer>
   );
 }

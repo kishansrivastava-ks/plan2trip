@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
 
-// Animation keyframes
 const slideIn = keyframes`
   from {
     transform: translateX(100%);
@@ -14,14 +13,20 @@ const slideIn = keyframes`
   }
 `;
 
-// Main Stay Component Container
+const mobileBreakpoint = "768px";
+
 const StayContainer = styled.div`
   width: 90%;
   margin: 2rem auto;
   margin-bottom: 5rem;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    width: 95%;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+  }
 `;
 
-// Heading Section
 const Heading = styled.div`
   display: flex;
   align-items: center;
@@ -44,15 +49,22 @@ const Title = styled.h2`
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   color: #000;
   letter-spacing: 1px;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    font-size: 2.4rem;
+  }
 `;
 
 const HorizontalLine = styled.hr`
   width: 100%;
   border: 1px solid #ddd;
   margin-bottom: 4rem;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    margin-bottom: 2rem;
+  }
 `;
 
-// Two Column Layout with animation
 const TwoColumnLayout = styled.div`
   display: flex;
   gap: 0.5rem;
@@ -60,18 +72,31 @@ const TwoColumnLayout = styled.div`
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   animation: ${slideIn} 0.5s ease-out;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    flex-direction: column;
+    min-height: auto;
+    gap: 0;
+  }
 `;
 
-// Left Column for Image
 const LeftColumn = styled.div`
   flex: 7;
   background: ${(props) =>
     `url(${props.image}) center center / cover no-repeat`};
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  min-height: 40rem;
+  @media (max-width: ${mobileBreakpoint}) {
+    height: 300px;
+    min-height: 300px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 15px;
+    width: 100%;
+    display: block;
+  }
 `;
 
-// Right Column
 const RightColumn = styled.div`
   flex: 2;
   background-color: #333333;
@@ -82,16 +107,28 @@ const RightColumn = styled.div`
   justify-content: space-between;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15px;
+    padding: 1.5rem;
+    min-height: 200px;
+  }
 `;
 
-// Text Details in Right Column
 const TextDetails = styled.div`
   line-height: 1.8;
   font-size: 2.5rem;
   letter-spacing: 2px;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    font-size: 1.8rem;
+    /* line-height: 1.5; */
+    margin-top: auto;
+    text-align: center;
+  }
 `;
 
-// Circle with Arrow
 const ArrowCircle = styled.div`
   align-self: flex-end;
   width: 60px;
@@ -110,17 +147,27 @@ const ArrowCircle = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: ${mobileBreakpoint}) {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
 `;
 
-// Buttons Section
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 3rem;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 `;
 
-// Individual Button
 const Button = styled.button`
   background: ${(props) => (props.cartBtn ? "#fff" : "#159fd3")};
   color: ${(props) => (props.cartBtn ? "#000" : "#fff")};
@@ -135,6 +182,13 @@ const Button = styled.button`
   &:hover {
     background-color: ${(props) => (props.cartBtn ? "#159fd3" : "#005bb5")};
     color: #fff;
+  }
+
+  @media (max-width: ${mobileBreakpoint}) {
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
   }
 `;
 
@@ -165,11 +219,11 @@ const staysData = [
 
 function Stay() {
   const [currentStayIndex, setCurrentStayIndex] = useState(0);
-  const [key, setKey] = useState(0); // For forcing re-render with animation
+  const [key, setKey] = useState(0);
 
   const handleNextStay = () => {
     setCurrentStayIndex((prev) => (prev + 1) % staysData.length);
-    setKey((prev) => prev + 1); // Update key to trigger animation
+    setKey((prev) => prev + 1);
   };
 
   const currentStay = staysData[currentStayIndex];
