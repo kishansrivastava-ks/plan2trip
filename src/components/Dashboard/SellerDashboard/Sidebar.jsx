@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import {
@@ -15,6 +16,14 @@ const SidebarContainer = styled.nav`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-right: none;
+    margin: 0;
+    padding: 15px;
+    padding-top: 60px; // Space for the hamburger menu
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -24,6 +33,11 @@ const ItemContainer = styled.div`
   border-radius: 15px;
   padding: 1rem;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    box-shadow: none;
+    padding: 0.5rem;
+  }
 `;
 
 const SidebarLink = styled(NavLink)`
@@ -36,6 +50,11 @@ const SidebarLink = styled(NavLink)`
   text-decoration: none;
   color: #333;
   transition: background-color 0.3s, color 0.3s;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    padding: 12px;
+  }
 
   &.active {
     background-color: #0297cf;
@@ -54,11 +73,33 @@ const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
-function Sidebar() {
+// Optional: Add a close button for mobile
+const CloseButton = styled.button`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+  }
+`;
+
+function Sidebar({ onClose }) {
   return (
     <SidebarContainer>
+      <CloseButton onClick={onClose}>&times;</CloseButton>
       <ItemContainer>
         <SidebarLink to="/seller-dashboard" end>
           <Icon>

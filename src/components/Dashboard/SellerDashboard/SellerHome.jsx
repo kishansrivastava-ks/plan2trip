@@ -6,12 +6,21 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const StatsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;
 
 const StatBox = styled.div`
@@ -24,8 +33,14 @@ const StatBox = styled.div`
   gap: 20px;
   box-shadow: 2px 2px 2px 2px #00000040;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    height: 12rem;
+    padding: 1.5rem;
+    gap: 15px;
+  }
+
   & > div {
-    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -34,6 +49,10 @@ const StatBox = styled.div`
     font-size: 3rem;
     font-weight: bold;
     letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
   }
 `;
 
@@ -47,6 +66,12 @@ const StatIcon = styled.div`
   justify-content: center;
   color: white;
   font-size: 2.5rem;
+
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    font-size: 2rem;
+  }
 `;
 
 const StatText = styled.div`
@@ -61,6 +86,10 @@ const StatText = styled.div`
     margin: 0;
     font-weight: 200;
     letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -70,6 +99,11 @@ const SectionHeading = styled.h2`
   color: black;
   letter-spacing: 2px;
   margin: 1rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 const TableContainer = styled.div`
@@ -78,6 +112,11 @@ const TableContainer = styled.div`
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: -2px -2px 4px 0px #00000040, 2px 2px 4px 0px #00000040;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    overflow-x: auto;
+  }
 `;
 
 const TableHeader = styled.div`
@@ -86,16 +125,23 @@ const TableHeader = styled.div`
   margin-bottom: 10px;
   border-bottom: 1px solid #000000;
   color: #000;
+
+  @media (max-width: 768px) {
+    min-width: 600px; // Ensure all columns are visible
+  }
 `;
 
 const TableRow = styled.div`
   display: flex;
   padding: 10px 0;
   align-items: center;
-  /* gap: 20px; */
 
   &:not(:last-child) {
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 600px; // Match header width
   }
 `;
 
@@ -103,8 +149,6 @@ const TableColumn = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-  /* border: 1px solid red; */
   gap: 10px;
   color: #000;
   font-size: 1.7rem;
@@ -112,6 +156,14 @@ const TableColumn = styled.div`
 
   &:first-child {
     flex: 5;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+
+    &:first-child {
+      flex: 3; // Slightly reduce the first column width on mobile
+    }
   }
 `;
 
@@ -121,6 +173,12 @@ const PackagePhoto = styled.div`
   background-color: #ddd;
   border-radius: 4px;
   margin-right: 2rem;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+  }
 `;
 
 const StatusCircle = styled.span`

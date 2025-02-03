@@ -13,22 +13,41 @@ const HeaderContainer = styled.header`
   font-size: 3rem;
   font-weight: 600;
   letter-spacing: 2px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    padding: 0 10px;
+    height: 50px;
+  }
 `;
 
 const LeftSection = styled.div`
   color: black;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
 `;
 
 const RightSection = styled.div`
   display: flex;
   gap: 3.5rem;
   align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+  }
 `;
 
 const Icon = styled.div`
   font-size: 3rem;
   color: black;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 function Header() {
