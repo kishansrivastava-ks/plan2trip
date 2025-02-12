@@ -14,6 +14,11 @@ const Container = styled.div`
   gap: 1rem;
   border-radius: 10px;
   /* border: 1px solid re d; */
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    gap: 0.8rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -30,17 +35,33 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    &::before {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   gap: 5px;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex: 7;
   position: relative;
+
+  @media (max-width: 768px) {
+    flex: none;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -48,6 +69,10 @@ const ImageContainer = styled.div`
   height: 30rem;
   /* border-radius: 10px 0 0 10px; */
   /* border: 1px solid red; */
+
+  @media (max-width: 768px) {
+    height: 25rem;
+  }
 `;
 
 const Image = styled.img`
@@ -55,6 +80,10 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 12px 0 0 12px;
+
+  @media (max-width: 768px) {
+    border-radius: 12px 12px 0 0;
+  }
 `;
 
 const EditButton = styled.button`
@@ -81,6 +110,11 @@ const RightColumn = styled.div`
   background-color: #333333;
   border-radius: 0 12px 12px 0;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    border-radius: 0 0 12px 12px;
+    padding: 1.5rem;
+  }
 `;
 
 const DetailsContainer = styled.div`
@@ -95,6 +129,10 @@ const Detail = styled.div`
   letter-spacing: 1px;
   font-weight: 500;
   color: #fff;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const ArrowButton = styled.button`
@@ -130,6 +168,12 @@ const AddStayButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+
+  @media (max-width: 768px) {
+    padding: 0.7rem 3rem;
+    font-size: 1.6rem;
+    width: 100%;
+  }
 `;
 
 const ModalOverlay = styled.div`
@@ -156,6 +200,13 @@ const EditStayModal = styled.div`
   padding: 4rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   position: relative;
+
+  @media (max-width: 768px) {
+    min-width: 90vw;
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 `;
 const EditStayHeader = styled.div``;
 const EditStayDetails = styled.div`
@@ -189,6 +240,13 @@ const AddStayModal = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    min-width: 90vw;
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 `;
 
 const AddPhotoContainer = styled.div`
@@ -197,6 +255,11 @@ const AddPhotoContainer = styled.div`
   width: 100%;
   gap: 1rem;
   margin: 1rem 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `;
 const AddPhotoLeftCol = styled.div`
   /* border: 1px solid blue; */
@@ -205,6 +268,11 @@ const AddPhotoLeftCol = styled.div`
   background-image: url("/add-stay-bg.png");
   background-position: center;
   background-size: cover;
+
+  @media (max-width: 768px) {
+    flex-basis: auto;
+    height: 20rem;
+  }
 `;
 const AddPhotoRightCol = styled.div`
   /* border: 1px solid blue; */
@@ -212,6 +280,10 @@ const AddPhotoRightCol = styled.div`
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    flex-basis: auto;
+  }
 `;
 const AddPhotoGrid = styled.div`
   display: grid;
@@ -240,6 +312,11 @@ const ActionButton = styled.button`
   cursor: pointer;
   color: #fff;
   background-color: #2a93d5;
+
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    font-size: 1.4rem;
+  }
 `;
 
 const AddDetailsContainer = styled.div`
@@ -267,6 +344,13 @@ const AddDetailsContainer = styled.div`
     gap: 1rem;
     max-width: 40%;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    & > div {
+      max-width: 100%;
+    }
+  }
 `;
 const CloseButton = styled.button`
   position: absolute;
@@ -276,6 +360,12 @@ const CloseButton = styled.button`
   border: none;
   font-size: 3rem;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2.5rem;
+  }
 `;
 
 function Stay() {

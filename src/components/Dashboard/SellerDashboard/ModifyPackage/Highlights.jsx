@@ -13,6 +13,11 @@ const Container = styled.div`
   flex-direction: column;
   border-radius: 10px;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    gap: 0.8rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -29,6 +34,13 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    &::before {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const HighlightsContainer = styled.div`
@@ -40,6 +52,11 @@ const HighlightsContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    padding-bottom: 0.5rem; // Add some padding for better scroll experience
+  }
 `;
 
 const Card = styled.div`
@@ -49,6 +66,11 @@ const Card = styled.div`
   flex-direction: column;
   gap: 2px;
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    min-width: 25rem;
+    height: 35rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -76,6 +98,22 @@ const Overlay = styled.div`
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   /* z-index: -1; */
+
+  @media (max-width: 768px) {
+    opacity: 1;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 5%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgba(255, 255, 255, 1) 15%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+  }
 `;
 
 const UpperRow = styled.div`
@@ -113,6 +151,17 @@ const Button = styled.button`
   &:last-child {
     margin-bottom: 1.5rem;
   }
+
+  @media (max-width: 768px) {
+    width: 16rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    margin: 0.8rem 0;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 const BottomRow = styled.div`
@@ -126,6 +175,11 @@ const BottomRow = styled.div`
   letter-spacing: 2px;
   border-radius: 0 0 12px 12px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+  }
 `;
 
 const EditableText = styled.input`
@@ -139,6 +193,10 @@ const EditableText = styled.input`
   padding: 0 1rem;
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 
@@ -159,6 +217,13 @@ const AddHighlightButton = styled.button`
 
   &:hover {
     background-color: #237ab8;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    margin-top: 1rem;
   }
 `;
 

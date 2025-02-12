@@ -13,6 +13,10 @@ const Container = styled.div`
   gap: 1rem;
   border-radius: 10px;
   min-height: max-content;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -29,12 +33,25 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    &::before {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   height: 30rem;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const LeftColumn = styled.div`
@@ -50,6 +67,15 @@ const LeftColumn = styled.div`
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    max-height: 200px;
   }
 `;
 
@@ -68,6 +94,11 @@ const LeftItemContainer = styled.div`
     background-color: #159fd3;
     color: white;
   }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 1rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const LeftItem = styled.span`
@@ -75,6 +106,10 @@ const LeftItem = styled.span`
   letter-spacing: 1px;
   margin-right: 1rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const EditableLeftItem = styled.input`
@@ -133,6 +168,16 @@ const AddItemButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    font-size: 1.4rem;
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    border: 2px solid #2a93d5;
+    color: #2a93d5;
+  }
 `;
 
 const RightColumn = styled.div`
@@ -148,6 +193,12 @@ const RightColumn = styled.div`
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+    min-height: 300px;
   }
 `;
 
@@ -165,6 +216,11 @@ const BulletPointContainer = styled.div`
   justify-content: space-between;
   font-size: 2rem;
   padding: 0.5rem 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding: 0.8rem 0.5rem;
+  }
 `;
 
 const BulletPoint = styled.span`
@@ -192,6 +248,12 @@ const EditableBulletPoint = styled.input`
   &::placeholder {
     color: rgba(255, 255, 255, 0.8);
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    width: 85%;
+    margin-left: 2rem;
+  }
 `;
 
 const AddPointButton = styled.button`
@@ -211,6 +273,13 @@ const AddPointButton = styled.button`
   &:hover {
     background-color: #237ab8;
     color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 2rem;
+    font-size: 1.4rem;
+    position: sticky;
+    bottom: 0;
   }
 `;
 
