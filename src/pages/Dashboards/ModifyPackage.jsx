@@ -35,6 +35,12 @@ const Container = styled.div`
   &::-webkit-scrollbar-track {
     background: transparent;
   }
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    height: auto;
+    min-height: 60rem;
+  }
 `;
 
 const Header = styled.div`
@@ -43,12 +49,21 @@ const Header = styled.div`
   align-items: center;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    padding-bottom: 15px;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 3rem;
   font-weight: bold;
   color: black;
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
 const AddPackageButton = styled(Link)`
@@ -65,6 +80,12 @@ const AddPackageButton = styled(Link)`
   &:hover {
     background-color: #237ab8;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.6rem;
+    padding: 8px 20px;
+  }
 `;
 
 const SaveButtonContainer = styled.div`
@@ -74,6 +95,11 @@ const SaveButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 2rem;
+  @media (max-width: 768px) {
+    padding-right: 0;
+    justify-content: center;
+    margin: 2rem 0 4rem 0;
+  }
 `;
 const SaveBtn = styled.button`
   background-color: #2a93d5;
@@ -89,12 +115,17 @@ const SaveBtn = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem 3.5rem;
+    font-size: 1.6rem;
+  }
 `;
 function ModifyPackage() {
   return (
     <Container>
       <Header>
-        <Title>My Packages</Title>
+        <Title>Modify Package</Title>
         <AddPackageButton to="/seller-dashboard/packages/add-package">
           <span>+</span> Add Package
         </AddPackageButton>

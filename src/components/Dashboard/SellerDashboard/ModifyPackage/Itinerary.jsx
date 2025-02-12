@@ -9,6 +9,10 @@ const Container = styled.div`
   margin-bottom: 2rem;
   background-color: #fff;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -26,17 +30,47 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Tabs = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `;
 
 const TabList = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #0297cf;
+      border-radius: 4px;
+    }
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none; // Hide scrollbar for cleaner look
+    }
+  }
 `;
 
 const Tab = styled.button`
@@ -55,11 +89,31 @@ const Tab = styled.button`
     background-color: #159fd3;
     color: white;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+    white-space: nowrap;
+  }
 `;
 
 const ActionButtons = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    & > button {
+      flex: 1;
+    }
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 0.5rem 0;
+    z-index: 1;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -77,6 +131,16 @@ const ActionButton = styled.button`
 
   &:hover {
     background-color: ${(props) => (props.primary ? "#237AB8" : "#222222")};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.5rem;
+    justify-content: center;
+
+    & > span:last-child {
+      display: none;
+    }
   }
 `;
 
@@ -97,6 +161,14 @@ const TabContent = styled.div`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    max-height: 50rem;
+    padding: 1.5rem;
+    max-height: 60vh; // Use viewport height instead of rem
+    padding-bottom: 6rem; // Account for sticky AddPointButton
+  }
 `;
 
 const TimelineItem = styled.div`
@@ -104,6 +176,17 @@ const TimelineItem = styled.div`
   align-items: flex-start;
   position: relative;
   /* border: 2px solid white; */
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding-left: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const TimelineBullet = styled.div`
@@ -134,6 +217,13 @@ const TimelineContent = styled.div`
   align-items: center;
   /* justify-content: space-between; */
   width: 100%;
+
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+    gap: 0.5rem;
+  }
 `;
 
 const AddPointButton = styled(ActionButton)`
@@ -147,6 +237,25 @@ const AddPointButton = styled(ActionButton)`
   &:hover {
     background-color: #f0f0f0;
     color: #0297cf;
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 2rem);
+    justify-content: center;
+    bottom: 0.5rem;
+    right: 1rem;
+
+    & > span:last-child {
+      display: inline; // Override ActionButton mobile styles
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: sticky; // Change from absolute to sticky
+    bottom: 0;
+    margin: 1rem -1.5rem -1.5rem -1.5rem;
+    width: calc(100% + 3rem);
+    border-radius: 0 0 10px 10px;
   }
 `;
 
@@ -165,6 +274,11 @@ const EditablePoint = styled.input`
   &:focus {
     outline: none;
   }
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    width: 80%; // Slightly reduce width to prevent overflow
+    padding: 0.5rem 0;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -178,6 +292,15 @@ const DeleteButton = styled.button`
 
   &:hover {
     color: #f0f0f0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    margin: -0.8rem; // Increase touch target
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 

@@ -9,6 +9,11 @@ const Container = styled.div`
   margin-bottom: 20px;
   border-radius: 10px;
   margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    margin-top: 2rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -24,11 +29,18 @@ const Title = styled.h3`
     font-size: 2rem;
     margin-right: 10px;
   }
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Columns = styled.div`
   display: flex;
   gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 
 const Column = styled.div`
@@ -38,22 +50,38 @@ const Column = styled.div`
 const Divider = styled.div`
   width: 1px;
   background: #ddd;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Line = styled.div`
   font-size: 1.8rem;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const BoldLine = styled(Line)`
   font-weight: bold;
   display: flex;
   gap: 2rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
 `;
 
 const RadioGroup = styled.div`
   display: flex;
   gap: 10px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
 `;
 
 const RadioButton = styled.label`
@@ -67,6 +95,9 @@ const RadioButton = styled.label`
     accent-color: black;
     transform: scale(1.2);
   }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
@@ -74,6 +105,11 @@ const Input = styled.input`
   font-size: 1.6rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 8px;
+  }
 `;
 
 const CalendarContainer = styled.div`
@@ -85,6 +121,20 @@ const CalendarContainer = styled.div`
   & > * {
     margin-right: 1rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+
+    & > * {
+      margin-right: 0;
+    }
+
+    & > span {
+      text-align: center;
+    }
+  }
 `;
 
 const SeparateDatesContainer = styled.div`
@@ -92,12 +142,23 @@ const SeparateDatesContainer = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const DateInputGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  @media (max-width: 768px) {
+    width: 100%;
+
+    & > input {
+      flex: 1;
+    }
+  }
 `;
 const AddButton = styled.button`
   display: flex;
@@ -132,6 +193,10 @@ const IconButton = styled.button`
   }
 
   color: ${(props) => (props.$isRemove ? "#f44336" : "#2a93d5")};
+
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+  }
 `;
 const AvailabilityQuantity = () => {
   const [currentDates, setCurrentDates] = useState(

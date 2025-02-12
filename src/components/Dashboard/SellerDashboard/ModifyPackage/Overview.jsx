@@ -11,6 +11,11 @@ const OverviewContainer = styled.div`
   padding: 15px 20px;
   box-sizing: border-box;
   border-radius: 12px;
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 45rem;
+    padding: 12px 15px;
+  }
 `;
 
 const Title = styled.h1`
@@ -18,6 +23,9 @@ const Title = styled.h1`
   font-weight: bold;
   color: black;
   letter-spacing: 1px;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -62,6 +70,14 @@ const EditButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
 `;
 
 const ModalOverlay = styled.div`
@@ -77,6 +93,13 @@ const ModalOverlay = styled.div`
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   pointer-events: ${(props) => (props.isVisible ? "auto" : "none")};
   transition: opacity 0.3s ease;
+
+  @media (max-width: 768px) {
+    min-width: 90vw;
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 `;
 
 const ModalContainer = styled.div`
@@ -128,12 +151,38 @@ const Row = styled.div`
       margin-right: 9rem;
     }
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    & > label {
+      flex: none;
+      width: 100%;
+    }
+
+    & > input {
+      flex: none;
+      width: 100%;
+    }
+
+    &:nth-child(3) {
+      & > label {
+        margin-right: 0;
+      }
+    }
+  }
 `;
 
 const RadioGroup = styled.div`
   display: flex;
   gap: 1rem;
   /* border: 1px solid red; */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const RadioOption = styled.label`
@@ -145,11 +194,19 @@ const RadioOption = styled.label`
   & > input {
     accent-color: black;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
 `;
 
 const PhotosContainer = styled.div`
   display: flex;
   gap: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const PhotoLeftCol = styled.div`
@@ -167,17 +224,23 @@ const PhotoLeftCol = styled.div`
   color: #666;
   font-size: 1.5rem;
   border: 2px solid #ccc;
+  @media (max-width: 768px) {
+    min-width: 100%;
+    min-height: 20rem;
+  }
 `;
 const PhotoRightCol = styled.div`
   flex: 3;
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
+  @media (max-width: 768px) {
+    flex: none;
+  }
 `;
 
 const PhotoGrid = styled.div`
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 
   gap: 0.5rem;
@@ -186,7 +249,11 @@ const PhotoGrid = styled.div`
   border-radius: 5px;
   position: relative;
   min-height: 120px;
-  /* border: 2px solid red; */
+
+  @media (max-width: 768px) {
+    height: 20rem;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
 `;
 
 const EmptyPhotoGrid = styled.div`
@@ -209,7 +276,6 @@ const PhotoWrapper = styled.div`
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
-  /* border: 2px solid red; */
 `;
 
 const Photo = styled.img`
@@ -240,6 +306,16 @@ const Actions = styled.div`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.8rem;
+
+    & > button {
+      width: 100%;
+      padding: 1rem 0.5rem;
+    }
+  }
 `;
 
 function Overview() {
@@ -248,7 +324,6 @@ function Overview() {
     "Best Tea Plantation of South India - Coorg (3N-2D) Package"
   );
   const [price, setPrice] = useState("250");
-  // const [photos, setPhotos] = useState(["/package-bg.jpeg"]);
 
   const [photos, setPhotos] = useState(["/package-bg.jpeg"]);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -271,23 +346,6 @@ function Overview() {
   const handlePhotoClick = (index) => {
     setSelectedPhoto(selectedPhoto === index ? null : index);
   };
-
-  // const reorderPhotos = (list, startIndex, endIndex) => {
-  //   const result = Array.from(list);
-  //   const [removed] = result.splice(startIndex, 1);
-  //   result.splice(endIndex, 0, removed);
-  //   return result;
-  // };
-  // const onDragEnd = (result) => {
-  //   if (!result.destination) return;
-
-  //   const reorderedPhotos = reorderPhotos(
-  //     photos,
-  //     result.source.index,
-  //     result.destination.index
-  //   );
-  //   setPhotos(reorderedPhotos);
-  // };
 
   return (
     <OverviewContainer>
