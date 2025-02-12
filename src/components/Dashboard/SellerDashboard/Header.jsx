@@ -18,6 +18,12 @@ const HeaderContainer = styled.header`
     font-size: 2rem;
     padding: 0 10px;
     height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #ffffff;
+    padding-top: 0.5rem;
   }
 `;
 
@@ -27,6 +33,7 @@ const LeftSection = styled.div`
   @media (max-width: 768px) {
     font-size: 1.8rem;
     letter-spacing: 1px;
+    margin-left: 5rem;
   }
 `;
 

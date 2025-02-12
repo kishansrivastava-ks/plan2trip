@@ -17,6 +17,11 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    padding: 0 15px;
+  }
 `;
 
 const Header = styled.div`
@@ -26,12 +31,20 @@ const Header = styled.div`
   padding: 10px 0;
   padding-top: 0;
   border-bottom: 1px solid #ddd;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 3rem;
   font-weight: bold;
   color: black;
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
 const AddPackageButton = styled(Link)`
@@ -47,6 +60,12 @@ const AddPackageButton = styled(Link)`
 
   &:hover {
     background-color: #237ab8;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding: 8px 20px;
+    width: 100%;
+    justify-content: center;
   }
 `;
 
@@ -77,6 +96,12 @@ const GridContainer = styled.div`
 
   &::-webkit-scrollbar-track {
     background: transparent;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+    max-height: none;
+    gap: 5px;
   }
 `;
 
@@ -115,12 +140,24 @@ const PackageDetails = styled.div`
     font-size: 1.8rem;
     font-weight: 400;
   }
+  @media (max-width: 768px) {
+    & > h3 {
+      font-size: 2.4rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 4px;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -141,6 +178,9 @@ const ActionButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+  @media (max-width: 768px) {
+    min-height: 50%;
+  }
 `;
 
 const RemoveButton = styled.button`
@@ -160,6 +200,9 @@ const RemoveButton = styled.button`
   &:hover {
     background-color: #d93838;
   }
+  @media (max-width: 768px) {
+    max-height: 4.5rem;
+  }
 `;
 
 const DetailsPanel = styled.div`
@@ -177,6 +220,11 @@ const DetailsPanel = styled.div`
   transition: transform 1s ease-in-out;
   z-index: 10;
   display: ${(props) => (props.showDetails ? "block" : "none")};
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -223,8 +271,8 @@ const ListItem = styled.ul`
   font-size: 1.5rem;
   letter-spacing: 1px;
 
-  & > li {
-    /* margin-bottom: 5px; */
+  @media (max-width: 768px) {
+    padding-left: 3rem;
   }
 `;
 
