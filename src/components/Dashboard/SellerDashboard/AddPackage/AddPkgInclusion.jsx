@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { FiX, FiPlusCircle } from "react-icons/fi";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   width: 100%;
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -13,6 +15,15 @@ const Container = styled.div`
   gap: 1rem;
   border-radius: 10px;
   min-height: max-content;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -29,12 +40,22 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   height: 30rem;
   gap: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
 `;
 
 const LeftColumn = styled.div`
@@ -50,6 +71,15 @@ const LeftColumn = styled.div`
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+    max-height: 200px;
   }
 `;
 
@@ -68,6 +98,11 @@ const LeftItemContainer = styled.div`
     background-color: #159fd3;
     color: white;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const LeftItem = styled.span`
@@ -75,6 +110,10 @@ const LeftItem = styled.span`
   letter-spacing: 1px;
   margin-right: 1rem;
   width: 100%;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+  }
 `;
 
 const EditableLeftItem = styled.input`
@@ -94,6 +133,10 @@ const EditableLeftItem = styled.input`
   &::placeholder {
     color: ${(props) =>
       props.active ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.5)"};
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -133,6 +176,15 @@ const AddItemButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1rem;
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    border: 2px solid #2a93d5;
+    color: #2a93d5;
+  }
 `;
 
 const RightColumn = styled.div`
@@ -148,6 +200,13 @@ const RightColumn = styled.div`
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    padding: 1.5rem;
+    min-height: 300px;
+    max-height: 400px;
   }
 `;
 
@@ -174,6 +233,10 @@ const BulletPoint = styled.span`
     color: #fff;
   }
   width: 100%;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+  }
 `;
 
 const EditableBulletPoint = styled.input`
@@ -191,6 +254,11 @@ const EditableBulletPoint = styled.input`
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    width: 85%;
   }
 `;
 
@@ -211,6 +279,13 @@ const AddPointButton = styled.button`
   &:hover {
     background-color: #237ab8;
     color: #fff;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1rem;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
   }
 `;
 

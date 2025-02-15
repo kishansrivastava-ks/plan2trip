@@ -1,12 +1,23 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
   margin-top: 3rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 15px;
+    margin-top: 2rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -22,33 +33,62 @@ const Title = styled.h3`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
 `;
 
 const Columns = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 25px;
+  }
 `;
 
 const Column = styled.div`
   flex: 1;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+  }
 `;
 
 const Divider = styled.div`
   width: 1px;
   background: #ddd;
-`;
 
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: none;
+  }
+`;
 const BoldLine = styled.div`
   font-size: 1.8rem;
   font-weight: bold;
   display: flex;
   gap: 2rem;
   align-items: center;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 `;
 
 const RadioGroup = styled.div`
   display: flex;
   gap: 10px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const RadioButton = styled.label`
@@ -69,6 +109,11 @@ const Input = styled.input`
   font-size: 1.6rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 8px;
+    width: 100%;
+  }
 `;
 
 const CalendarContainer = styled.div`
@@ -78,10 +123,37 @@ const CalendarContainer = styled.div`
   & > * {
     margin-right: 1rem;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin-top: 10px;
+
+    & > * {
+      margin-right: 0;
+    }
+
+    & > span {
+      display: none;
+    }
+  }
 `;
 
 const SeparateDatesContainer = styled(CalendarContainer)`
   display: inline-block;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 10px;
+
+    & > input {
+      width: 100%;
+    }
+  }
 `;
 
 const AvbQty = () => {
@@ -207,7 +279,18 @@ const AvbQty = () => {
         <Column>
           <BoldLine>
             Available Quantity:
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            {/* <div style={{ display: "flex", alignItems: "center", gap: "10px" }}> */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                "@media (max-width: 768px)": {
+                  width: "100%",
+                  marginTop: "10px",
+                },
+              }}
+            >
               <Input type="number" min="1" placeholder="Enter Quantity" />
               <span>Packages</span>
             </div>

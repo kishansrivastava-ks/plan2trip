@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { FaEdit, FaTrash, FaImage } from "react-icons/fa";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   width: 100%;
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -13,6 +15,15 @@ const Container = styled.div`
   flex-direction: column;
   border-radius: 10px;
   gap: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    gap: 0.8rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -28,6 +39,13 @@ const Title = styled.h2`
     color: black;
     font-size: 2rem;
     margin-right: 10px;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+    &::before {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -49,6 +67,12 @@ const Card = styled.div`
   flex-direction: column;
   gap: 2px;
   flex-shrink: 0;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    /* min-width: 85vw; */
+    min-width: 100%;
+    height: 35rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -111,6 +135,12 @@ const Button = styled.button`
   &:last-child {
     margin-bottom: 1.5rem;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 16rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.4rem;
+  }
 `;
 
 const BottomRow = styled.div`
@@ -124,6 +154,11 @@ const BottomRow = styled.div`
   letter-spacing: 2px;
   border-radius: 0 0 12px 12px;
   cursor: pointer;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
 `;
 
 const EditableText = styled.input`
@@ -157,6 +192,14 @@ const AddHighlightButton = styled.button`
 
   &:hover {
     background-color: #237ab8;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    align-self: center;
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
   }
 `;
 

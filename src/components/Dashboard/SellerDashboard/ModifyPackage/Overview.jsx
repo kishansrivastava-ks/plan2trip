@@ -15,6 +15,10 @@ const OverviewContainer = styled.div`
     height: auto;
     min-height: 45rem;
     padding: 12px 15px;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
   }
 `;
 

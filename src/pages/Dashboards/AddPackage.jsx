@@ -6,6 +6,8 @@ import AddPkgHighlights from "../../components/Dashboard/SellerDashboard/AddPack
 import AddPkgStay from "../../components/Dashboard/SellerDashboard/AddPackage/AddPkgStay";
 import TravellersAndPrice from "../../components/Dashboard/SellerDashboard/AddPackage/TravellersAndPrice";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   /* border: 1px solid red; */
   & > * {
@@ -19,6 +21,12 @@ const Container = styled.div`
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: #2a93d5 transparent;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 0 0.5rem;
+    height: auto;
+    min-height: 60rem;
+  }
 `;
 const Header = styled.div`
   padding-bottom: 1rem;
@@ -27,6 +35,12 @@ const Header = styled.div`
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 2rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const Name = styled.div`
@@ -45,6 +59,22 @@ const Name = styled.div`
     border: 2px solid #cccc;
     padding: 0.8rem 1rem;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & > p {
+      flex-basis: auto;
+      font-size: 1.8rem;
+    }
+
+    & > input {
+      flex-basis: auto;
+      width: 100%;
+      padding: 0.6rem 1rem;
+    }
+  }
 `;
 
 const PriceMatrix = styled.div`
@@ -55,11 +85,24 @@ const PriceMatrix = styled.div`
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    font-size: 1.8rem;
+  }
 `;
 
 const RadioGroup = styled.div`
   display: flex;
   gap: 10px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const RadioButton = styled.label`
@@ -73,6 +116,15 @@ const RadioButton = styled.label`
     accent-color: black;
     transform: scale(1.2);
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    margin-right: 0;
+    font-size: 1.6rem;
+
+    input {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 const SaveButtonContainer = styled.div`
@@ -83,6 +135,11 @@ const SaveButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 2rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    margin: 2rem 0 4rem 0;
+    padding-right: 0;
+  }
 `;
 const SaveBtn = styled.button`
   background-color: #2a93d5;
@@ -97,6 +154,12 @@ const SaveBtn = styled.button`
 
   &:hover {
     background-color: #237ab8;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1.6rem;
   }
 `;
 

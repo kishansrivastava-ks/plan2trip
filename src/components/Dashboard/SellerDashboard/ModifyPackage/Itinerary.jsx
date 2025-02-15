@@ -12,6 +12,11 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     padding: 1.5rem;
+
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
   }
 `;
 

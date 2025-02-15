@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { FaArrowRight, FaEdit } from "react-icons/fa";
 import { useState } from "react";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   width: 100%;
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -14,6 +16,15 @@ const Container = styled.div`
   gap: 1rem;
   border-radius: 10px;
   /* border: 1px solid re d; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    gap: 0.8rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -30,17 +41,33 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+    &::before {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   gap: 5px;
   margin-bottom: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 2px;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex: 7;
   position: relative;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex: none;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -48,6 +75,10 @@ const ImageContainer = styled.div`
   height: 30rem;
   /* border-radius: 10px 0 0 10px; */
   /* border: 1px solid red; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    height: 25rem;
+  }
 `;
 
 const Image = styled.img`
@@ -55,6 +86,10 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 12px 0 0 12px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    border-radius: 12px 12px 0 0;
+  }
 `;
 
 const EditButton = styled.button`
@@ -81,6 +116,12 @@ const RightColumn = styled.div`
   background-color: #333333;
   border-radius: 0 12px 12px 0;
   padding: 2rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex: none;
+    border-radius: 0 0 12px 12px;
+    padding: 1.5rem;
+  }
 `;
 
 const DetailsContainer = styled.div`
@@ -95,6 +136,10 @@ const Detail = styled.div`
   letter-spacing: 1px;
   font-weight: 500;
   color: #fff;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ArrowButton = styled.button`
@@ -130,6 +175,14 @@ const AddStayButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    align-self: center;
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+  }
 `;
 
 const ModalOverlay = styled.div`
@@ -155,6 +208,10 @@ const EditStayModal = styled.div`
   padding: 4rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   position: relative;
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    max-width: 95vw;
+    padding: 2rem;
+  }
 `;
 const AddStayModal = styled.div`
   background: white;
@@ -166,6 +223,11 @@ const AddStayModal = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    min-width: 95vw;
+    padding: 2rem;
+  }
 `;
 
 const AddPhotoContainer = styled.div`
@@ -174,6 +236,10 @@ const AddPhotoContainer = styled.div`
   width: 100%;
   gap: 1rem;
   margin: 1rem 0;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+  }
 `;
 const AddPhotoLeftCol = styled.div`
   /* border: 1px solid blue; */
@@ -189,6 +255,11 @@ const AddPhotoRightCol = styled.div`
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-basis: auto;
+    height: 20rem;
+  }
 `;
 const AddPhotoGrid = styled.div`
   display: grid;
@@ -243,6 +314,14 @@ const AddDetailsContainer = styled.div`
     display: flex;
     gap: 1rem;
     max-width: 40%;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+
+    & > div {
+      max-width: 100%;
+    }
   }
 `;
 const CloseButton = styled.button`

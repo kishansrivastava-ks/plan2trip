@@ -3,11 +3,17 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FiFile, FiX } from "react-icons/fi";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   display: flex;
   position: relative;
   width: 100%;
   overflow-x: hidden;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+  }
 `;
 
 const MainContent = styled.div`
@@ -16,6 +22,11 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex: 1;
+    padding: 0 15px;
+  }
 `;
 
 const Header = styled.div`
@@ -31,6 +42,10 @@ const Title = styled.h2`
   font-size: 3rem;
   font-weight: bold;
   color: black;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2.4rem;
+  }
 `;
 
 const GridContainer = styled.div`
@@ -60,6 +75,13 @@ const GridContainer = styled.div`
 
   &::-webkit-scrollbar-track {
     background: transparent;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+    max-height: none;
+    padding-bottom: 60px; // Add space for mobile details panel
   }
 `;
 
@@ -97,6 +119,15 @@ const PackageDetails = styled.div`
   & > p {
     font-size: 1.8rem;
     font-weight: 400;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    & > h3 {
+      font-size: 2.2rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -172,6 +203,20 @@ const DetailsPanel = styled.div`
   transition: transform 1s ease-in-out;
   z-index: 10;
   display: ${(props) => (props.showDetails ? "block" : "none")};
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    position: fixed;
+    width: 100%;
+    height: 93dvh;
+    bottom: 0;
+    top: auto;
+    transform: ${(props) =>
+      props.showDetails ? "translateY(0)" : "translateY(100%)"};
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 20px; */
+    border-left: none;
+    overflow-y: auto;
+  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -180,6 +225,11 @@ const DetailsHeader = styled.h1`
   color: black;
   margin-bottom: 10px;
   line-height: 1.1;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.8rem;
+    padding-right: 40px; // Space for close button
+  }
 `;
 
 const PriceInfo = styled.p`
@@ -221,6 +271,10 @@ const ListItem = styled.ul`
   & > li {
     /* margin-bottom: 5px; */
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding-left: 3rem;
+  }
 `;
 
 const ExitButton = styled.button`
@@ -237,6 +291,16 @@ const ExitButton = styled.button`
 
   &:hover {
     background-color: #555555;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 15px;
+    z-index: 11;
   }
 `;
 

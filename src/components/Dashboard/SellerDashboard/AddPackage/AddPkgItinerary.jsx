@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { FiMinusCircle, FiPlusCircle, FiX } from "react-icons/fi";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   width: 100%;
   box-shadow: 2px 2px 6px 0px #00000040, -2px -2px 4px 0px #00000040;
@@ -9,6 +11,14 @@ const Container = styled.div`
   margin-bottom: 2rem;
   background-color: #fff;
   border-radius: 10px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 4rem;
+  }
 `;
 
 const Heading = styled.div`
@@ -26,17 +36,36 @@ const Title = styled.h2`
     font-size: 2rem;
     margin-right: 10px;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 2rem;
+  }
 `;
 
 const Tabs = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
 
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+`;
 const TabList = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 const Tab = styled.button`
@@ -55,11 +84,23 @@ const Tab = styled.button`
     background-color: #159fd3;
     color: white;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 0.5rem 2rem;
+    font-size: 1.6rem;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 `;
 
 const ActionButtons = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    justify-content: stretch;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -77,6 +118,13 @@ const ActionButton = styled.button`
 
   &:hover {
     background-color: ${(props) => (props.primary ? "#237AB8" : "#222222")};
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    font-size: 1.4rem;
+    justify-content: center;
   }
 `;
 
@@ -97,6 +145,11 @@ const TabContent = styled.div`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.5rem;
+    max-height: 50vh;
+  }
 `;
 
 const TimelineItem = styled.div`
@@ -104,6 +157,11 @@ const TimelineItem = styled.div`
   align-items: flex-start;
   position: relative;
   /* border: 2px solid white; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    padding-left: 1rem;
+  }
 `;
 
 const TimelineBullet = styled.div`
@@ -124,6 +182,9 @@ const TimelineLine = styled.div`
   width: 2px;
   height: calc(100%);
   background-color: white;
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    left: 14.5px;
+  }
 `;
 
 const TimelineContent = styled.div`
@@ -148,6 +209,15 @@ const AddPointButton = styled(ActionButton)`
     background-color: #f0f0f0;
     color: #0297cf;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 5px;
+  }
 `;
 
 const EditablePoint = styled.input`
@@ -164,6 +234,11 @@ const EditablePoint = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    font-size: 1.6rem;
+    width: 85%;
   }
 `;
 

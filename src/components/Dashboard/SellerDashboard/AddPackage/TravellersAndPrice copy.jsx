@@ -13,18 +13,14 @@ const Container = styled.div`
   gap: 1rem;
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
-    padding: 16px;
-    /* margin: 1.5rem 1rem; */
-    gap: 1rem;
-    box-shadow: none;
-    border-radius: 12px;
-    border-bottom: 1px solid black;
-    border-radius: 0;
-    padding-bottom: 5rem;
+    padding: 15px;
+    margin-top: 2rem;
+    gap: 0.8rem;
   }
 `;
 
 const Header = styled.div`
+  /* border: 1px solid red; */
   display: flex;
   gap: 1rem;
   text-align: center;
@@ -34,83 +30,63 @@ const Header = styled.div`
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-direction: column;
-    gap: 0.75rem;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    font-size: 1.5rem;
   }
 `;
-
 const Travellers = styled.div`
   flex-basis: 80%;
+  /* background-color: yellow; */
   background-color: #f5f5f5;
   border: 2px solid #cccc;
   border-radius: 8px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-basis: 100%;
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
   }
 `;
-
 const PriceHeader = styled.div`
   flex-basis: 20%;
+  /* background-color: yellow; */
   background-color: #f5f5f5;
   border: 2px solid #cccc;
   border-radius: 8px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-basis: 100%;
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
   }
 `;
 
 const Row = styled.div`
+  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   text-align: center;
-  gap: 1rem;
-
   & > span {
     flex-basis: 10%;
   }
-
+  gap: 1rem;
   & > * {
     font-weight: bold;
+    /* background-color: yellow; */
     padding: 0.5rem 1rem;
   }
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.75rem;
+    padding: 0.5rem;
     margin-top: 0.5rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s ease;
-
-    &:active {
-      transform: scale(0.98);
-    }
 
     & > span {
       flex-basis: 100%;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       padding: 0;
-      color: #6c757d;
-      margin: -0.25rem 0;
     }
   }
 `;
-
 const Start = styled.div`
   flex-basis: 33.7%;
   background-color: #f5f5f5;
@@ -119,14 +95,9 @@ const Start = styled.div`
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-basis: 45%;
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1.125rem;
+    padding: 0.5rem;
   }
 `;
-
 const End = styled.div`
   flex-basis: 33.7%;
   background-color: #f5f5f5;
@@ -135,11 +106,7 @@ const End = styled.div`
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-basis: 45%;
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1.125rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -154,24 +121,19 @@ const Price = styled.div`
     flex-basis: 100%;
     margin-left: 0;
     margin-top: 0.5rem;
-    padding: 0.875rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1.25rem;
-    color: #2a93d5;
+    padding: 0.75rem;
   }
 `;
 
 const ButtonContainer = styled.div`
+  /* border: 2px solid red; */
   display: flex;
   justify-content: flex-end;
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
-    margin-top: 1.25rem;
+    margin-top: 1rem;
   }
 `;
-
 const AddRowBtn = styled.button`
   background-color: #2a93d5;
   color: white;
@@ -182,23 +144,15 @@ const AddRowBtn = styled.button`
   border-radius: 5px;
   cursor: pointer;
   align-self: flex-end;
-  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: #237ab8;
   }
 
   @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
     width: 100%;
-    padding: 0.875rem;
-    font-size: 1.125rem;
-    border-radius: 8px;
-    background-color: #2a93d5;
-    box-shadow: 0 2px 6px rgba(42, 147, 213, 0.2);
-
-    &:active {
-      transform: scale(0.98);
-    }
   }
 `;
 
