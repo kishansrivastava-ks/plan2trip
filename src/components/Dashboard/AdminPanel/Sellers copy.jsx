@@ -4,17 +4,12 @@ import { FiEdit, FiFile } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const MOBILE_BREAKPOINT = "768px";
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 80vh;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    height: auto;
-    min-height: 100vh;
-  }
+  /* border: 2px solid red; */
+  /* border-style: dashed; */
 `;
 
 const Header = styled.div`
@@ -22,21 +17,11 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    font-size: 2rem;
-  }
 `;
 
 const SearchBox = styled.input`
@@ -53,12 +38,6 @@ const SearchBox = styled.input`
     outline: none;
     border-color: #2a93d5;
   }
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    width: 100%;
-    font-size: 1.6rem;
-    padding: 1rem;
-  }
 `;
 
 const HorizontalLine = styled.hr`
@@ -74,11 +53,6 @@ const Content = styled.div`
   /* border: 2px solid green; */
   /* border-style: dotted; */
   height: 80%;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    flex-direction: column;
-    height: auto;
-  }
 `;
 
 const LeftColumn = styled.div`
@@ -95,14 +69,6 @@ const LeftColumn = styled.div`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    width: 100%;
-    border-right: none;
-    border-bottom: 2px solid #cccccc;
-    padding-bottom: 1rem;
-    max-height: 300px;
-  }
 `;
 
 const SellerItem = styled.div`
@@ -148,10 +114,6 @@ const RightColumn = styled.div`
   padding: 0 1rem;
   /* border: 2px solid green; */
   /* border-style: dotted; */
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    padding: 1rem;
-  }
 `;
 
 const SellerDetails = styled.div`
@@ -159,25 +121,12 @@ const SellerDetails = styled.div`
   margin-bottom: 2rem;
   /* border: 2px solid red; */
   height: 30%;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
 `;
 
 const SellerImageLarge = styled.img`
   width: 15rem;
   border-radius: 10px;
   margin-right: 2rem;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    width: 12rem;
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
 `;
 
 const SellerInfo = styled.div`
@@ -220,12 +169,15 @@ const PackagesGrid = styled.div`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
 `;
+
+// const PackageItem = styled.div`
+//   padding: 1rem;
+//   background-color: #f8f8f8;
+//   border-radius: 8px;
+//   box-shadow: 0px 4px 4px 0px #00000040;
+//   height: 10rem;
+// `;
 
 const PackageItem = styled.div`
   display: grid;
@@ -234,11 +186,6 @@ const PackageItem = styled.div`
   border-radius: 8px;
   overflow: hidden;
   height: 30rem;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    height: auto;
-    min-height: 25rem;
-  }
 `;
 
 const ImageContainer = styled.div`
@@ -274,11 +221,6 @@ const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 5px;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    flex-direction: column;
-    gap: 1rem;
-  }
 `;
 
 const ActionButton = styled.button`
@@ -298,11 +240,6 @@ const ActionButton = styled.button`
 
   &:hover {
     background-color: #237ab8;
-  }
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    padding: 1.2rem;
-    width: 100%;
   }
 `;
 
@@ -343,13 +280,6 @@ const SlidingPanel = styled.div`
   flex-direction: column;
   gap: 1rem;
   /* border: 2px solid red; */
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    width: 100%;
-    top: 0;
-    height: 100%;
-    padding: 2rem;
-  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -396,8 +326,8 @@ const ListItem = styled.ul`
   font-size: 1.5rem;
   letter-spacing: 1px;
 
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    padding-left: 3rem;
+  & > li {
+    /* margin-bottom: 5px; */
   }
 `;
 

@@ -10,6 +10,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   ${(props) => (props.isPanelOpen ? "width: 68%;" : "width: 100%;")};
+
+  @media (max-width: 768px) {
+    width: 100% !important; // Override panel state on mobile
+    padding: 0 1rem;
+  }
 `;
 
 const Header = styled.div`
@@ -20,24 +25,21 @@ const Header = styled.div`
   padding-bottom: 1rem;
   border-bottom: 2px solid #cccccc;
 
-  & > h2 {
-    text-shadow: 0px 4px 4px 0px #00000040;
-  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
 
-  & > div {
-    & > button {
-      box-shadow: -2px -2px 4px 0px #00000040, 2px 2px 4px 0px #00000040;
-      margin-left: 1rem;
-      padding: 0.5rem 2rem;
-      border-radius: 5px;
-      border: none;
-      background: #ffffff;
-      font-size: 1.7rem;
-      color: #8b8b8b;
-      cursor: pointer;
-
-      &:hover {
-        background: #f0f0f0;
+    & > div {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      /* Hide scrollbar but keep functionality */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
   }
@@ -56,6 +58,15 @@ const StyledNavLink = styled(NavLink)`
 
   &:hover {
     background: #f0f0f0;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-right: 1rem;
+    white-space: nowrap;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.5rem;
+    flex-shrink: 0;
   }
 `;
 
@@ -80,6 +91,12 @@ const Packages = styled.div`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important; // Override panel state on mobile
+    gap: 2rem;
+    padding: 1rem 0;
+  }
 `;
 
 const GridItem = styled.div`
@@ -89,6 +106,12 @@ const GridItem = styled.div`
   gap: 8px;
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 1rem;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -146,6 +169,11 @@ const ActionButtonsContainer = styled.button`
   gap: 8px;
   border: none;
   background-color: #fff;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
 `;
 
 const RemovePackageButton = styled.button`
@@ -165,6 +193,10 @@ const RemovePackageButton = styled.button`
   &:hover {
     background-color: #d93838;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+  }
 `;
 
 const ApprovePackageButton = styled.button`
@@ -183,6 +215,10 @@ const ApprovePackageButton = styled.button`
 
   &:hover {
     background-color: #237ab8;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
   }
 `;
 
@@ -204,6 +240,17 @@ const SlidingPanel = styled.div`
   flex-direction: column;
   gap: 1rem;
   /* border: 2px solid red; */
+
+  @media (max-width: 768px) {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    padding: 2rem;
+
+    /* Add safe area padding for notched phones */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -253,6 +300,10 @@ const ListItem = styled.ul`
   & > li {
     /* margin-bottom: 5px; */
   }
+
+  @media (max-width: 768px) {
+    padding-left: 3rem;
+  }
 `;
 
 const ExitButton = styled.button`
@@ -269,6 +320,14 @@ const ExitButton = styled.button`
 
   &:hover {
     background-color: #555555;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    padding: 1.2rem;
   }
 `;
 

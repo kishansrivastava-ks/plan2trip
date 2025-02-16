@@ -11,6 +11,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   ${(props) => (props.isPanelOpen ? "width: 68%;" : "width: 100%;")};
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    padding: 1rem;
+  }
 `;
 
 const Header = styled.div`
@@ -21,8 +26,10 @@ const Header = styled.div`
   padding-bottom: 1rem;
   border-bottom: 2px solid #cccccc;
 
-  & > h2 {
-    text-shadow: 0px 4px 4px 0px #00000040;
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2.4rem;
+    }
   }
 `;
 const BackButton = styled.button`
@@ -50,13 +57,18 @@ const Packages = styled.div`
   grid-gap: 1.5rem;
   padding-bottom: 3rem;
 
-  /* Hide scrollbar */
   &::-webkit-scrollbar {
     display: none;
   }
-
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important;
+    padding: 0;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
 `;
 
 const GridItem = styled.div`
@@ -79,6 +91,10 @@ const ImageContainer = styled.div`
   height: 20rem;
   box-shadow: 0px 4px 4px 0px #00000040 inset;
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    height: 25rem;
+  }
 `;
 
 const PackageDetails = styled.div`
@@ -93,6 +109,15 @@ const PackageDetails = styled.div`
   & > p {
     font-size: 1.8rem;
     font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    & > h3 {
+      font-size: 2.8rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -119,12 +144,20 @@ const PropertiesButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
-`;
 
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    font-size: 1.6rem;
+  }
+`;
 const ButtonRow = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 5px;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const RemovePackageButton = styled.button`
@@ -143,6 +176,11 @@ const RemovePackageButton = styled.button`
 
   &:hover {
     background-color: #d93838;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    flex: 1;
   }
 `;
 
@@ -165,6 +203,10 @@ const ApprovePackageButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+  }
 `;
 
 // slider
@@ -184,7 +226,13 @@ const SlidingPanel = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* border: 2px solid red; */
+
+  @media (max-width: 768px) {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    border-left: none;
+  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -234,6 +282,10 @@ const ListItem = styled.ul`
   & > li {
     /* margin-bottom: 5px; */
   }
+
+  @media (max-width: 768px) {
+    padding-left: 4rem;
+  }
 `;
 
 const ExitButton = styled.button`
@@ -250,6 +302,15 @@ const ExitButton = styled.button`
 
   &:hover {
     background-color: #555555;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    padding: 1.5rem;
   }
 `;
 

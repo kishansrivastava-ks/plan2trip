@@ -5,12 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+const MOBILE_BREAKPOINT = "768px";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   ${(props) => (props.isPanelOpen ? "width: 68%;" : "width: 100%;")};
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100% !important;
+    padding: 0 1rem;
+  }
 `;
 
 const Header = styled.div`
@@ -23,6 +30,12 @@ const Header = styled.div`
 
   & > h2 {
     text-shadow: 0px 4px 4px 0px #00000040;
+  }
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    h2 {
+      font-size: 1.8rem;
+    }
+    padding: 1rem 0;
   }
 `;
 const BackButton = styled.button`
@@ -57,6 +70,12 @@ const Packages = styled.div`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    grid-template-columns: 1fr;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
 `;
 
 const GridItem = styled.div`
@@ -80,6 +99,10 @@ const ImageContainer = styled.div`
   height: 20rem;
   box-shadow: 0px 4px 4px 0px #00000040 inset;
   border-radius: 8px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    height: 15rem;
+  }
 `;
 
 const PackageDetails = styled.div`
@@ -95,12 +118,26 @@ const PackageDetails = styled.div`
     font-size: 1.8rem;
     font-weight: 400;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    & > h3 {
+      font-size: 2.2rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const ActionButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 5px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const RemovePackageButton = styled.button`
@@ -120,6 +157,11 @@ const RemovePackageButton = styled.button`
   &:hover {
     background-color: #d93838;
   }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.2rem;
+    width: 100%;
+  }
 `;
 
 const PropertiesButton = styled.button`
@@ -138,6 +180,11 @@ const PropertiesButton = styled.button`
 
   &:hover {
     background-color: #237ab8;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding: 1.2rem;
+    width: 100%;
   }
 `;
 
@@ -159,6 +206,13 @@ const SlidingPanel = styled.div`
   flex-direction: column;
   gap: 1rem;
   /* border: 2px solid red; */
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    padding: 2rem 2rem;
+  }
 `;
 
 const DetailsHeader = styled.h1`
@@ -207,6 +261,10 @@ const ListItem = styled.ul`
 
   & > li {
     /* margin-bottom: 5px; */
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
+    padding-left: 3rem;
   }
 `;
 
