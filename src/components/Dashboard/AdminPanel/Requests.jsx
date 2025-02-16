@@ -12,8 +12,8 @@ const Container = styled.div`
   ${(props) => (props.isPanelOpen ? "width: 68%;" : "width: 100%;")};
 
   @media (max-width: 768px) {
-    width: 100% !important; // Override panel state on mobile
-    padding: 0 1rem;
+    /* width: 100% !important; // Override panel state on mobile */
+    width: 100%;
   }
 `;
 
@@ -33,7 +33,7 @@ const Header = styled.div`
     & > div {
       display: flex;
       width: 100%;
-      overflow-x: auto;
+      overflow-x: hidden;
       padding-bottom: 0.5rem;
       /* Hide scrollbar but keep functionality */
       -ms-overflow-style: none;
@@ -67,18 +67,19 @@ const StyledNavLink = styled(NavLink)`
     padding: 0.8rem 1.5rem;
     font-size: 1.5rem;
     flex-shrink: 0;
+    box-shadow: none;
+    background-color: #e8e8e8;
+    color: #000;
   }
 `;
 
 const Packages = styled.div`
   margin-top: 1rem;
-  /* border: 1px solid green; */
   width: 100%;
   padding: 1rem;
   max-height: 80vh;
   overflow-y: auto;
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr); */
   grid-template-columns: ${(props) =>
     props.isPanelOpen ? "repeat(3, 1fr)" : "repeat(4, 1fr)"};
   grid-gap: 1.5rem;
@@ -161,6 +162,9 @@ const PropertiesButton = styled.button`
   &:hover {
     background-color: #237ab8;
   }
+  /* @media (max-widht: 768px) {
+    margin-bottom: 50px;
+  } */
 `;
 
 const ActionButtonsContainer = styled.button`
@@ -196,6 +200,8 @@ const RemovePackageButton = styled.button`
 
   @media (max-width: 768px) {
     padding: 1.2rem;
+    font-size: 1.3rem;
+    gap: 2px;
   }
 `;
 
@@ -219,6 +225,8 @@ const ApprovePackageButton = styled.button`
 
   @media (max-width: 768px) {
     padding: 1.2rem;
+    font-size: 1.3rem;
+    gap: 2px;
   }
 `;
 
@@ -244,7 +252,7 @@ const SlidingPanel = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     top: 0;
-    height: 100%;
+    height: 100dvh;
     padding: 2rem;
 
     /* Add safe area padding for notched phones */
@@ -259,6 +267,9 @@ const DetailsHeader = styled.h1`
   color: black;
   margin-bottom: 10px;
   line-height: 1.1;
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
 `;
 
 const PriceInfo = styled.p`
